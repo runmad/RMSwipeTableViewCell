@@ -8,6 +8,37 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMSwipeTableViewCell : UITableViewCell
+enum {
+    RMSwipeTableViewCellRevealDirectionRight = 0,
+    RMSwipeTableViewCellRevealDirectionLeft,
+    RMSwipeTableViewCellRevealDirectionBoth,
+};
+typedef NSUInteger RMSwipeTableViewCellRevealDirection;
 
+enum {
+    RMSwipeTableViewCellAnimationTypeBounce = 0,
+    RMSwipeTableViewCellAnimationTypeEaseIn,
+    RMSwipeTableViewCellAnimationTypeEaseOut,
+    RMSwipeTableViewCellAnimationTypeEaseInOut,
+};
+typedef NSUInteger RMSwipeTableViewCellAnimationType;
+
+@protocol RMSwipeTableViewCellDelegate;
+
+
+@interface RMSwipeTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
+
+@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection *revealDirection; // default is RMSwipeTableViewCellDirectionRight
+@property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType *animationType; // default is RMSwipeTableViewCellAnimationTypeBounce.
+@property (nonatomic, readwrite) BOOL revealsBackground; // default is NO
+@property (nonatomic, assign) id <RMSwipeTableViewCellDelegate> delegate;
+@property (nonatomic, readwrite) float swipeDrag; // this determines how 'sticky' the cell feels. default is 0.35
+
+@end
+
+
+@protocol RMSwipeTableViewCellDelegate
+@optional
+-(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell;
+-(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell didFinishAnimation:(RMSwipeTableViewCellAnimationType)animation;
 @end
