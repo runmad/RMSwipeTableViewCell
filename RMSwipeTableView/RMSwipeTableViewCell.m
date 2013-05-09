@@ -28,6 +28,7 @@
         [panGestureRecognizer setDelegate:self];
         [self addGestureRecognizer:panGestureRecognizer];
 
+        self.revealDirection = RMSwipeTableViewCellRevealDirectionRight;
         self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
         self.swipeDrag = 0.35;
     }
@@ -55,14 +56,14 @@
 
 #pragma mark - Gesture recognizer delegate
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
-    CGPoint translation = [panGestureRecognizer translationInView:self.superview];
+    CGPoint translation = [panGestureRecognizer translationInView:[self superview]];
     return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
 }
 
 #pragma mark - Gesture animations 
 
 -(void)animateContentViewForPoint:(CGPoint)translation {
-    if (translation.x >= 0) {
+    if (translation.x > 0 && (self.revealDirection == RMSwipeTableViewCellRevealDirectionRight || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth)) {
         if (backView == nil) {
             UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
             backgroundView.backgroundColor = [UIColor whiteColor];
@@ -72,6 +73,8 @@
         }
         [self.backgroundView addSubview:backView];
         self.contentView.frame = CGRectOffset(self.contentView.bounds, translation.x * self.swipeDrag, 0);
+    } else if (translation.x < 0 && (self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth)) {
+        
     }
 }
 

@@ -25,10 +25,9 @@ typedef NSUInteger RMSwipeTableViewCellAnimationType;
 
 @protocol RMSwipeTableViewCellDelegate;
 
-
 @interface RMSwipeTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
 
-@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection *revealDirection; // default is RMSwipeTableViewCellDirectionRight
+@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection *revealDirection; // default is RMSwipeTableViewCellRevealDirectionRight
 @property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType *animationType; // default is RMSwipeTableViewCellAnimationTypeBounce.
 @property (nonatomic, readwrite) BOOL revealsBackground; // default is NO
 @property (nonatomic, assign) id <RMSwipeTableViewCellDelegate> delegate;
