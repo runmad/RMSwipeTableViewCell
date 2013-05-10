@@ -47,7 +47,7 @@
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan && [panGestureRecognizer numberOfTouches] > 0) {
         [delegate swipeTableViewCellDidStartSwiping:self];
         [self animateContentViewForPoint:translation];
-    } else if ( panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
+    } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
         [self animateContentViewForPoint:translation];
 	} else if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
 		[self resetBackViewFromPoint:translation];
@@ -55,9 +55,15 @@
 }
 
 #pragma mark - Gesture recognizer delegate
+
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
-    CGPoint translation = [panGestureRecognizer translationInView:[self superview]];
-    return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
+    // We only want to deal with the gesture of it's a pan gesture
+    if ([panGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+        CGPoint translation = [panGestureRecognizer translationInView:[self superview]];
+        return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
+    } else {
+        return NO;
+    }
 }
 
 #pragma mark - Gesture animations 
