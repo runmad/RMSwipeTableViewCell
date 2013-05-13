@@ -9,13 +9,10 @@
 #import "RMSwipeTableViewCell.h"
 
 @interface RMSwipeTableViewCell ()
-@property (nonatomic, strong) UIView *backView;
+
 @end
 
 @implementation RMSwipeTableViewCell
-
-@synthesize backView;
-@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -30,7 +27,11 @@
 
         self.revealDirection = RMSwipeTableViewCellRevealDirectionRight;
         self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
-        self.swipeDrag = 0.35;
+        self.dragResistance = 0.35;
+        
+        UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
+        backgroundView.backgroundColor = [UIColor blueColor];
+        self.backgroundView = backgroundView;
     }
     return self;
 }
@@ -45,7 +46,9 @@
 - (void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
     CGPoint translation = [panGestureRecognizer translationInView:self.superview];
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan && [panGestureRecognizer numberOfTouches] > 0) {
-        [delegate swipeTableViewCellDidStartSwiping:self];
+        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping:fromTouchLocation:)]) {
+            [self.delegate swipeTableViewCellDidStartSwiping:self fromTouchLocation:translation];
+        }
         [self animateContentViewForPoint:translation];
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
         [self animateContentViewForPoint:translation];
@@ -69,28 +72,30 @@
 #pragma mark - Gesture animations 
 
 -(void)animateContentViewForPoint:(CGPoint)translation {
-    if (translation.x > 0 && (self.revealDirection == RMSwipeTableViewCellRevealDirectionRight || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth)) {
-        if (backView == nil) {
-            UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
-            backgroundView.backgroundColor = [UIColor whiteColor];
-            self.backgroundView = backgroundView;
-            backView = [[UIView alloc] initWithFrame:self.contentView.frame];
-            backView.backgroundColor = [UIColor redColor];
+    if ((translation.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || (translation.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
+        if (!_backView) {
+            [self.backgroundView addSubview:self.backView];
         }
-        [self.backgroundView addSubview:backView];
-        self.contentView.frame = CGRectOffset(self.contentView.bounds, translation.x * self.swipeDrag, 0);
-    } else if (translation.x < 0 && (self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth)) {
-        
+        self.contentView.frame = CGRectOffset(self.contentView.bounds, translation.x * self.dragResistance, 0);
+        if ([self.delegate respondsToSelector:@selector(swipeTableViewCell:swipedToLocation:)]) {
+            [self.delegate swipeTableViewCell:self swipedToLocation:translation];
+        }
     }
 }
 
 -(void)resetBackViewFromPoint:(CGPoint)translation {
+    if ([self.delegate respondsToSelector:@selector(swipeTableViewCellWillResetState:fromLocation:withAnimation:)]) {
+        [self.delegate swipeTableViewCellWillResetState:self fromLocation:translation withAnimation:self.animationType];
+    }
     if (self.animationType == RMSwipeTableViewCellAnimationTypeBounce) {
         [self animateVelocityBounce:translation];
     }
 }
 
 -(void)animateVelocityBounce:(CGPoint)translation {
+    if ((self.revealDirection == RMSwipeTableViewCellRevealDirectionRight && translation.x < 0) || (self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft && translation.x > 0)) {
+        return;
+    }
     [UIView animateWithDuration:0.15
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn
@@ -112,14 +117,23 @@
                                                                    self.contentView.frame = self.contentView.bounds;
                                                                }
                                                                completion:^(BOOL finished) {
-                                                                   [backView removeFromSuperview];
-                                                                   backView = nil;
+                                                                   if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
+                                                                       [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
+                                                                   }
                                                                }
                                                ];
                                           }
                           ];
                      }
      ];
+}
+
+-(UIView*)backView {
+    if (!_backView) {
+        _backView = [[UIView alloc] initWithFrame:self.contentView.frame];
+        _backView.backgroundColor = [UIColor redColor];
+    }
+    return _backView;
 }
 
 @end

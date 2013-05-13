@@ -8,36 +8,37 @@
 
 #import <UIKit/UIKit.h>
 
-enum {
+typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellRevealDirection) {
     RMSwipeTableViewCellRevealDirectionRight = 0,
-    RMSwipeTableViewCellRevealDirectionLeft,
-    RMSwipeTableViewCellRevealDirectionBoth,
+    RMSwipeTableViewCellRevealDirectionLeft = 1,
+    RMSwipeTableViewCellRevealDirectionBoth = 2,
 };
-typedef NSUInteger RMSwipeTableViewCellRevealDirection;
 
-enum {
+typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
     RMSwipeTableViewCellAnimationTypeBounce = 0,
     RMSwipeTableViewCellAnimationTypeEaseIn,
     RMSwipeTableViewCellAnimationTypeEaseOut,
     RMSwipeTableViewCellAnimationTypeEaseInOut,
 };
-typedef NSUInteger RMSwipeTableViewCellAnimationType;
 
 @protocol RMSwipeTableViewCellDelegate;
 
 @interface RMSwipeTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
 
-@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection *revealDirection; // default is RMSwipeTableViewCellRevealDirectionRight
+@property (nonatomic, strong) UIView *backView;
+@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionRight
 @property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType *animationType; // default is RMSwipeTableViewCellAnimationTypeBounce.
 @property (nonatomic, readwrite) BOOL revealsBackground; // default is NO
+@property (nonatomic, readwrite) float dragResistance; // the drag resistance determines how "heavy" the cell feels when dragging it. Default is 0.35
 @property (nonatomic, assign) id <RMSwipeTableViewCellDelegate> delegate;
-@property (nonatomic, readwrite) float swipeDrag; // this determines how 'sticky' the cell feels. default is 0.35
 
 @end
 
 
-@protocol RMSwipeTableViewCellDelegate
+@protocol RMSwipeTableViewCellDelegate <NSObject>
 @optional
--(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell;
--(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell didFinishAnimation:(RMSwipeTableViewCellAnimationType)animation;
+-(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell fromTouchLocation:(CGPoint)translation;
+-(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell swipedToLocation:(CGPoint)translation;
+-(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
+-(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
 @end
