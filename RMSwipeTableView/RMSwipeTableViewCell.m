@@ -76,7 +76,13 @@
         if (!_backView) {
             [self.backgroundView addSubview:self.backView];
         }
-        self.contentView.frame = CGRectOffset(self.contentView.bounds, translation.x * self.dragResistance, 0);
+        float drag = 0;
+        if (translation.x < 0) {
+            drag = expf(translation.x / CGRectGetWidth(self.frame)) * translation.x;
+        } else {
+            drag = (1.0 / expf(translation.x / CGRectGetWidth(self.frame))) * translation.x;
+        }
+        self.contentView.frame = CGRectOffset(self.contentView.bounds, drag, 0);
         if ([self.delegate respondsToSelector:@selector(swipeTableViewCell:swipedToLocation:)]) {
             [self.delegate swipeTableViewCell:self swipedToLocation:translation];
         }

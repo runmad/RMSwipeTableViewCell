@@ -20,6 +20,7 @@
     if (self) {
         static NSString *CellIdentifier = @"Cell";
         [self.tableView registerClass:[RMSwipeTableViewCell class] forCellReuseIdentifier:CellIdentifier];
+        [self.tableView setRowHeight:54];
         // Custom initialization
     }
     return self;
