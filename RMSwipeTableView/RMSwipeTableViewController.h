@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RMSwipeTableViewCell.h"
 
-@interface RMSwipeTableViewController : UITableViewController
+@interface RMSwipeTableViewController : UITableViewController <RMSwipeTableViewCellDelegate>
 
 @end
