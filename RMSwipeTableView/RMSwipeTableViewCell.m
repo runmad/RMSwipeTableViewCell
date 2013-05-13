@@ -29,7 +29,7 @@
         self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
-        backgroundView.backgroundColor = [UIColor blueColor];
+        backgroundView.backgroundColor = [UIColor whiteColor];
         self.backgroundView = backgroundView;
     }
     return self;
@@ -123,6 +123,7 @@
                                                                }
                                                                completion:^(BOOL finished) {
                                                                    [self.backView removeFromSuperview];
+                                                                   _backView = nil;
                                                                    if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
                                                                        [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
                                                                    }
