@@ -27,7 +27,6 @@
 
         self.revealDirection = RMSwipeTableViewCellRevealDirectionRight;
         self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
-        self.dragResistance = 0.35;
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
         backgroundView.backgroundColor = [UIColor blueColor];
@@ -123,6 +122,7 @@
                                                                    self.contentView.frame = self.contentView.bounds;
                                                                }
                                                                completion:^(BOOL finished) {
+                                                                   [self.backView removeFromSuperview];
                                                                    if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
                                                                        [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
                                                                    }

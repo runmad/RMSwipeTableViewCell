@@ -29,7 +29,6 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 @property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionRight
 @property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType *animationType; // default is RMSwipeTableViewCellAnimationTypeBounce.
 @property (nonatomic, readwrite) BOOL revealsBackground; // default is NO
-@property (nonatomic, readwrite) float dragResistance; // the drag resistance determines how "heavy" the cell feels when dragging it. Default is 0.35
 @property (nonatomic, assign) id <RMSwipeTableViewCellDelegate> delegate;
 
 @end
