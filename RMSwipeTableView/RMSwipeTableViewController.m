@@ -18,10 +18,11 @@
 {
     self = [super initWithStyle:style];
     if (self) {
+        [self.navigationItem setTitle:@"House Lannister"];
+        
         static NSString *CellIdentifier = @"Cell";
-        [self.tableView registerClass:[RMSwipeTableViewCell class] forCellReuseIdentifier:CellIdentifier];
+        [self.tableView registerClass:[RMPersonTableViewCell class] forCellReuseIdentifier:CellIdentifier];
         [self.tableView setRowHeight:54];
-        // Custom initialization
     }
     return self;
 }
@@ -43,18 +44,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSMutableArray*)array {
+    if (!_array) {
+        _array = [@[
+                  [@{@"name" : @"Cersei Lannister", @"title" : @"Queen of the Seven Kingdoms", @"isFavourite" : @NO } mutableCopy],
+                  [@{@"name" : @"Jaime Lannister", @"title" : @"Kingslayer", @"isFavourite" : @NO } mutableCopy],
+                  [@{@"name" : @"Joanna Lannister", @"title" : @"Late wife of Tywon", @"isFavourite" : @NO } mutableCopy],
+                  [@{@"name" : @"Joffrey Baratheon", @"title" : @"the Illborn", @"isFavourite" : @NO } mutableCopy],
+                  [@{@"name" : @"Tyrion Lannister", @"title" : @"The Imp or Halfman", @"isFavourite" : @NO } mutableCopy],
+                  [@{@"name" : @"Tywon Lannister", @"title" : @"Lord of Casterly Rock", @"isFavourite" : @NO } mutableCopy]]
+                  mutableCopy];
+    }
+    return _array;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 10;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [self.array count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,64 +77,45 @@
     static NSString *CellIdentifier = @"Cell";
     RMSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = @"TEST";
-    cell.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@%@", [[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] ? @"❤ " : @"", [[self.array objectAtIndex:indexPath.row] objectForKey:@"name"]];
+    cell.detailTextLabel.text = [[self.array objectAtIndex:indexPath.row] objectForKey:@"title"];
+    cell.revealDirection = RMSwipeTableViewCellRevealDirectionLeft;
     cell.delegate = self;
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+}
+
+#pragma mark - Swipe Table View Cell Delegate
+
+-(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell *)swipeTableViewCell fromTouchLocation:(CGPoint)translation {
+    
+}
+
+-(void)swipeTableViewCell:(RMSwipeTableViewCell *)swipeTableViewCell swipedToLocation:(CGPoint)translation {
+    
+}
+
+-(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation {
+}
+
+-(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation {
+    if (translation.x > 50) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
+        if ([[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue]) {
+            [[self.array objectAtIndex:indexPath.row] setObject:@NO forKey:@"isFavourite"];
+        } else {
+            [[self.array objectAtIndex:indexPath.row] setObject:@YES forKey:@"isFavourite"];
+        }
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
+    }
 }
 
 @end

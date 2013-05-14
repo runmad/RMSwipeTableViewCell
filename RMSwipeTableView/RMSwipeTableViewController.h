@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RMSwipeTableViewCell.h"
+#import "RMPersonTableViewCell.h"
 
 @interface RMSwipeTableViewController : UITableViewController <RMSwipeTableViewCellDelegate>
+
+@property (nonatomic, strong) NSMutableArray *array;
 
 @end

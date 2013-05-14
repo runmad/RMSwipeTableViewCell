@@ -18,6 +18,7 @@
 		900D156B1661ABEC00900B59 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900D156A1661ABEC00900B59 /* Default-568h@2x.png */; };
 		900D15731661AC7B00900B59 /* RMSwipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 900D15721661AC7B00900B59 /* RMSwipeTableViewController.m */; };
 		900D15761661ACB200900B59 /* RMSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 900D15751661ACB200900B59 /* RMSwipeTableViewCell.m */; };
+		90C588961741B24A005E16BB /* RMPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C588951741B24A005E16BB /* RMPersonTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		900D15721661AC7B00900B59 /* RMSwipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSwipeTableViewController.m; sourceTree = "<group>"; };
 		900D15741661ACB200900B59 /* RMSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSwipeTableViewCell.h; sourceTree = "<group>"; };
 		900D15751661ACB200900B59 /* RMSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSwipeTableViewCell.m; sourceTree = "<group>"; };
+		90C588941741B24A005E16BB /* RMPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPersonTableViewCell.h; sourceTree = "<group>"; };
+		90C588951741B24A005E16BB /* RMPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPersonTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				900D15641661ABEC00900B59 /* RMAppDelegate.m */,
 				900D15711661AC7B00900B59 /* RMSwipeTableViewController.h */,
 				900D15721661AC7B00900B59 /* RMSwipeTableViewController.m */,
+				90C588941741B24A005E16BB /* RMPersonTableViewCell.h */,
+				90C588951741B24A005E16BB /* RMPersonTableViewCell.m */,
 				900D15741661ACB200900B59 /* RMSwipeTableViewCell.h */,
 				900D15751661ACB200900B59 /* RMSwipeTableViewCell.m */,
 				900D155B1661ABEC00900B59 /* Supporting Files */,
@@ -179,6 +184,7 @@
 				900D15651661ABEC00900B59 /* RMAppDelegate.m in Sources */,
 				900D15731661AC7B00900B59 /* RMSwipeTableViewController.m in Sources */,
 				900D15761661ACB200900B59 /* RMSwipeTableViewCell.m in Sources */,
+				90C588961741B24A005E16BB /* RMPersonTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +293,7 @@
 				900D15701661ABEC00900B59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
