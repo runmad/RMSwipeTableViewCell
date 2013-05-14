@@ -19,7 +19,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // We need to set the contentView's background colour, otherwise the sides are clear on the swipe and animations
-        [self.contentView setBackgroundColor:[UIColor greenColor]];
+        [self.contentView setBackgroundColor:[UIColor whiteColor]];
         
         UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         [panGestureRecognizer setDelegate:self];
@@ -71,7 +71,7 @@
 #pragma mark - Gesture animations 
 
 -(void)animateContentViewForPoint:(CGPoint)translation {
-    if ((translation.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || (translation.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
+    if ((translation.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || (translation.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
         if (!_backView) {
             [self.backgroundView addSubview:self.backView];
         }
@@ -98,7 +98,7 @@
 }
 
 -(void)animateVelocityBounce:(CGPoint)translation {
-    if ((self.revealDirection == RMSwipeTableViewCellRevealDirectionRight && translation.x < 0) || (self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft && translation.x > 0)) {
+    if ((self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft && translation.x < 0) || (self.revealDirection == RMSwipeTableViewCellRevealDirectionRight && translation.x > 0)) {
         return;
     }
     [UIView animateWithDuration:0.15
@@ -122,8 +122,6 @@
                                                                    self.contentView.frame = self.contentView.bounds;
                                                                }
                                                                completion:^(BOOL finished) {
-                                                                   [self.backView removeFromSuperview];
-                                                                   _backView = nil;
                                                                    if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
                                                                        [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
                                                                    }
