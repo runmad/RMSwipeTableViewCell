@@ -36,6 +36,7 @@
 		90B078EB17456CB700D4E494 /* HouseStarkSigil.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078E917456CB700D4E494 /* HouseStarkSigil.png */; };
 		90B078EE1745717C00D4E494 /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078EC1745717C00D4E494 /* NavigationBar.png */; };
 		90B078EF1745717C00D4E494 /* NavigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078ED1745717C00D4E494 /* NavigationBar@2x.png */; };
+		90B078F11745779400D4E494 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B078F01745779400D4E494 /* QuartzCore.framework */; };
 		90C588961741B24A005E16BB /* RMPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C588951741B24A005E16BB /* RMPersonTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		90B078E917456CB700D4E494 /* HouseStarkSigil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HouseStarkSigil.png; sourceTree = "<group>"; };
 		90B078EC1745717C00D4E494 /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
 		90B078ED1745717C00D4E494 /* NavigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBar@2x.png"; sourceTree = "<group>"; };
+		90B078F01745779400D4E494 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		90C588941741B24A005E16BB /* RMPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPersonTableViewCell.h; sourceTree = "<group>"; };
 		90C588951741B24A005E16BB /* RMPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPersonTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B078F11745779400D4E494 /* QuartzCore.framework in Frameworks */,
 				900D15551661ABEC00900B59 /* UIKit.framework in Frameworks */,
 				900D15571661ABEC00900B59 /* Foundation.framework in Frameworks */,
 				900D15591661ABEC00900B59 /* CoreGraphics.framework in Frameworks */,
@@ -113,6 +116,7 @@
 		900D15531661ABEC00900B59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90B078F01745779400D4E494 /* QuartzCore.framework */,
 				900D15541661ABEC00900B59 /* UIKit.framework */,
 				900D15561661ABEC00900B59 /* Foundation.framework */,
 				900D15581661ABEC00900B59 /* CoreGraphics.framework */,

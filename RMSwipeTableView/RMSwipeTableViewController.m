@@ -71,8 +71,8 @@
         _array = [@[
                   [@{@"name" : @"Cersei Lannister", @"title" : @"Queen of the Seven Kingdoms", @"isFavourite" : @NO, @"image" : @"cersei" } mutableCopy],
                   [@{@"name" : @"Jaime Lannister", @"title" : @"Kingslayer", @"isFavourite" : @NO, @"image" : @"jaime" } mutableCopy],
-                  [@{@"name" : @"Joffrey Baratheon", @"title" : @"the Illborn", @"isFavourite" : @NO, @"image" : @"joffrey" } mutableCopy],
-                  [@{@"name" : @"Tyrion Lannister", @"title" : @"The Imp or Halfman", @"isFavourite" : @NO, @"image" : @"tyrion" } mutableCopy],
+                  [@{@"name" : @"Joffrey Baratheon", @"title" : @"The Illborn", @"isFavourite" : @NO, @"image" : @"joffrey" } mutableCopy],
+                  [@{@"name" : @"Tyrion Lannister", @"title" : @"The Halfman", @"isFavourite" : @NO, @"image" : @"tyrion" } mutableCopy],
                   [@{@"name" : @"Tywin Lannister", @"title" : @"Lord of Casterly Rock", @"isFavourite" : @NO, @"image" : @"tywin" } mutableCopy]]
                   mutableCopy];
     }
@@ -104,6 +104,7 @@
     cell.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
 //    cell.animationType = RMSwipeTableViewCellAnimationTypeEaseInOut;
 //    cell.animationDuration = 0.3;
+    [cell setFavourite:[[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] animated:NO];
     cell.delegate = self;
     
     return cell;
@@ -152,6 +153,7 @@
         } else {
             [[self.array objectAtIndex:indexPath.row] setObject:@YES forKey:@"isFavourite"];
         }
+        [(RMPersonTableViewCell*)swipeTableViewCell setFavourite:[[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] animated:YES];
     } else if (translation.x < (-self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionRight)) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         [self.array removeObjectAtIndex:indexPath.row];

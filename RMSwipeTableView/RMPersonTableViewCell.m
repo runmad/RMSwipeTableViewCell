@@ -71,25 +71,27 @@
 -(void)setFavourite:(BOOL)favourite animated:(BOOL)animated {
     if (animated) {
         if (favourite) {
-            [UIView animateWithDuration:0.15
-                                  delay:0
-                                options:UIViewAnimationCurveLinear
-                             animations:^{
-                                 [thumbnailImageView.layer setBorderColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor];
-                             }
-                             completion:^(BOOL finished) {
-                             }
-             ];
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+            animation.toValue = (id)[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor;
+            animation.fromValue = (id)[UIColor colorWithWhite:0 alpha:0.3].CGColor;
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            animation.duration = 0.5;
+            [thumbnailImageView.layer addAnimation:animation forKey:@"animateBorderColor"];
+            [thumbnailImageView.layer setBorderColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor];
         } else {
-            [UIView animateWithDuration:0.15
-                                  delay:0
-                                options:UIViewAnimationCurveLinear
-                             animations:^{
-                                 [thumbnailImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
-                             }
-                             completion:^(BOOL finished) {
-                             }
-             ];
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+            animation.toValue = (id)[UIColor colorWithWhite:0 alpha:0.3].CGColor;
+            animation.fromValue = (id)[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor;
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            animation.duration = 0.5;
+            [thumbnailImageView.layer addAnimation:animation forKey:@"animateBorderColor"];
+            [thumbnailImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
+        }
+    } else {
+        if (favourite) {
+            [thumbnailImageView.layer setBorderColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor];
+        } else {
+            [thumbnailImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
         }
     }
 }

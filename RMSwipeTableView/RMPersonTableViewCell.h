@@ -11,5 +11,6 @@
 @interface RMPersonTableViewCell : RMSwipeTableViewCell
 
 -(void)setThumbnail:(UIImage*)image;
+-(void)setFavourite:(BOOL)favourite animated:(BOOL)animated;
 
 @end
