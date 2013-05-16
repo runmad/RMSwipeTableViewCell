@@ -27,12 +27,19 @@
 
         self.revealDirection = RMSwipeTableViewCellRevealDirectionRight;
         self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
+        self.animationDuration = 0.25f;
+        self.shouldAnimateCellReset = YES;
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
         backgroundView.backgroundColor = [UIColor whiteColor];
         self.backgroundView = backgroundView;
     }
     return self;
+}
+
+-(void)prepareForReuse {
+    [super prepareForReuse];
+    self.shouldAnimateCellReset = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -92,45 +99,75 @@
     if ([self.delegate respondsToSelector:@selector(swipeTableViewCellWillResetState:fromLocation:withAnimation:)]) {
         [self.delegate swipeTableViewCellWillResetState:self fromLocation:translation withAnimation:self.animationType];
     }
-    if (self.animationType == RMSwipeTableViewCellAnimationTypeBounce) {
-        [self animateVelocityBounce:translation];
+    if (self.shouldAnimateCellReset) {
+        [self resetCellAnimationWithFromPoint:translation];
     }
 }
 
--(void)animateVelocityBounce:(CGPoint)translation {
+-(void)resetCellAnimationWithFromPoint:(CGPoint)translation {
     if ((self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft && translation.x < 0) || (self.revealDirection == RMSwipeTableViewCellRevealDirectionRight && translation.x > 0)) {
         return;
     }
-    [UIView animateWithDuration:0.15
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 - (translation.x * 0.03), 0);
-                     }
-                     completion:^(BOOL finished) {
-                         [UIView animateWithDuration:0.1
-                                               delay:0
-                                             options:UIViewAnimationOptionCurveEaseInOut
-                                          animations:^{
-                                              self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 + (translation.x * 0.02), 0);
-                                          }
-                                          completion:^(BOOL finished) {
-                                              [UIView animateWithDuration:0.1
-                                                                    delay:0
-                                                                  options:UIViewAnimationOptionCurveEaseOut
-                                                               animations:^{
-                                                                   self.contentView.frame = self.contentView.bounds;
-                                                               }
-                                                               completion:^(BOOL finished) {
-                                                                   if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
-                                                                       [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
+    if (self.animationType == RMSwipeTableViewCellAnimationTypeBounce) {        
+        [UIView animateWithDuration:self.animationDuration
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 - (translation.x * 0.03), 0);
+                         }
+                         completion:^(BOOL finished) {
+                             [UIView animateWithDuration:0.1
+                                                   delay:0
+                                                 options:UIViewAnimationOptionCurveEaseInOut
+                                              animations:^{
+                                                  self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 + (translation.x * 0.02), 0);
+                                              }
+                                              completion:^(BOOL finished) {
+                                                  [UIView animateWithDuration:0.1
+                                                                        delay:0
+                                                                      options:UIViewAnimationOptionCurveEaseOut
+                                                                   animations:^{
+                                                                       self.contentView.frame = self.contentView.bounds;
                                                                    }
-                                                               }
-                                               ];
-                                          }
-                          ];
-                     }
-     ];
+                                                                   completion:^(BOOL finished) {
+                                                                       if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
+                                                                           [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
+                                                                       }
+                                                                   }
+                                                   ];
+                                              }
+                              ];
+                         }
+         ];
+    } else {
+        UIViewAnimationOptions option;
+        switch (self.animationType) {
+            case RMSwipeTableViewCellAnimationTypeEaseInOut:
+                option = UIViewAnimationOptionCurveEaseInOut;
+                break;
+            case RMSwipeTableViewCellAnimationTypeEaseIn:
+                option = UIViewAnimationOptionCurveEaseIn;
+                break;
+            case RMSwipeTableViewCellAnimationTypeEaseOut:
+                option = UIViewAnimationOptionCurveEaseOut;
+                break;
+            default:
+                option = UIViewAnimationOptionCurveEaseIn;
+                break;
+        }
+        [UIView animateWithDuration:self.animationDuration
+                              delay:0
+                            options:option
+                         animations:^{
+                             self.contentView.frame = CGRectOffset(self.contentView.bounds, 0, 0);
+                         }
+                         completion:^(BOOL finished) {
+                             if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
+                                 [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
+                             }
+                         }
+         ];
+    }
 }
 
 -(UIView*)backView {

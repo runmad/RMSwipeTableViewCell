@@ -27,8 +27,10 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 
 @property (nonatomic, strong) UIView *backView;
 @property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionRight
-@property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType *animationType; // default is RMSwipeTableViewCellAnimationTypeBounce.
+@property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewCellAnimationTypeBounce.
+@property (nonatomic, readwrite) float animationDuration; // default is 0.25
 @property (nonatomic, readwrite) BOOL revealsBackground; // default is NO
+@property (nonatomic, readwrite) BOOL shouldAnimateCellReset; // default is YES
 @property (nonatomic, assign) id <RMSwipeTableViewCellDelegate> delegate;
 
 @end
@@ -39,5 +41,6 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 -(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell fromTouchLocation:(CGPoint)translation;
 -(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell swipedToLocation:(CGPoint)translation;
 -(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
+-(BOOL)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell shouldAnimateFromLocation:(CGPoint)translation;
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
 @end
