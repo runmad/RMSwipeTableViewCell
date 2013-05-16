@@ -10,4 +10,6 @@
 
 @interface RMPersonTableViewCell : RMSwipeTableViewCell
 
+-(void)setThumbnail:(UIImage*)image;
+
 @end

@@ -22,9 +22,31 @@
         
         static NSString *CellIdentifier = @"Cell";
         [self.tableView registerClass:[RMPersonTableViewCell class] forCellReuseIdentifier:CellIdentifier];
-        [self.tableView setRowHeight:54];
+        [self.tableView setRowHeight:64];
+        
+        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(resetTableView)];
+        [self.navigationItem setRightBarButtonItem:barButtonItem];
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 200)];
+        [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+        [view setBackgroundColor:[UIColor colorWithWhite:0.92 alpha:1]];
+        UIImageView *sigilImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"HouseStarkSigil"]];
+        [sigilImageView setCenter:view.center];
+        [sigilImageView setAlpha:0.4];
+        [view addSubview:sigilImageView];
+        self.tableView.tableFooterView = view;
+        
+        [self.tableView setBackgroundColor:view.backgroundColor];
+        
+        self.tableView.contentInset = self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, - CGRectGetHeight(view.frame), 0);
     }
     return self;
+}
+
+-(void)resetTableView {
+    [_array removeAllObjects];
+    _array = nil;
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -47,12 +69,11 @@
 -(NSMutableArray*)array {
     if (!_array) {
         _array = [@[
-                  [@{@"name" : @"Cersei Lannister", @"title" : @"Queen of the Seven Kingdoms", @"isFavourite" : @NO } mutableCopy],
-                  [@{@"name" : @"Jaime Lannister", @"title" : @"Kingslayer", @"isFavourite" : @NO } mutableCopy],
-                  [@{@"name" : @"Joanna Lannister", @"title" : @"Late wife of Tywon", @"isFavourite" : @NO } mutableCopy],
-                  [@{@"name" : @"Joffrey Baratheon", @"title" : @"the Illborn", @"isFavourite" : @NO } mutableCopy],
-                  [@{@"name" : @"Tyrion Lannister", @"title" : @"The Imp or Halfman", @"isFavourite" : @NO } mutableCopy],
-                  [@{@"name" : @"Tywon Lannister", @"title" : @"Lord of Casterly Rock", @"isFavourite" : @NO } mutableCopy]]
+                  [@{@"name" : @"Cersei Lannister", @"title" : @"Queen of the Seven Kingdoms", @"isFavourite" : @NO, @"image" : @"cersei" } mutableCopy],
+                  [@{@"name" : @"Jaime Lannister", @"title" : @"Kingslayer", @"isFavourite" : @NO, @"image" : @"jaime" } mutableCopy],
+                  [@{@"name" : @"Joffrey Baratheon", @"title" : @"the Illborn", @"isFavourite" : @NO, @"image" : @"joffrey" } mutableCopy],
+                  [@{@"name" : @"Tyrion Lannister", @"title" : @"The Imp or Halfman", @"isFavourite" : @NO, @"image" : @"tyrion" } mutableCopy],
+                  [@{@"name" : @"Tywin Lannister", @"title" : @"Lord of Casterly Rock", @"isFavourite" : @NO, @"image" : @"tywin" } mutableCopy]]
                   mutableCopy];
     }
     return _array;
@@ -75,11 +96,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    RMSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    RMPersonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@%@", [[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] ? @"❤ " : @"", [[self.array objectAtIndex:indexPath.row] objectForKey:@"name"]];
     cell.detailTextLabel.text = [[self.array objectAtIndex:indexPath.row] objectForKey:@"title"];
-    cell.revealDirection = RMSwipeTableViewCellRevealDirectionLeft;
+    [cell setThumbnail:[UIImage imageNamed:[[self.array objectAtIndex:indexPath.row] objectForKey:@"image"]]];
+    cell.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
+//    cell.animationType = RMSwipeTableViewCellAnimationTypeEaseInOut;
+//    cell.animationDuration = 0.3;
     cell.delegate = self;
     
     return cell;
@@ -94,26 +118,45 @@
 #pragma mark - Swipe Table View Cell Delegate
 
 -(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell *)swipeTableViewCell fromTouchLocation:(CGPoint)translation {
-    
 }
 
 -(void)swipeTableViewCell:(RMSwipeTableViewCell *)swipeTableViewCell swipedToLocation:(CGPoint)translation {
-    
 }
 
 -(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation {
+    if (translation.x < (-self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionRight)) {
+        swipeTableViewCell.shouldAnimateCellReset = NO;
+        [UIView animateWithDuration:0.25
+                              delay:0
+                            options:UIViewAnimationCurveLinear
+                         animations:^{
+                             swipeTableViewCell.contentView.frame = CGRectOffset(swipeTableViewCell.contentView.bounds, swipeTableViewCell.contentView.frame.size.width, 0);
+                         }
+                         completion:^(BOOL finished) {
+                             [swipeTableViewCell.contentView setHidden:YES];
+                             NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
+                             [self.array removeObjectAtIndex:indexPath.row];
+                             [self.tableView beginUpdates];
+                             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                             [self.tableView endUpdates];
+                         }
+         ];
+    }
 }
 
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation {
-    if (translation.x > 50) {
+    if (translation.x > (self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionLeft)) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         if ([[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue]) {
             [[self.array objectAtIndex:indexPath.row] setObject:@NO forKey:@"isFavourite"];
         } else {
             [[self.array objectAtIndex:indexPath.row] setObject:@YES forKey:@"isFavourite"];
         }
+    } else if (translation.x < (-self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionRight)) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
+        [self.array removeObjectAtIndex:indexPath.row];
         [self.tableView beginUpdates];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
     }
 }

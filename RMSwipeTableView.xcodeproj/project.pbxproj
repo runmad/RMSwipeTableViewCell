@@ -18,6 +18,24 @@
 		900D156B1661ABEC00900B59 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900D156A1661ABEC00900B59 /* Default-568h@2x.png */; };
 		900D15731661AC7B00900B59 /* RMSwipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 900D15721661AC7B00900B59 /* RMSwipeTableViewController.m */; };
 		900D15761661ACB200900B59 /* RMSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 900D15751661ACB200900B59 /* RMSwipeTableViewCell.m */; };
+		90B078D21745580600D4E494 /* jaime.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078C81745580600D4E494 /* jaime.png */; };
+		90B078D31745580600D4E494 /* jaime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078C91745580600D4E494 /* jaime@2x.png */; };
+		90B078D41745580600D4E494 /* joffrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078CA1745580600D4E494 /* joffrey.png */; };
+		90B078D51745580600D4E494 /* joffrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078CB1745580600D4E494 /* joffrey@2x.png */; };
+		90B078D61745580600D4E494 /* tywin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078CC1745580600D4E494 /* tywin@2x.png */; };
+		90B078D71745580600D4E494 /* cersei@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078CD1745580600D4E494 /* cersei@2x.png */; };
+		90B078D81745580600D4E494 /* tywin.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078CE1745580600D4E494 /* tywin.png */; };
+		90B078D91745580600D4E494 /* cersei.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078CF1745580600D4E494 /* cersei.png */; };
+		90B078DA1745580600D4E494 /* tyrion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078D01745580600D4E494 /* tyrion@2x.png */; };
+		90B078DB1745580600D4E494 /* tyrion.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078D11745580600D4E494 /* tyrion.png */; };
+		90B078E2174567DD00D4E494 /* NavBarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078E0174567DD00D4E494 /* NavBarButton@2x.png */; };
+		90B078E3174567DD00D4E494 /* NavBarButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078E1174567DD00D4E494 /* NavBarButtonPressed@2x.png */; };
+		90B078E61745683F00D4E494 /* NavBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078E41745683F00D4E494 /* NavBarButton.png */; };
+		90B078E71745683F00D4E494 /* NavBarButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078E51745683F00D4E494 /* NavBarButtonPressed.png */; };
+		90B078EA17456CB700D4E494 /* HouseStarkSigil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078E817456CB700D4E494 /* HouseStarkSigil@2x.png */; };
+		90B078EB17456CB700D4E494 /* HouseStarkSigil.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078E917456CB700D4E494 /* HouseStarkSigil.png */; };
+		90B078EE1745717C00D4E494 /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078EC1745717C00D4E494 /* NavigationBar.png */; };
+		90B078EF1745717C00D4E494 /* NavigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B078ED1745717C00D4E494 /* NavigationBar@2x.png */; };
 		90C588961741B24A005E16BB /* RMPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C588951741B24A005E16BB /* RMPersonTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +57,24 @@
 		900D15721661AC7B00900B59 /* RMSwipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSwipeTableViewController.m; sourceTree = "<group>"; };
 		900D15741661ACB200900B59 /* RMSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSwipeTableViewCell.h; sourceTree = "<group>"; };
 		900D15751661ACB200900B59 /* RMSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSwipeTableViewCell.m; sourceTree = "<group>"; };
+		90B078C81745580600D4E494 /* jaime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jaime.png; sourceTree = "<group>"; };
+		90B078C91745580600D4E494 /* jaime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jaime@2x.png"; sourceTree = "<group>"; };
+		90B078CA1745580600D4E494 /* joffrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joffrey.png; sourceTree = "<group>"; };
+		90B078CB1745580600D4E494 /* joffrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joffrey@2x.png"; sourceTree = "<group>"; };
+		90B078CC1745580600D4E494 /* tywin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tywin@2x.png"; sourceTree = "<group>"; };
+		90B078CD1745580600D4E494 /* cersei@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cersei@2x.png"; sourceTree = "<group>"; };
+		90B078CE1745580600D4E494 /* tywin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tywin.png; sourceTree = "<group>"; };
+		90B078CF1745580600D4E494 /* cersei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cersei.png; sourceTree = "<group>"; };
+		90B078D01745580600D4E494 /* tyrion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyrion@2x.png"; sourceTree = "<group>"; };
+		90B078D11745580600D4E494 /* tyrion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyrion.png; sourceTree = "<group>"; };
+		90B078E0174567DD00D4E494 /* NavBarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBarButton@2x.png"; sourceTree = "<group>"; };
+		90B078E1174567DD00D4E494 /* NavBarButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBarButtonPressed@2x.png"; sourceTree = "<group>"; };
+		90B078E41745683F00D4E494 /* NavBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBarButton.png; sourceTree = "<group>"; };
+		90B078E51745683F00D4E494 /* NavBarButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBarButtonPressed.png; sourceTree = "<group>"; };
+		90B078E817456CB700D4E494 /* HouseStarkSigil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HouseStarkSigil@2x.png"; sourceTree = "<group>"; };
+		90B078E917456CB700D4E494 /* HouseStarkSigil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HouseStarkSigil.png; sourceTree = "<group>"; };
+		90B078EC1745717C00D4E494 /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
+		90B078ED1745717C00D4E494 /* NavigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBar@2x.png"; sourceTree = "<group>"; };
 		90C588941741B24A005E16BB /* RMPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPersonTableViewCell.h; sourceTree = "<group>"; };
 		90C588951741B24A005E16BB /* RMPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPersonTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +146,24 @@
 				900D15661661ABEC00900B59 /* Default.png */,
 				900D15681661ABEC00900B59 /* Default@2x.png */,
 				900D156A1661ABEC00900B59 /* Default-568h@2x.png */,
+				90B078C81745580600D4E494 /* jaime.png */,
+				90B078C91745580600D4E494 /* jaime@2x.png */,
+				90B078CA1745580600D4E494 /* joffrey.png */,
+				90B078CB1745580600D4E494 /* joffrey@2x.png */,
+				90B078CE1745580600D4E494 /* tywin.png */,
+				90B078CC1745580600D4E494 /* tywin@2x.png */,
+				90B078CD1745580600D4E494 /* cersei@2x.png */,
+				90B078CF1745580600D4E494 /* cersei.png */,
+				90B078D01745580600D4E494 /* tyrion@2x.png */,
+				90B078D11745580600D4E494 /* tyrion.png */,
+				90B078E41745683F00D4E494 /* NavBarButton.png */,
+				90B078E51745683F00D4E494 /* NavBarButtonPressed.png */,
+				90B078E0174567DD00D4E494 /* NavBarButton@2x.png */,
+				90B078E1174567DD00D4E494 /* NavBarButtonPressed@2x.png */,
+				90B078E817456CB700D4E494 /* HouseStarkSigil@2x.png */,
+				90B078E917456CB700D4E494 /* HouseStarkSigil.png */,
+				90B078EC1745717C00D4E494 /* NavigationBar.png */,
+				90B078ED1745717C00D4E494 /* NavigationBar@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,6 +224,24 @@
 				900D15671661ABEC00900B59 /* Default.png in Resources */,
 				900D15691661ABEC00900B59 /* Default@2x.png in Resources */,
 				900D156B1661ABEC00900B59 /* Default-568h@2x.png in Resources */,
+				90B078D21745580600D4E494 /* jaime.png in Resources */,
+				90B078D31745580600D4E494 /* jaime@2x.png in Resources */,
+				90B078D41745580600D4E494 /* joffrey.png in Resources */,
+				90B078D51745580600D4E494 /* joffrey@2x.png in Resources */,
+				90B078D61745580600D4E494 /* tywin@2x.png in Resources */,
+				90B078D71745580600D4E494 /* cersei@2x.png in Resources */,
+				90B078D81745580600D4E494 /* tywin.png in Resources */,
+				90B078D91745580600D4E494 /* cersei.png in Resources */,
+				90B078DA1745580600D4E494 /* tyrion@2x.png in Resources */,
+				90B078DB1745580600D4E494 /* tyrion.png in Resources */,
+				90B078E2174567DD00D4E494 /* NavBarButton@2x.png in Resources */,
+				90B078E3174567DD00D4E494 /* NavBarButtonPressed@2x.png in Resources */,
+				90B078E61745683F00D4E494 /* NavBarButton.png in Resources */,
+				90B078E71745683F00D4E494 /* NavBarButtonPressed.png in Resources */,
+				90B078EA17456CB700D4E494 /* HouseStarkSigil@2x.png in Resources */,
+				90B078EB17456CB700D4E494 /* HouseStarkSigil.png in Resources */,
+				90B078EE1745717C00D4E494 /* NavigationBar.png in Resources */,
+				90B078EF1745717C00D4E494 /* NavigationBar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
