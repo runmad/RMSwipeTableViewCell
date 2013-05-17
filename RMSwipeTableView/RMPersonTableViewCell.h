@@ -10,6 +10,10 @@
 
 @interface RMPersonTableViewCell : RMSwipeTableViewCell
 
+@property (nonatomic, strong) UIImageView *profileImageView;
+@property (nonatomic, strong) UIImageView *checkmarkGreyImageView;
+@property (nonatomic, assign) BOOL isFavourite;
+
 -(void)setThumbnail:(UIImage*)image;
 -(void)setFavourite:(BOOL)favourite animated:(BOOL)animated;
 

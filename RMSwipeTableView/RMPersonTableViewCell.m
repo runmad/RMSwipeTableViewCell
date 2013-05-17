@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface RMPersonTableViewCell () {
-	UIImageView *thumbnailImageView;
 }
 
 @end
@@ -21,19 +20,19 @@
 {
     self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.textLabel.font = [UIFont boldSystemFontOfSize:16];
+        self.textLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:16];
         self.textLabel.backgroundColor = self.contentView.backgroundColor;
-		self.detailTextLabel.font = [UIFont systemFontOfSize:14];
+		self.detailTextLabel.font = [UIFont fontWithName:@"Avenir-Book" size:14];
         self.detailTextLabel.backgroundColor = self.contentView.backgroundColor;
-//		self.selectionStyle = UITableViewCellSelectionStyleNone;
-		thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 54, 54)];
-		[thumbnailImageView setBackgroundColor:[UIColor whiteColor]];
-		[thumbnailImageView setClipsToBounds:YES];
-		[thumbnailImageView setContentMode:UIViewContentModeScaleAspectFill];
-		[thumbnailImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
-		[thumbnailImageView.layer setBorderWidth:1];
-        [thumbnailImageView.layer setCornerRadius:2];
-        [self.contentView addSubview:thumbnailImageView];
+        
+		self.self.profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 54, 54)];
+		[self.profileImageView setBackgroundColor:[UIColor whiteColor]];
+		[self.profileImageView setClipsToBounds:YES];
+		[self.profileImageView setContentMode:UIViewContentModeScaleAspectFill];
+		[self.profileImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
+		[self.profileImageView.layer setBorderWidth:1];
+        [self.profileImageView.layer setCornerRadius:2];
+        [self.contentView addSubview:self.profileImageView];
     }
     return self;
 }
@@ -52,12 +51,12 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    self.textLabel.frame = CGRectMake(CGRectGetMaxX(thumbnailImageView.frame) + 10, CGRectGetMinY(self.textLabel.frame), CGRectGetWidth(self.textLabel.frame), CGRectGetHeight(self.textLabel.frame));
-    self.detailTextLabel.frame = CGRectMake(CGRectGetMaxX(thumbnailImageView.frame) + 10, CGRectGetMinY(self.detailTextLabel.frame), CGRectGetWidth(self.detailTextLabel.frame), CGRectGetHeight(self.detailTextLabel.frame));
+    self.textLabel.frame = CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 10, CGRectGetMinY(self.textLabel.frame), CGRectGetWidth(self.textLabel.frame), CGRectGetHeight(self.textLabel.frame));
+    self.detailTextLabel.frame = CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 10, CGRectGetMinY(self.detailTextLabel.frame), CGRectGetWidth(self.detailTextLabel.frame), CGRectGetHeight(self.detailTextLabel.frame));
 }
 
 -(void)setThumbnail:(UIImage*)image {
-	[thumbnailImageView setImage:image];
+	[self.profileImageView setImage:image];
 	[self.imageView setImage:[UIImage imageNamed:@"page_white"]];
 }
 
@@ -69,6 +68,7 @@
 }
 
 -(void)setFavourite:(BOOL)favourite animated:(BOOL)animated {
+    self.isFavourite = favourite;
     if (animated) {
         if (favourite) {
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
@@ -76,24 +76,36 @@
             animation.fromValue = (id)[UIColor colorWithWhite:0 alpha:0.3].CGColor;
             animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
             animation.duration = 0.5;
-            [thumbnailImageView.layer addAnimation:animation forKey:@"animateBorderColor"];
-            [thumbnailImageView.layer setBorderColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor];
+            [self.profileImageView.layer addAnimation:animation forKey:@"animateBorderColor"];
+            [self.profileImageView.layer setBorderColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor];
         } else {
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
             animation.toValue = (id)[UIColor colorWithWhite:0 alpha:0.3].CGColor;
             animation.fromValue = (id)[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor;
             animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
             animation.duration = 0.5;
-            [thumbnailImageView.layer addAnimation:animation forKey:@"animateBorderColor"];
-            [thumbnailImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
+            [self.profileImageView.layer addAnimation:animation forKey:@"animateBorderColor"];
+            [self.profileImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
         }
     } else {
         if (favourite) {
-            [thumbnailImageView.layer setBorderColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor];
+            [self.profileImageView.layer setBorderColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500].CGColor];
         } else {
-            [thumbnailImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
+            [self.profileImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
         }
     }
+}
+
+-(void)animateContentViewForPoint:(CGPoint)translation {
+    [super animateContentViewForPoint:translation];
+    NSLog(@"%@", NSStringFromCGPoint(translation));
+    if (translation.x > 0) {
+        
+    }
+}
+
+-(void)resetCellFromPoint:(CGPoint)translation {
+    [super resetCellFromPoint:translation];
 }
 
 @end

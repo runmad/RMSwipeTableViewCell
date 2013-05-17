@@ -32,7 +32,7 @@
         [view setBackgroundColor:[UIColor colorWithWhite:0.92 alpha:1]];
         UIImageView *sigilImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"HouseStarkSigil"]];
         [sigilImageView setCenter:view.center];
-        [sigilImageView setAlpha:0.4];
+        [sigilImageView setAlpha:0.3];
         [view addSubview:sigilImageView];
         self.tableView.tableFooterView = view;
         
@@ -98,7 +98,7 @@
     static NSString *CellIdentifier = @"Cell";
     RMPersonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@%@", [[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] ? @"❤ " : @"", [[self.array objectAtIndex:indexPath.row] objectForKey:@"name"]];
+    cell.textLabel.text = [[self.array objectAtIndex:indexPath.row] objectForKey:@"name"];
     cell.detailTextLabel.text = [[self.array objectAtIndex:indexPath.row] objectForKey:@"title"];
     [cell setThumbnail:[UIImage imageNamed:[[self.array objectAtIndex:indexPath.row] objectForKey:@"image"]]];
     cell.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
