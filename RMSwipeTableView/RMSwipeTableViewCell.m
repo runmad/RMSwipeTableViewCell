@@ -80,9 +80,7 @@
 
 -(void)animateContentViewForPoint:(CGPoint)translation {
     if ((translation.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || (translation.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
-        if (!_backView) {
-            [self.backgroundView addSubview:self.backView];
-        }
+        [self.backgroundView addSubview:self.backView];
         float drag = 0;
         if (translation.x < 0) {
             drag = expf(translation.x / CGRectGetWidth(self.frame)) * translation.x;

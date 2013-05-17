@@ -127,6 +127,7 @@
 -(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation {
     if (translation.x < (-self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionRight)) {
         swipeTableViewCell.shouldAnimateCellReset = NO;
+        [[(RMPersonTableViewCell*)swipeTableViewCell checkmarkGreyImageView] removeFromSuperview];
         [UIView animateWithDuration:0.25
                               delay:0
                             options:UIViewAnimationCurveLinear

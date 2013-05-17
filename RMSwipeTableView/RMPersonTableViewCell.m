@@ -176,9 +176,12 @@
             [self.checkmarkGreenImageView setAlpha:1];
         }
     } else if (translation.x < 0) {
-        NSLog(@"%f", CGRectGetMaxX(self.contentView.frame) - CGRectGetWidth(self.deleteGreyImageView.frame));
-        NSLog(@"%f", MIN(CGRectGetMaxX(self.contentView.frame) - CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetMaxX(self.contentView.frame)));
-        [self.deleteGreyImageView setFrame:CGRectMake(MAX(CGRectGetMaxX(self.contentView.frame), CGRectGetMaxX(self.contentView.frame) - CGRectGetWidth(self.deleteGreyImageView.frame)), CGRectGetMinY(self.deleteGreyImageView.frame), CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetHeight(self.deleteGreyImageView.frame))];
+        [self.deleteGreyImageView setFrame:CGRectMake(MAX(CGRectGetMaxX(self.frame) - CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetMaxX(self.contentView.frame)), CGRectGetMinY(self.deleteGreyImageView.frame), CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetHeight(self.deleteGreyImageView.frame))];
+        if (CGRectGetMaxX(self.contentView.frame) < CGRectGetMaxX(self.frame) - CGRectGetWidth(self.deleteGreyImageView.frame)) {
+            [self.deleteRedImageView setAlpha:1];
+        } else {
+            [self.deleteRedImageView setAlpha:0];
+        }
     }
 }
 
@@ -189,6 +192,11 @@
                          animations:^{
                              [self.checkmarkGreyImageView setFrame:CGRectMake(-CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetMinY(self.checkmarkGreyImageView.frame), CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetHeight(self.checkmarkGreyImageView.frame))];
                          }];
+    } else if (translation.x < 0) {
+        [UIView animateWithDuration:0.2
+                         animations:^{
+                             [self.deleteGreyImageView setFrame:CGRectMake(CGRectGetMaxX(self.frame), CGRectGetMinY(self.deleteGreyImageView.frame), CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetHeight(self.deleteGreyImageView.frame))];
+                         }];
     }
 }
 
@@ -198,6 +206,10 @@
     _checkmarkGreyImageView = nil;
     [self.checkmarkGreenImageView removeFromSuperview];
     _checkmarkGreenImageView = nil;
+    [self.deleteGreyImageView removeFromSuperview];
+    _deleteGreyImageView = nil;
+    [self.deleteRedImageView removeFromSuperview];
+    _deleteRedImageView = nil;
 }
 
 @end
