@@ -36,6 +36,7 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 
 -(void)animateContentViewForPoint:(CGPoint)translation;
 -(void)resetCellFromPoint:(CGPoint)translation;
+-(void)cleanup;
 
 @end
 
