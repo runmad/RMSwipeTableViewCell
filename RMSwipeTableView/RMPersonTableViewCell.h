@@ -12,6 +12,10 @@
 
 @property (nonatomic, strong) UIImageView *profileImageView;
 @property (nonatomic, strong) UIImageView *checkmarkGreyImageView;
+@property (nonatomic, strong) UIImageView *checkmarkGreenImageView;
+@property (nonatomic, strong) UIImageView *checkmarkProfileImageView;
+@property (nonatomic, strong) UIImageView *deleteGreyImageView;
+@property (nonatomic, strong) UIImageView *deleteRedImageView;
 @property (nonatomic, assign) BOOL isFavourite;
 
 -(void)setThumbnail:(UIImage*)image;

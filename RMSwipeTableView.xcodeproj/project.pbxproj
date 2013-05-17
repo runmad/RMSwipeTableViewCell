@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900724801745D83B00803D25 /* CheckmarkGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9007247C1745D83B00803D25 /* CheckmarkGrey@2x.png */; };
+		900724811745D83B00803D25 /* CheckmarkGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 9007247D1745D83B00803D25 /* CheckmarkGreen.png */; };
+		900724821745D83B00803D25 /* CheckmarkGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9007247E1745D83B00803D25 /* CheckmarkGreen@2x.png */; };
+		900724831745D83B00803D25 /* CheckmarkGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9007247F1745D83B00803D25 /* CheckmarkGrey.png */; };
+		900724861745EDC100803D25 /* CheckmarkProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 900724841745EDC100803D25 /* CheckmarkProfileImage.png */; };
+		900724871745EDC100803D25 /* CheckmarkProfileImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900724851745EDC100803D25 /* CheckmarkProfileImage@2x.png */; };
+		9007248C1745F6B200803D25 /* DeleteGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900724881745F6B200803D25 /* DeleteGrey@2x.png */; };
+		9007248D1745F6B200803D25 /* DeleteRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 900724891745F6B200803D25 /* DeleteRed.png */; };
+		9007248E1745F6B200803D25 /* DeleteRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9007248A1745F6B200803D25 /* DeleteRed@2x.png */; };
+		9007248F1745F6B200803D25 /* DeleteGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9007248B1745F6B200803D25 /* DeleteGrey.png */; };
 		900D15551661ABEC00900B59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15541661ABEC00900B59 /* UIKit.framework */; };
 		900D15571661ABEC00900B59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15561661ABEC00900B59 /* Foundation.framework */; };
 		900D15591661ABEC00900B59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15581661ABEC00900B59 /* CoreGraphics.framework */; };
@@ -41,6 +51,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9007247C1745D83B00803D25 /* CheckmarkGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckmarkGrey@2x.png"; sourceTree = "<group>"; };
+		9007247D1745D83B00803D25 /* CheckmarkGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckmarkGreen.png; sourceTree = "<group>"; };
+		9007247E1745D83B00803D25 /* CheckmarkGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckmarkGreen@2x.png"; sourceTree = "<group>"; };
+		9007247F1745D83B00803D25 /* CheckmarkGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckmarkGrey.png; sourceTree = "<group>"; };
+		900724841745EDC100803D25 /* CheckmarkProfileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckmarkProfileImage.png; sourceTree = "<group>"; };
+		900724851745EDC100803D25 /* CheckmarkProfileImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckmarkProfileImage@2x.png"; sourceTree = "<group>"; };
+		900724881745F6B200803D25 /* DeleteGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeleteGrey@2x.png"; sourceTree = "<group>"; };
+		900724891745F6B200803D25 /* DeleteRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteRed.png; sourceTree = "<group>"; };
+		9007248A1745F6B200803D25 /* DeleteRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeleteRed@2x.png"; sourceTree = "<group>"; };
+		9007248B1745F6B200803D25 /* DeleteGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteGrey.png; sourceTree = "<group>"; };
 		900D15501661ABEC00900B59 /* RMSwipeTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMSwipeTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D15541661ABEC00900B59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		900D15561661ABEC00900B59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,6 +188,16 @@
 				90B078E917456CB700D4E494 /* HouseStarkSigil.png */,
 				90B078EC1745717C00D4E494 /* NavigationBar.png */,
 				90B078ED1745717C00D4E494 /* NavigationBar@2x.png */,
+				9007247C1745D83B00803D25 /* CheckmarkGrey@2x.png */,
+				9007247D1745D83B00803D25 /* CheckmarkGreen.png */,
+				9007247E1745D83B00803D25 /* CheckmarkGreen@2x.png */,
+				9007247F1745D83B00803D25 /* CheckmarkGrey.png */,
+				900724841745EDC100803D25 /* CheckmarkProfileImage.png */,
+				900724851745EDC100803D25 /* CheckmarkProfileImage@2x.png */,
+				900724881745F6B200803D25 /* DeleteGrey@2x.png */,
+				900724891745F6B200803D25 /* DeleteRed.png */,
+				9007248A1745F6B200803D25 /* DeleteRed@2x.png */,
+				9007248B1745F6B200803D25 /* DeleteGrey.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,6 +276,16 @@
 				90B078EB17456CB700D4E494 /* HouseStarkSigil.png in Resources */,
 				90B078EE1745717C00D4E494 /* NavigationBar.png in Resources */,
 				90B078EF1745717C00D4E494 /* NavigationBar@2x.png in Resources */,
+				900724801745D83B00803D25 /* CheckmarkGrey@2x.png in Resources */,
+				900724811745D83B00803D25 /* CheckmarkGreen.png in Resources */,
+				900724821745D83B00803D25 /* CheckmarkGreen@2x.png in Resources */,
+				900724831745D83B00803D25 /* CheckmarkGrey.png in Resources */,
+				900724861745EDC100803D25 /* CheckmarkProfileImage.png in Resources */,
+				900724871745EDC100803D25 /* CheckmarkProfileImage@2x.png in Resources */,
+				9007248C1745F6B200803D25 /* DeleteGrey@2x.png in Resources */,
+				9007248D1745F6B200803D25 /* DeleteRed.png in Resources */,
+				9007248E1745F6B200803D25 /* DeleteRed@2x.png in Resources */,
+				9007248F1745F6B200803D25 /* DeleteGrey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
