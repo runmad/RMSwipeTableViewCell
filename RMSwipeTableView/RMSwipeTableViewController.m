@@ -135,7 +135,6 @@
                              swipeTableViewCell.contentView.frame = CGRectOffset(swipeTableViewCell.contentView.bounds, swipeTableViewCell.contentView.frame.size.width, 0);
                          }
                          completion:^(BOOL finished) {
-                             [swipeTableViewCell cleanup];
                              [swipeTableViewCell.contentView setHidden:YES];
                              NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
                              [self.array removeObjectAtIndex:indexPath.row];

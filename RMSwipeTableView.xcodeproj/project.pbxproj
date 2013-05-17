@@ -17,10 +17,13 @@
 		9007248D1745F6B200803D25 /* DeleteRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 900724891745F6B200803D25 /* DeleteRed.png */; };
 		9007248E1745F6B200803D25 /* DeleteRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9007248A1745F6B200803D25 /* DeleteRed@2x.png */; };
 		9007248F1745F6B200803D25 /* DeleteGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9007248B1745F6B200803D25 /* DeleteGrey.png */; };
-		9007249A1746422E00803D25 /* TFXMenuBarSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 900724941746422E00803D25 /* TFXMenuBarSliderView.m */; };
-		9007249B1746422E00803D25 /* TFXMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 900724961746422E00803D25 /* TFXMenuController.m */; };
+		9007249A1746422E00803D25 /* RMMenuBarSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 900724941746422E00803D25 /* RMMenuBarSliderView.m */; };
+		9007249B1746422E00803D25 /* RMMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 900724961746422E00803D25 /* RMMenuController.m */; };
 		9007249C1746422E00803D25 /* sliderHandle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900724981746422E00803D25 /* sliderHandle@2x.png */; };
 		9007249D1746422E00803D25 /* sliderBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900724991746422E00803D25 /* sliderBar@2x.png */; };
+		900724A0174642BF00803D25 /* FTWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007249F174642BF00803D25 /* FTWButton.m */; };
+		900724A3174642DA00803D25 /* SKInnerShadowLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 900724A2174642DA00803D25 /* SKInnerShadowLayer.m */; };
+		900724A61746437C00803D25 /* RMSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 900724A51746437C00803D25 /* RMSecondViewController.m */; };
 		900D15551661ABEC00900B59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15541661ABEC00900B59 /* UIKit.framework */; };
 		900D15571661ABEC00900B59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15561661ABEC00900B59 /* Foundation.framework */; };
 		900D15591661ABEC00900B59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15581661ABEC00900B59 /* CoreGraphics.framework */; };
@@ -65,12 +68,18 @@
 		900724891745F6B200803D25 /* DeleteRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteRed.png; sourceTree = "<group>"; };
 		9007248A1745F6B200803D25 /* DeleteRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeleteRed@2x.png"; sourceTree = "<group>"; };
 		9007248B1745F6B200803D25 /* DeleteGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteGrey.png; sourceTree = "<group>"; };
-		900724941746422E00803D25 /* TFXMenuBarSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFXMenuBarSliderView.m; sourceTree = "<group>"; };
-		900724951746422E00803D25 /* TFXMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFXMenuController.h; sourceTree = "<group>"; };
-		900724961746422E00803D25 /* TFXMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFXMenuController.m; sourceTree = "<group>"; };
-		900724971746422E00803D25 /* TFXMenuBarSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFXMenuBarSliderView.h; sourceTree = "<group>"; };
+		900724941746422E00803D25 /* RMMenuBarSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMenuBarSliderView.m; sourceTree = "<group>"; };
+		900724951746422E00803D25 /* RMMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMenuController.h; sourceTree = "<group>"; };
+		900724961746422E00803D25 /* RMMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMenuController.m; sourceTree = "<group>"; };
+		900724971746422E00803D25 /* RMMenuBarSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMenuBarSliderView.h; sourceTree = "<group>"; };
 		900724981746422E00803D25 /* sliderHandle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sliderHandle@2x.png"; sourceTree = "<group>"; };
 		900724991746422E00803D25 /* sliderBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sliderBar@2x.png"; sourceTree = "<group>"; };
+		9007249E174642BF00803D25 /* FTWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTWButton.h; path = FTWButton/FTWButton/FTWButton.h; sourceTree = SOURCE_ROOT; };
+		9007249F174642BF00803D25 /* FTWButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTWButton.m; path = FTWButton/FTWButton/FTWButton.m; sourceTree = SOURCE_ROOT; };
+		900724A1174642DA00803D25 /* SKInnerShadowLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKInnerShadowLayer.h; path = FTWButton/FTWButton/SKInnerShadowLayer.h; sourceTree = SOURCE_ROOT; };
+		900724A2174642DA00803D25 /* SKInnerShadowLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKInnerShadowLayer.m; path = FTWButton/FTWButton/SKInnerShadowLayer.m; sourceTree = SOURCE_ROOT; };
+		900724A41746437C00803D25 /* RMSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSecondViewController.h; sourceTree = "<group>"; };
+		900724A51746437C00803D25 /* RMSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSecondViewController.m; sourceTree = "<group>"; };
 		900D15501661ABEC00900B59 /* RMSwipeTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMSwipeTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D15541661ABEC00900B59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		900D15561661ABEC00900B59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,16 +168,22 @@
 			children = (
 				900D15631661ABEC00900B59 /* RMAppDelegate.h */,
 				900D15641661ABEC00900B59 /* RMAppDelegate.m */,
+				900724A41746437C00803D25 /* RMSecondViewController.h */,
+				900724A51746437C00803D25 /* RMSecondViewController.m */,
 				900D15711661AC7B00900B59 /* RMSwipeTableViewController.h */,
 				900D15721661AC7B00900B59 /* RMSwipeTableViewController.m */,
 				90C588941741B24A005E16BB /* RMPersonTableViewCell.h */,
 				90C588951741B24A005E16BB /* RMPersonTableViewCell.m */,
 				900D15741661ACB200900B59 /* RMSwipeTableViewCell.h */,
 				900D15751661ACB200900B59 /* RMSwipeTableViewCell.m */,
-				900724951746422E00803D25 /* TFXMenuController.h */,
-				900724961746422E00803D25 /* TFXMenuController.m */,
-				900724971746422E00803D25 /* TFXMenuBarSliderView.h */,
-				900724941746422E00803D25 /* TFXMenuBarSliderView.m */,
+				900724951746422E00803D25 /* RMMenuController.h */,
+				900724961746422E00803D25 /* RMMenuController.m */,
+				900724971746422E00803D25 /* RMMenuBarSliderView.h */,
+				900724941746422E00803D25 /* RMMenuBarSliderView.m */,
+				9007249E174642BF00803D25 /* FTWButton.h */,
+				9007249F174642BF00803D25 /* FTWButton.m */,
+				900724A1174642DA00803D25 /* SKInnerShadowLayer.h */,
+				900724A2174642DA00803D25 /* SKInnerShadowLayer.m */,
 				900D155B1661ABEC00900B59 /* Supporting Files */,
 			);
 			path = RMSwipeTableView;
@@ -319,8 +334,11 @@
 				900D15731661AC7B00900B59 /* RMSwipeTableViewController.m in Sources */,
 				900D15761661ACB200900B59 /* RMSwipeTableViewCell.m in Sources */,
 				90C588961741B24A005E16BB /* RMPersonTableViewCell.m in Sources */,
-				9007249A1746422E00803D25 /* TFXMenuBarSliderView.m in Sources */,
-				9007249B1746422E00803D25 /* TFXMenuController.m in Sources */,
+				9007249A1746422E00803D25 /* RMMenuBarSliderView.m in Sources */,
+				9007249B1746422E00803D25 /* RMMenuController.m in Sources */,
+				900724A0174642BF00803D25 /* FTWButton.m in Sources */,
+				900724A3174642DA00803D25 /* SKInnerShadowLayer.m in Sources */,
+				900724A61746437C00803D25 /* RMSecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 
 #import "RMAppDelegate.h"
 #import "RMSwipeTableViewController.h"
+#import "RMSecondViewController.h"
+#import "RMMenuController.h"
 
 @implementation RMAppDelegate
 
@@ -16,12 +18,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     RMSwipeTableViewController *swipeTableViewController = [[RMSwipeTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:swipeTableViewController];
-    self.window.rootViewController = navigationController;
+    swipeTableViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"House Lannister" image:[UIImage imageNamed:@"CheckmarkGrey"] tag:0];
+    RMSecondViewController *secondViewController = [[RMSecondViewController alloc] init];
+    secondViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Second View" image:[UIImage imageNamed:@"CheckmarkGrey"] tag:1];
+    RMMenuController *menuController = [[RMMenuController alloc] init];
+    [menuController setViewControllers:@[[[UINavigationController alloc] initWithRootViewController:swipeTableViewController], [[UINavigationController alloc] initWithRootViewController:secondViewController]]];
+    self.window.rootViewController = menuController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
+
+    //    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:1.000 green:0.136 blue:0.142 alpha:1.000]];
 	UIImage *barButton = [[UIImage imageNamed:@"NavBarButton"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
 	[[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

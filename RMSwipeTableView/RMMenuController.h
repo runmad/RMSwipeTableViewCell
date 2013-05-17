@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol TFXMenuControllerDelegate;
+@protocol RMMenuControllerDelegate;
 
-@interface TFXMenuController : UIViewController
+@interface RMMenuController : UIViewController
 
 @property (nonatomic, copy) NSArray *viewControllers;
 @property (nonatomic, weak) UIViewController *selectedViewController;
 @property (nonatomic, assign) NSUInteger selectedIndex;
-@property (nonatomic, weak) id <TFXMenuControllerDelegate> delegate;
+@property (nonatomic, weak) id <RMMenuControllerDelegate> delegate;
 
 - (void)setSelectedIndex:(NSUInteger)index animated:(BOOL)animated;
 - (void)setSelectedViewController:(UIViewController *)viewController animated:(BOOL)animated;
@@ -26,8 +26,8 @@
 /*
  * The delegate protocol for MHTabBarController.
  */
-@protocol TFXMenuControllerDelegate <NSObject>
+@protocol RMMenuControllerDelegate <NSObject>
 @optional
-- (BOOL)menuController:(TFXMenuController *)menuController shouldSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index;
-- (void)menuController:(TFXMenuController *)menuController didSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index;
+- (BOOL)menuController:(RMMenuController *)menuController shouldSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index;
+- (void)menuController:(RMMenuController *)menuController didSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index;
 @end

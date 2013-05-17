@@ -6,13 +6,12 @@
 //  Copyright (c) 2012 Triggerfox Corporation. All rights reserved.
 //
 
-#import "TFXMenuBarSliderView.h"
+#import "RMMenuBarSliderView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation TFXMenuBarSliderView
+@implementation RMMenuBarSliderView
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];

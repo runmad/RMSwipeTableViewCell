@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 Triggerfox Corporation. All rights reserved.
 //
 
-#import "TFXMenuController.h"
-#import "TFXMenuBarSliderView.h"
+#import "RMMenuController.h"
+#import "RMMenuBarSliderView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "FTWButton.h"
 
-@interface TFXMenuController () {
+@interface RMMenuController () {
 	UIView *tabButtonsContainerView;
 	UIView *contentContainerView;
-	TFXMenuBarSliderView *menuBarSliderView;
+	RMMenuBarSliderView *menuBarSliderView;
 	BOOL menuVisible;
 	BOOL sliderHidden;
 }
@@ -25,7 +25,7 @@ static const NSInteger TagOffset = 1000;
 static const NSInteger kExtraDragViewTag = 534;
 static const NSInteger ViewControllerOffset = 100;
 
-@implementation TFXMenuController
+@implementation RMMenuController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -53,7 +53,7 @@ static const NSInteger ViewControllerOffset = 100;
 	[contentContainerView addSubview:sliderBarImageView];
 	
 	CGFloat menuBarSliderViewHeight = 50;
-	menuBarSliderView = [[TFXMenuBarSliderView alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.view.frame) / 2) - 50, CGRectGetMaxY(contentContainerView.frame) - (menuBarSliderViewHeight / 2), 100, menuBarSliderViewHeight)];
+	menuBarSliderView = [[RMMenuBarSliderView alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.view.frame) / 2) - 50, CGRectGetMaxY(contentContainerView.frame) - (menuBarSliderViewHeight / 2), 100, menuBarSliderViewHeight)];
 	[menuBarSliderView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin];
 	[self.view addSubview:menuBarSliderView];
 	
@@ -314,6 +314,7 @@ static const NSInteger ViewControllerOffset = 100;
         [button setTextShadowColor:[UIColor colorWithWhite:0 alpha:0.2] forControlState:UIControlStateNormal];
         [button setTextShadowOffset:CGSizeMake(0, -1) forControlState:UIControlStateNormal];
         [button setText:viewController.tabBarItem.title forControlState:UIControlStateNormal];
+        [button setFont:[UIFont fontWithName:@"Avenir-Heavy" size:18]];
         [button addTarget:self action:@selector(tabButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth];
 		

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TFXMenuBarSliderView : UIView
+@interface RMMenuBarSliderView : UIView
 
 @end
