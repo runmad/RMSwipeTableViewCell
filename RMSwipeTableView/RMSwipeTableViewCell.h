@@ -28,13 +28,16 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 @property (nonatomic, strong) UIView *backView;
 @property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionRight
 @property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewCellAnimationTypeBounce.
-@property (nonatomic, readwrite) float animationDuration; // default is 0.25
+@property (nonatomic, readwrite) float animationDuration; // default is 0.2
 @property (nonatomic, readwrite) BOOL revealsBackground; // default is NO
 @property (nonatomic, readwrite) BOOL shouldAnimateCellReset; // default is YES
+@property (nonatomic, strong) UIColor *backViewbackgroundColor; // default is [UIColor colorWithWhite:0.92 alpha:1]
 @property (nonatomic, assign) id <RMSwipeTableViewCellDelegate> delegate;
 
-@end
+-(void)animateContentViewForPoint:(CGPoint)translation;
+-(void)resetCellFromPoint:(CGPoint)translation;
 
+@end
 
 @protocol RMSwipeTableViewCellDelegate <NSObject>
 @optional

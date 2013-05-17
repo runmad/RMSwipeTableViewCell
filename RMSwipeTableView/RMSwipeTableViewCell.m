@@ -27,8 +27,9 @@
 
         self.revealDirection = RMSwipeTableViewCellRevealDirectionRight;
         self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
-        self.animationDuration = 0.25f;
+        self.animationDuration = 0.2f;
         self.shouldAnimateCellReset = YES;
+        self.backViewbackgroundColor = [UIColor colorWithWhite:0.92 alpha:1];
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
         backgroundView.backgroundColor = [UIColor whiteColor];
@@ -59,7 +60,7 @@
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
         [self animateContentViewForPoint:translation];
 	} else if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-		[self resetBackViewFromPoint:translation];
+		[self resetCellFromPoint:translation];
 	}
 }
 
@@ -95,16 +96,13 @@
     }
 }
 
--(void)resetBackViewFromPoint:(CGPoint)translation {
+-(void)resetCellFromPoint:(CGPoint)translation {
     if ([self.delegate respondsToSelector:@selector(swipeTableViewCellWillResetState:fromLocation:withAnimation:)]) {
         [self.delegate swipeTableViewCellWillResetState:self fromLocation:translation withAnimation:self.animationType];
     }
-    if (self.shouldAnimateCellReset) {
-        [self resetCellAnimationWithFromPoint:translation];
+    if (self.shouldAnimateCellReset == NO) {
+        return;
     }
-}
-
--(void)resetCellAnimationWithFromPoint:(CGPoint)translation {
     if ((self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft && translation.x < 0) || (self.revealDirection == RMSwipeTableViewCellRevealDirectionRight && translation.x > 0)) {
         return;
     }
@@ -130,6 +128,8 @@
                                                                        self.contentView.frame = self.contentView.bounds;
                                                                    }
                                                                    completion:^(BOOL finished) {
+                                                                       [_backView removeFromSuperview];
+                                                                       _backView = nil;
                                                                        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
                                                                            [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
                                                                        }
@@ -165,6 +165,8 @@
                              if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
                                  [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
                              }
+                             [_backView removeFromSuperview];
+                             _backView = nil;
                          }
          ];
     }
@@ -173,7 +175,7 @@
 -(UIView*)backView {
     if (!_backView) {
         _backView = [[UIView alloc] initWithFrame:self.contentView.frame];
-        _backView.backgroundColor = [UIColor redColor];
+        _backView.backgroundColor = self.backViewbackgroundColor;
     }
     return _backView;
 }
