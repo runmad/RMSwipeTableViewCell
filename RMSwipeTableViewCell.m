@@ -127,7 +127,7 @@
                                                                        self.contentView.frame = self.contentView.bounds;
                                                                    }
                                                                    completion:^(BOOL finished) {
-                                                                       [self cleanup];
+                                                                       [self cleanupBackView];
                                                                        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
                                                                            [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
                                                                        }
@@ -163,7 +163,7 @@
                              if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:withAnimation:)]) {
                                  [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation withAnimation:self.animationType];
                              }
-                             [self cleanup];
+                             [self cleanupBackView];
                          }
          ];
     }
@@ -177,7 +177,7 @@
     return _backView;
 }
 
--(void)cleanup {
+-(void)cleanupBackView {
     [_backView removeFromSuperview];
     _backView = nil;
 }

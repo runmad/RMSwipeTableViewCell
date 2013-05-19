@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 -(void)animateContentViewForPoint:(CGPoint)translation;
 -(void)resetCellFromPoint:(CGPoint)translation;
 -(UIView*)backView;
--(void)cleanup;
+-(void)cleanupBackView;
 
 @end
 
