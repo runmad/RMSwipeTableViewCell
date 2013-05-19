@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "900D154F1661ABEC00900B59"
                BuildableName = "RMSwipeTableView.app"
-               BlueprintName = "RMSwipeTableView"
-               ReferencedContainer = "container:RMSwipeTableView.xcodeproj">
+               BlueprintName = "RMSwipeTableViewCellDemo"
+               ReferencedContainer = "container:RMSwipeTableViewCellDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "900D154F1661ABEC00900B59"
             BuildableName = "RMSwipeTableView.app"
-            BlueprintName = "RMSwipeTableView"
-            ReferencedContainer = "container:RMSwipeTableView.xcodeproj">
+            BlueprintName = "RMSwipeTableViewCellDemo"
+            ReferencedContainer = "container:RMSwipeTableViewCellDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "900D154F1661ABEC00900B59"
             BuildableName = "RMSwipeTableView.app"
-            BlueprintName = "RMSwipeTableView"
-            ReferencedContainer = "container:RMSwipeTableView.xcodeproj">
+            BlueprintName = "RMSwipeTableViewCellDemo"
+            ReferencedContainer = "container:RMSwipeTableViewCellDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "900D154F1661ABEC00900B59"
             BuildableName = "RMSwipeTableView.app"
-            BlueprintName = "RMSwipeTableView"
-            ReferencedContainer = "container:RMSwipeTableView.xcodeproj">
+            BlueprintName = "RMSwipeTableViewCellDemo"
+            ReferencedContainer = "container:RMSwipeTableViewCellDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

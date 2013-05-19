@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		900D15551661ABEC00900B59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15541661ABEC00900B59 /* UIKit.framework */; };
+		900D15571661ABEC00900B59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15561661ABEC00900B59 /* Foundation.framework */; };
+		900D15591661ABEC00900B59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15581661ABEC00900B59 /* CoreGraphics.framework */; };
+		90B078F11745779400D4E494 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B078F01745779400D4E494 /* QuartzCore.framework */; };
+		90FDF44E17495366006EF12E /* cersei.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF42F17495366006EF12E /* cersei.png */; };
+		90FDF44F17495366006EF12E /* cersei@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43017495366006EF12E /* cersei@2x.png */; };
+		90FDF45017495366006EF12E /* CheckmarkGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43117495366006EF12E /* CheckmarkGreen.png */; };
+		90FDF45117495366006EF12E /* CheckmarkGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43217495366006EF12E /* CheckmarkGreen@2x.png */; };
+		90FDF45217495366006EF12E /* CheckmarkGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43317495366006EF12E /* CheckmarkGrey.png */; };
+		90FDF45317495366006EF12E /* CheckmarkGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43417495366006EF12E /* CheckmarkGrey@2x.png */; };
+		90FDF45417495366006EF12E /* CheckmarkProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43517495366006EF12E /* CheckmarkProfileImage.png */; };
+		90FDF45517495366006EF12E /* CheckmarkProfileImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43617495366006EF12E /* CheckmarkProfileImage@2x.png */; };
+		90FDF45617495366006EF12E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43717495366006EF12E /* Default-568h@2x.png */; };
+		90FDF45717495366006EF12E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43817495366006EF12E /* Default.png */; };
+		90FDF45817495366006EF12E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43917495366006EF12E /* Default@2x.png */; };
+		90FDF45917495366006EF12E /* DeleteGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43A17495366006EF12E /* DeleteGrey.png */; };
+		90FDF45A17495366006EF12E /* DeleteGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43B17495366006EF12E /* DeleteGrey@2x.png */; };
+		90FDF45B17495366006EF12E /* DeleteRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43C17495366006EF12E /* DeleteRed.png */; };
+		90FDF45C17495366006EF12E /* DeleteRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43D17495366006EF12E /* DeleteRed@2x.png */; };
+		90FDF45D17495366006EF12E /* HouseStarkSigil.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43E17495366006EF12E /* HouseStarkSigil.png */; };
+		90FDF45E17495366006EF12E /* HouseStarkSigil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43F17495366006EF12E /* HouseStarkSigil@2x.png */; };
+		90FDF45F17495366006EF12E /* jaime.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44017495366006EF12E /* jaime.png */; };
+		90FDF46017495366006EF12E /* jaime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44117495366006EF12E /* jaime@2x.png */; };
+		90FDF46117495366006EF12E /* joffrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44217495366006EF12E /* joffrey.png */; };
+		90FDF46217495366006EF12E /* joffrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44317495366006EF12E /* joffrey@2x.png */; };
+		90FDF46317495366006EF12E /* NavBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44417495366006EF12E /* NavBarButton.png */; };
+		90FDF46417495366006EF12E /* NavBarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44517495366006EF12E /* NavBarButton@2x.png */; };
+		90FDF46517495366006EF12E /* NavBarButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44617495366006EF12E /* NavBarButtonPressed.png */; };
+		90FDF46617495366006EF12E /* NavBarButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44717495366006EF12E /* NavBarButtonPressed@2x.png */; };
+		90FDF46717495366006EF12E /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44817495366006EF12E /* NavigationBar.png */; };
+		90FDF46817495366006EF12E /* NavigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44917495366006EF12E /* NavigationBar@2x.png */; };
+		90FDF46917495366006EF12E /* tyrion.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44A17495366006EF12E /* tyrion.png */; };
+		90FDF46A17495366006EF12E /* tyrion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44B17495366006EF12E /* tyrion@2x.png */; };
+		90FDF46B17495366006EF12E /* tywin.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44C17495366006EF12E /* tywin.png */; };
+		90FDF46C17495366006EF12E /* tywin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF44D17495366006EF12E /* tywin@2x.png */; };
+		90FDF47017495387006EF12E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF46F17495387006EF12E /* main.m */; };
+		90FDF474174953A3006EF12E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF472174953A3006EF12E /* InfoPlist.strings */; };
+		90FDF47F174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF476174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m */; };
+		90FDF480174953C2006EF12E /* RMPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF478174953C2006EF12E /* RMPersonTableViewCell.m */; };
+		90FDF482174953C2006EF12E /* RMSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF47C174953C2006EF12E /* RMSwipeTableViewCell.m */; };
+		90FDF483174953C2006EF12E /* RMSwipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF47E174953C2006EF12E /* RMSwipeTableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		900D15501661ABEC00900B59 /* RMSwipeTableViewCellDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMSwipeTableViewCellDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		900D15541661ABEC00900B59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		900D15561661ABEC00900B59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		900D15581661ABEC00900B59 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		90B078F01745779400D4E494 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		90FDF42F17495366006EF12E /* cersei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cersei.png; path = RMSwipeTableViewCellDemo/cersei.png; sourceTree = SOURCE_ROOT; };
+		90FDF43017495366006EF12E /* cersei@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cersei@2x.png"; path = "RMSwipeTableViewCellDemo/cersei@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF43117495366006EF12E /* CheckmarkGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckmarkGreen.png; path = RMSwipeTableViewCellDemo/CheckmarkGreen.png; sourceTree = SOURCE_ROOT; };
+		90FDF43217495366006EF12E /* CheckmarkGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CheckmarkGreen@2x.png"; path = "RMSwipeTableViewCellDemo/CheckmarkGreen@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF43317495366006EF12E /* CheckmarkGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckmarkGrey.png; path = RMSwipeTableViewCellDemo/CheckmarkGrey.png; sourceTree = SOURCE_ROOT; };
+		90FDF43417495366006EF12E /* CheckmarkGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CheckmarkGrey@2x.png"; path = "RMSwipeTableViewCellDemo/CheckmarkGrey@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF43517495366006EF12E /* CheckmarkProfileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckmarkProfileImage.png; path = RMSwipeTableViewCellDemo/CheckmarkProfileImage.png; sourceTree = SOURCE_ROOT; };
+		90FDF43617495366006EF12E /* CheckmarkProfileImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CheckmarkProfileImage@2x.png"; path = "RMSwipeTableViewCellDemo/CheckmarkProfileImage@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF43717495366006EF12E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "RMSwipeTableViewCellDemo/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF43817495366006EF12E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = RMSwipeTableViewCellDemo/Default.png; sourceTree = SOURCE_ROOT; };
+		90FDF43917495366006EF12E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "RMSwipeTableViewCellDemo/Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF43A17495366006EF12E /* DeleteGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DeleteGrey.png; path = RMSwipeTableViewCellDemo/DeleteGrey.png; sourceTree = SOURCE_ROOT; };
+		90FDF43B17495366006EF12E /* DeleteGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DeleteGrey@2x.png"; path = "RMSwipeTableViewCellDemo/DeleteGrey@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF43C17495366006EF12E /* DeleteRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DeleteRed.png; path = RMSwipeTableViewCellDemo/DeleteRed.png; sourceTree = SOURCE_ROOT; };
+		90FDF43D17495366006EF12E /* DeleteRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DeleteRed@2x.png"; path = "RMSwipeTableViewCellDemo/DeleteRed@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF43E17495366006EF12E /* HouseStarkSigil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HouseStarkSigil.png; path = RMSwipeTableViewCellDemo/HouseStarkSigil.png; sourceTree = SOURCE_ROOT; };
+		90FDF43F17495366006EF12E /* HouseStarkSigil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HouseStarkSigil@2x.png"; path = "RMSwipeTableViewCellDemo/HouseStarkSigil@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF44017495366006EF12E /* jaime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jaime.png; path = RMSwipeTableViewCellDemo/jaime.png; sourceTree = SOURCE_ROOT; };
+		90FDF44117495366006EF12E /* jaime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "jaime@2x.png"; path = "RMSwipeTableViewCellDemo/jaime@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF44217495366006EF12E /* joffrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = joffrey.png; path = RMSwipeTableViewCellDemo/joffrey.png; sourceTree = SOURCE_ROOT; };
+		90FDF44317495366006EF12E /* joffrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "joffrey@2x.png"; path = "RMSwipeTableViewCellDemo/joffrey@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF44417495366006EF12E /* NavBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NavBarButton.png; path = RMSwipeTableViewCellDemo/NavBarButton.png; sourceTree = SOURCE_ROOT; };
+		90FDF44517495366006EF12E /* NavBarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "NavBarButton@2x.png"; path = "RMSwipeTableViewCellDemo/NavBarButton@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF44617495366006EF12E /* NavBarButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NavBarButtonPressed.png; path = RMSwipeTableViewCellDemo/NavBarButtonPressed.png; sourceTree = SOURCE_ROOT; };
+		90FDF44717495366006EF12E /* NavBarButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "NavBarButtonPressed@2x.png"; path = "RMSwipeTableViewCellDemo/NavBarButtonPressed@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF44817495366006EF12E /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NavigationBar.png; path = RMSwipeTableViewCellDemo/NavigationBar.png; sourceTree = SOURCE_ROOT; };
+		90FDF44917495366006EF12E /* NavigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "NavigationBar@2x.png"; path = "RMSwipeTableViewCellDemo/NavigationBar@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF44A17495366006EF12E /* tyrion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tyrion.png; path = RMSwipeTableViewCellDemo/tyrion.png; sourceTree = SOURCE_ROOT; };
+		90FDF44B17495366006EF12E /* tyrion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tyrion@2x.png"; path = "RMSwipeTableViewCellDemo/tyrion@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF44C17495366006EF12E /* tywin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tywin.png; path = RMSwipeTableViewCellDemo/tywin.png; sourceTree = SOURCE_ROOT; };
+		90FDF44D17495366006EF12E /* tywin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tywin@2x.png"; path = "RMSwipeTableViewCellDemo/tywin@2x.png"; sourceTree = SOURCE_ROOT; };
+		90FDF46D17495374006EF12E /* RMSwipeTableViewCellDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RMSwipeTableViewCellDemo-Info.plist"; path = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
+		90FDF46F17495387006EF12E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RMSwipeTableViewCellDemo/main.m; sourceTree = SOURCE_ROOT; };
+		90FDF47117495390006EF12E /* RMSwipeTableViewCellDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RMSwipeTableViewCellDemo-Prefix.pch"; path = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		90FDF473174953A3006EF12E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = RMSwipeTableViewCellDemo/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		90FDF475174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSwipeTableViewCellDemoAppDelegate.h; path = RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemoAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		90FDF476174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSwipeTableViewCellDemoAppDelegate.m; path = RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemoAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		90FDF477174953C2006EF12E /* RMPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMPersonTableViewCell.h; path = RMSwipeTableViewCellDemo/RMPersonTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		90FDF478174953C2006EF12E /* RMPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMPersonTableViewCell.m; path = RMSwipeTableViewCellDemo/RMPersonTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		90FDF47B174953C2006EF12E /* RMSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSwipeTableViewCell.h; path = RMSwipeTableViewCellDemo/RMSwipeTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		90FDF47C174953C2006EF12E /* RMSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSwipeTableViewCell.m; path = RMSwipeTableViewCellDemo/RMSwipeTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		90FDF47D174953C2006EF12E /* RMSwipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSwipeTableViewController.h; path = RMSwipeTableViewCellDemo/RMSwipeTableViewController.h; sourceTree = SOURCE_ROOT; };
+		90FDF47E174953C2006EF12E /* RMSwipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSwipeTableViewController.m; path = RMSwipeTableViewCellDemo/RMSwipeTableViewController.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		900D154D1661ABEC00900B59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90B078F11745779400D4E494 /* QuartzCore.framework in Frameworks */,
+				900D15551661ABEC00900B59 /* UIKit.framework in Frameworks */,
+				900D15571661ABEC00900B59 /* Foundation.framework in Frameworks */,
+				900D15591661ABEC00900B59 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		900D15451661ABEC00900B59 = {
+			isa = PBXGroup;
+			children = (
+				900D155A1661ABEC00900B59 /* RMSwipeTableViewCellDemo */,
+				900D15531661ABEC00900B59 /* Frameworks */,
+				900D15511661ABEC00900B59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		900D15511661ABEC00900B59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				900D15501661ABEC00900B59 /* RMSwipeTableViewCellDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		900D15531661ABEC00900B59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90B078F01745779400D4E494 /* QuartzCore.framework */,
+				900D15541661ABEC00900B59 /* UIKit.framework */,
+				900D15561661ABEC00900B59 /* Foundation.framework */,
+				900D15581661ABEC00900B59 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		900D155A1661ABEC00900B59 /* RMSwipeTableViewCellDemo */ = {
+			isa = PBXGroup;
+			children = (
+				90FDF475174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.h */,
+				90FDF476174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m */,
+				90FDF477174953C2006EF12E /* RMPersonTableViewCell.h */,
+				90FDF478174953C2006EF12E /* RMPersonTableViewCell.m */,
+				90FDF47D174953C2006EF12E /* RMSwipeTableViewController.h */,
+				90FDF47E174953C2006EF12E /* RMSwipeTableViewController.m */,
+				90FDF484174953E2006EF12E /* RMSwipeTableViewCell */,
+				90FDF42E1749535D006EF12E /* Images */,
+				900D155B1661ABEC00900B59 /* Supporting Files */,
+			);
+			name = RMSwipeTableViewCellDemo;
+			path = RMSwipeTableView;
+			sourceTree = "<group>";
+		};
+		900D155B1661ABEC00900B59 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				90FDF46F17495387006EF12E /* main.m */,
+				90FDF46D17495374006EF12E /* RMSwipeTableViewCellDemo-Info.plist */,
+				90FDF47117495390006EF12E /* RMSwipeTableViewCellDemo-Prefix.pch */,
+				90FDF472174953A3006EF12E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90FDF42E1749535D006EF12E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				90FDF42F17495366006EF12E /* cersei.png */,
+				90FDF43017495366006EF12E /* cersei@2x.png */,
+				90FDF43117495366006EF12E /* CheckmarkGreen.png */,
+				90FDF43217495366006EF12E /* CheckmarkGreen@2x.png */,
+				90FDF43317495366006EF12E /* CheckmarkGrey.png */,
+				90FDF43417495366006EF12E /* CheckmarkGrey@2x.png */,
+				90FDF43517495366006EF12E /* CheckmarkProfileImage.png */,
+				90FDF43617495366006EF12E /* CheckmarkProfileImage@2x.png */,
+				90FDF43717495366006EF12E /* Default-568h@2x.png */,
+				90FDF43817495366006EF12E /* Default.png */,
+				90FDF43917495366006EF12E /* Default@2x.png */,
+				90FDF43A17495366006EF12E /* DeleteGrey.png */,
+				90FDF43B17495366006EF12E /* DeleteGrey@2x.png */,
+				90FDF43C17495366006EF12E /* DeleteRed.png */,
+				90FDF43D17495366006EF12E /* DeleteRed@2x.png */,
+				90FDF43E17495366006EF12E /* HouseStarkSigil.png */,
+				90FDF43F17495366006EF12E /* HouseStarkSigil@2x.png */,
+				90FDF44017495366006EF12E /* jaime.png */,
+				90FDF44117495366006EF12E /* jaime@2x.png */,
+				90FDF44217495366006EF12E /* joffrey.png */,
+				90FDF44317495366006EF12E /* joffrey@2x.png */,
+				90FDF44417495366006EF12E /* NavBarButton.png */,
+				90FDF44517495366006EF12E /* NavBarButton@2x.png */,
+				90FDF44617495366006EF12E /* NavBarButtonPressed.png */,
+				90FDF44717495366006EF12E /* NavBarButtonPressed@2x.png */,
+				90FDF44817495366006EF12E /* NavigationBar.png */,
+				90FDF44917495366006EF12E /* NavigationBar@2x.png */,
+				90FDF44A17495366006EF12E /* tyrion.png */,
+				90FDF44B17495366006EF12E /* tyrion@2x.png */,
+				90FDF44C17495366006EF12E /* tywin.png */,
+				90FDF44D17495366006EF12E /* tywin@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		90FDF484174953E2006EF12E /* RMSwipeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				90FDF47B174953C2006EF12E /* RMSwipeTableViewCell.h */,
+				90FDF47C174953C2006EF12E /* RMSwipeTableViewCell.m */,
+			);
+			name = RMSwipeTableViewCell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		900D154F1661ABEC00900B59 /* RMSwipeTableViewCellDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 900D156E1661ABEC00900B59 /* Build configuration list for PBXNativeTarget "RMSwipeTableViewCellDemo" */;
+			buildPhases = (
+				900D154C1661ABEC00900B59 /* Sources */,
+				900D154D1661ABEC00900B59 /* Frameworks */,
+				900D154E1661ABEC00900B59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RMSwipeTableViewCellDemo;
+			productName = RMSwipeTableView;
+			productReference = 900D15501661ABEC00900B59 /* RMSwipeTableViewCellDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		900D15471661ABEC00900B59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RM;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "The App Boutique";
+			};
+			buildConfigurationList = 900D154A1661ABEC00900B59 /* Build configuration list for PBXProject "RMSwipeTableViewCellDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 900D15451661ABEC00900B59;
+			productRefGroup = 900D15511661ABEC00900B59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				900D154F1661ABEC00900B59 /* RMSwipeTableViewCellDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		900D154E1661ABEC00900B59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90FDF44E17495366006EF12E /* cersei.png in Resources */,
+				90FDF44F17495366006EF12E /* cersei@2x.png in Resources */,
+				90FDF45017495366006EF12E /* CheckmarkGreen.png in Resources */,
+				90FDF45117495366006EF12E /* CheckmarkGreen@2x.png in Resources */,
+				90FDF45217495366006EF12E /* CheckmarkGrey.png in Resources */,
+				90FDF45317495366006EF12E /* CheckmarkGrey@2x.png in Resources */,
+				90FDF45417495366006EF12E /* CheckmarkProfileImage.png in Resources */,
+				90FDF45517495366006EF12E /* CheckmarkProfileImage@2x.png in Resources */,
+				90FDF45617495366006EF12E /* Default-568h@2x.png in Resources */,
+				90FDF45717495366006EF12E /* Default.png in Resources */,
+				90FDF45817495366006EF12E /* Default@2x.png in Resources */,
+				90FDF45917495366006EF12E /* DeleteGrey.png in Resources */,
+				90FDF45A17495366006EF12E /* DeleteGrey@2x.png in Resources */,
+				90FDF45B17495366006EF12E /* DeleteRed.png in Resources */,
+				90FDF45C17495366006EF12E /* DeleteRed@2x.png in Resources */,
+				90FDF45D17495366006EF12E /* HouseStarkSigil.png in Resources */,
+				90FDF45E17495366006EF12E /* HouseStarkSigil@2x.png in Resources */,
+				90FDF45F17495366006EF12E /* jaime.png in Resources */,
+				90FDF46017495366006EF12E /* jaime@2x.png in Resources */,
+				90FDF46117495366006EF12E /* joffrey.png in Resources */,
+				90FDF46217495366006EF12E /* joffrey@2x.png in Resources */,
+				90FDF46317495366006EF12E /* NavBarButton.png in Resources */,
+				90FDF46417495366006EF12E /* NavBarButton@2x.png in Resources */,
+				90FDF46517495366006EF12E /* NavBarButtonPressed.png in Resources */,
+				90FDF46617495366006EF12E /* NavBarButtonPressed@2x.png in Resources */,
+				90FDF46717495366006EF12E /* NavigationBar.png in Resources */,
+				90FDF46817495366006EF12E /* NavigationBar@2x.png in Resources */,
+				90FDF46917495366006EF12E /* tyrion.png in Resources */,
+				90FDF46A17495366006EF12E /* tyrion@2x.png in Resources */,
+				90FDF46B17495366006EF12E /* tywin.png in Resources */,
+				90FDF46C17495366006EF12E /* tywin@2x.png in Resources */,
+				90FDF474174953A3006EF12E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		900D154C1661ABEC00900B59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90FDF47017495387006EF12E /* main.m in Sources */,
+				90FDF47F174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m in Sources */,
+				90FDF480174953C2006EF12E /* RMPersonTableViewCell.m in Sources */,
+				90FDF482174953C2006EF12E /* RMSwipeTableViewCell.m in Sources */,
+				90FDF483174953C2006EF12E /* RMSwipeTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		90FDF472174953A3006EF12E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90FDF473174953A3006EF12E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		900D156C1661ABEC00900B59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		900D156D1661ABEC00900B59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		900D156F1661ABEC00900B59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Info.plist";
+				PRODUCT_NAME = RMSwipeTableViewCellDemo;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		900D15701661ABEC00900B59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Info.plist";
+				PRODUCT_NAME = RMSwipeTableViewCellDemo;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		900D154A1661ABEC00900B59 /* Build configuration list for PBXProject "RMSwipeTableViewCellDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				900D156C1661ABEC00900B59 /* Debug */,
+				900D156D1661ABEC00900B59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		900D156E1661ABEC00900B59 /* Build configuration list for PBXNativeTarget "RMSwipeTableViewCellDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				900D156F1661ABEC00900B59 /* Debug */,
+				900D15701661ABEC00900B59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 900D15471661ABEC00900B59 /* Project object */;
+}
