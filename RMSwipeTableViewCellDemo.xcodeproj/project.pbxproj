@@ -46,8 +46,8 @@
 		90FDF474174953A3006EF12E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF472174953A3006EF12E /* InfoPlist.strings */; };
 		90FDF47F174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF476174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m */; };
 		90FDF480174953C2006EF12E /* RMPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF478174953C2006EF12E /* RMPersonTableViewCell.m */; };
-		90FDF482174953C2006EF12E /* RMSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF47C174953C2006EF12E /* RMSwipeTableViewCell.m */; };
 		90FDF483174953C2006EF12E /* RMSwipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF47E174953C2006EF12E /* RMSwipeTableViewController.m */; };
+		90FDF487174955FD006EF12E /* RMSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF486174955FD006EF12E /* RMSwipeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,10 +95,10 @@
 		90FDF476174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSwipeTableViewCellDemoAppDelegate.m; path = RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemoAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		90FDF477174953C2006EF12E /* RMPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMPersonTableViewCell.h; path = RMSwipeTableViewCellDemo/RMPersonTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		90FDF478174953C2006EF12E /* RMPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMPersonTableViewCell.m; path = RMSwipeTableViewCellDemo/RMPersonTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		90FDF47B174953C2006EF12E /* RMSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSwipeTableViewCell.h; path = RMSwipeTableViewCellDemo/RMSwipeTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		90FDF47C174953C2006EF12E /* RMSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSwipeTableViewCell.m; path = RMSwipeTableViewCellDemo/RMSwipeTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		90FDF47D174953C2006EF12E /* RMSwipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSwipeTableViewController.h; path = RMSwipeTableViewCellDemo/RMSwipeTableViewController.h; sourceTree = SOURCE_ROOT; };
 		90FDF47E174953C2006EF12E /* RMSwipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSwipeTableViewController.m; path = RMSwipeTableViewCellDemo/RMSwipeTableViewController.m; sourceTree = SOURCE_ROOT; };
+		90FDF485174955FD006EF12E /* RMSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSwipeTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		90FDF486174955FD006EF12E /* RMSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSwipeTableViewCell.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,8 +213,8 @@
 		90FDF484174953E2006EF12E /* RMSwipeTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				90FDF47B174953C2006EF12E /* RMSwipeTableViewCell.h */,
-				90FDF47C174953C2006EF12E /* RMSwipeTableViewCell.m */,
+				90FDF485174955FD006EF12E /* RMSwipeTableViewCell.h */,
+				90FDF486174955FD006EF12E /* RMSwipeTableViewCell.m */,
 			);
 			name = RMSwipeTableViewCell;
 			sourceTree = "<group>";
@@ -316,8 +316,8 @@
 				90FDF47017495387006EF12E /* main.m in Sources */,
 				90FDF47F174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m in Sources */,
 				90FDF480174953C2006EF12E /* RMPersonTableViewCell.m in Sources */,
-				90FDF482174953C2006EF12E /* RMSwipeTableViewCell.m in Sources */,
 				90FDF483174953C2006EF12E /* RMSwipeTableViewController.m in Sources */,
+				90FDF487174955FD006EF12E /* RMSwipeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
