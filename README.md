@@ -72,17 +72,17 @@ See the demo for an example of subclassing usage.
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
 ```
 
-#Credit
+##Credit
 
 Developed by Rune Madsen ([@runmad] and [runmad.com]).
 
-#Feedback
+##Feedback
 
 I appreciate feedback. Create Github issues, pull requests or connect with me on Twitter.
 
 I'd love to see and hear from you if you use it in a project.
 
-#License
+##License
 
 `RMSwipeTableViewCell` is available under the MIT license. See the LICENSE file for more info.
 
