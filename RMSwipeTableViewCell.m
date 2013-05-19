@@ -64,7 +64,7 @@
 
 #pragma mark - Gesture recognizer delegate
 
-- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
+-(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
     // We only want to deal with the gesture of it's a pan gesture
     if ([panGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         CGPoint translation = [panGestureRecognizer translationInView:[self superview]];
@@ -166,17 +166,17 @@
     }
 }
 
--(void)cleanup {
-    [_backView removeFromSuperview];
-    _backView = nil;
-}
-
 -(UIView*)backView {
     if (!_backView) {
         _backView = [[UIView alloc] initWithFrame:self.contentView.frame];
         _backView.backgroundColor = self.backViewbackgroundColor;
     }
     return _backView;
+}
+
+-(void)cleanup {
+    [_backView removeFromSuperview];
+    _backView = nil;
 }
 
 @end

@@ -36,8 +36,10 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 
 // exposed class methods for easy subclassing
 -(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer;
+-(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer;
 -(void)animateContentViewForPoint:(CGPoint)translation;
 -(void)resetCellFromPoint:(CGPoint)translation;
+-(UIView*)backView;
 -(void)cleanup;
 
 @end
