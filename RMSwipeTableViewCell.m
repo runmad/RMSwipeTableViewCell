@@ -30,6 +30,7 @@
         self.animationDuration = 0.2f;
         self.shouldAnimateCellReset = YES;
         self.backViewbackgroundColor = [UIColor colorWithWhite:0.92 alpha:1];
+        self.panElasticity = NO;
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
         backgroundView.backgroundColor = [UIColor whiteColor];
@@ -79,13 +80,15 @@
 -(void)animateContentViewForPoint:(CGPoint)translation {
     if ((translation.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || (translation.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
         [self.backgroundView addSubview:self.backView];
-        float drag = 0;
-        if (translation.x < 0) {
-            drag = expf(translation.x / CGRectGetWidth(self.frame)) * translation.x;
-        } else {
-            drag = (1.0 / expf(translation.x / CGRectGetWidth(self.frame))) * translation.x;
+        float panOffset = translation.x;
+        if (self.panElasticity) {
+            if (translation.x < 0) {
+                panOffset = expf(translation.x / CGRectGetWidth(self.frame)) * translation.x;
+            } else {
+                panOffset = (1.0 / expf(translation.x / CGRectGetWidth(self.frame))) * translation.x;
+            }
         }
-        self.contentView.frame = CGRectOffset(self.contentView.bounds, drag, 0);
+        self.contentView.frame = CGRectOffset(self.contentView.bounds, panOffset, 0);
         if ([self.delegate respondsToSelector:@selector(swipeTableViewCell:swipedToLocation:)]) {
             [self.delegate swipeTableViewCell:self swipedToLocation:translation];
         }
@@ -147,7 +150,7 @@
                 option = UIViewAnimationOptionCurveEaseOut;
                 break;
             default:
-                option = UIViewAnimationOptionCurveEaseIn;
+                option = UIViewAnimationOptionCurveEaseOut;
                 break;
         }
         [UIView animateWithDuration:self.animationDuration
