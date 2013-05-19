@@ -25,12 +25,12 @@
         [panGestureRecognizer setDelegate:self];
         [self addGestureRecognizer:panGestureRecognizer];
 
-        self.revealDirection = RMSwipeTableViewCellRevealDirectionRight;
+        self.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
         self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
         self.animationDuration = 0.2f;
         self.shouldAnimateCellReset = YES;
         self.backViewbackgroundColor = [UIColor colorWithWhite:0.92 alpha:1];
-        self.panElasticity = NO;
+        self.panElasticity = YES;
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
         backgroundView.backgroundColor = [UIColor whiteColor];
@@ -50,10 +50,10 @@
 }
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
-    CGPoint translation = [panGestureRecognizer translationInView:self.superview];
+    CGPoint translation = [panGestureRecognizer translationInView:panGestureRecognizer.view];
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan && [panGestureRecognizer numberOfTouches] > 0) {
-        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping:fromTouchLocation:)]) {
-            [self.delegate swipeTableViewCellDidStartSwiping:self fromTouchLocation:translation];
+        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping)]) {
+            [self.delegate swipeTableViewCellDidStartSwiping:self];
         }
         [self animateContentViewForPoint:translation];
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellRevealDirection) {
-    RMSwipeTableViewCellRevealDirectionRight = 0,
-    RMSwipeTableViewCellRevealDirectionLeft = 1,
-    RMSwipeTableViewCellRevealDirectionBoth = 2,
+    RMSwipeTableViewCellRevealDirectionBoth = 0,
+    RMSwipeTableViewCellRevealDirectionRight = 1,
+    RMSwipeTableViewCellRevealDirectionLeft = 2,
 };
 
 typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
@@ -26,8 +26,8 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 @interface RMSwipeTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIView *backView;
-@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionRight
-@property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewCellAnimationTypeBounce.
+@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionBoth
+@property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewCellAnimationTypeBounce
 @property (nonatomic, readwrite) float animationDuration; // default is 0.2
 @property (nonatomic, readwrite) BOOL revealsBackground; // default is NO
 @property (nonatomic, readwrite) BOOL shouldAnimateCellReset; // this can be overriden at any point (useful in the swipeTableViewCellWillResetState:fromLocation: delegate method). default is YES - note: it will reset to YES in prepareForReuse
@@ -47,9 +47,8 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 
 @protocol RMSwipeTableViewCellDelegate <NSObject>
 @optional
--(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell fromTouchLocation:(CGPoint)translation;
+-(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell;
 -(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell swipedToLocation:(CGPoint)translation;
 -(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
--(BOOL)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell shouldAnimateFromLocation:(CGPoint)translation;
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
 @end

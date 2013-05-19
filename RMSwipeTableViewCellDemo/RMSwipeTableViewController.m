@@ -102,8 +102,6 @@
     cell.detailTextLabel.text = [[self.array objectAtIndex:indexPath.row] objectForKey:@"title"];
     [cell setThumbnail:[UIImage imageNamed:[[self.array objectAtIndex:indexPath.row] objectForKey:@"image"]]];
     cell.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
-//    cell.animationType = RMSwipeTableViewCellAnimationTypeEaseInOut;
-//    cell.animationDuration = 0.3;
     [cell setFavourite:[[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] animated:NO];
     cell.delegate = self;
     
