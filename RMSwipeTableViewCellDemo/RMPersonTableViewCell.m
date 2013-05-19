@@ -95,6 +95,9 @@
 	self.accessoryView = nil;
 	self.accessoryType = UITableViewCellAccessoryNone;
     [self.contentView setHidden:NO];
+    [_checkmarkProfileImageView removeFromSuperview];
+    _checkmarkProfileImageView = nil;
+    [self cleanupBackView];
 }
 
 -(void)layoutSubviews {
@@ -147,7 +150,7 @@
             [self.profileImageView.layer setBorderColor:[UIColor colorWithRed:0.149 green:0.784 blue:0.424 alpha:0.750].CGColor];
         } else {
             [self.checkmarkProfileImageView setAlpha:0];
-            [self.checkmarkProfileImageView removeFromSuperview];
+            [_checkmarkProfileImageView removeFromSuperview];
             [self.profileImageView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
         }
     }
@@ -200,15 +203,15 @@
     }
 }
 
--(void)cleanup {
-    [super cleanup];
-    [self.checkmarkGreyImageView removeFromSuperview];
+-(void)cleanupBackView {
+    [super cleanupBackView];
+    [_checkmarkGreyImageView removeFromSuperview];
     _checkmarkGreyImageView = nil;
-    [self.checkmarkGreenImageView removeFromSuperview];
+    [_checkmarkGreenImageView removeFromSuperview];
     _checkmarkGreenImageView = nil;
-    [self.deleteGreyImageView removeFromSuperview];
+    [_deleteGreyImageView removeFromSuperview];
     _deleteGreyImageView = nil;
-    [self.deleteRedImageView removeFromSuperview];
+    [_deleteRedImageView removeFromSuperview];
     _deleteRedImageView = nil;
 }
 
