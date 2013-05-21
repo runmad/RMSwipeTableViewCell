@@ -1,10 +1,14 @@
 #RMSwipeTableViewCell
 
-`RMSwipeTableViewCell` is a drop-in `UITableViewCell` that supports pan gestures as seen in apps such as Clear, Mailbox, Sparrow and many more.
+`RMSwipeTableViewCell` is a drop-in `UITableViewCell` subclass that supports pan gestures as seen in apps such as Clear, Mailbox, Sparrow and many more.
 
 `RMSwipeTableViewCell` allows for easy subclassing to customize the cell to match your needs. The class exposes useful class methods and uses delegate callbacks to handle actions in your `UITableViewController`.
 
 `RMSwipeTableViewCell` works great out of the box, but has many properties to customize how the user interacts with the cell.
+
+![RMSwipeTableViewCellDemo Screenshot](http://www.runmad.com/development/RMSwipeTableViewCellDemoScreenshot.png)
+
+[Video example]
 
 ##Installing `RMSwipeTableViewCell`
 
@@ -86,5 +90,6 @@ I'd love to see and hear from you if you use it in a project.
 
 `RMSwipeTableViewCell` is available under the MIT license. See the LICENSE file for more info.
 
+[Video example]: http://www.runmad.com/development/RMTableViewSwipeDemoVideo.mp4
 [@runmad]: http://www.twitter.com/runmad
 [runmad.com]: http://www.runmad.com
