@@ -38,8 +38,8 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 // exposed class methods for easy subclassing
 -(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer;
 -(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer;
--(void)animateContentViewForPoint:(CGPoint)translation;
--(void)resetCellFromPoint:(CGPoint)translation;
+-(void)animateContentViewForPoint:(CGPoint)translation velocity:(CGPoint)velocity;
+-(void)resetCellFromPoint:(CGPoint)translation velocity:(CGPoint)velocity;
 -(UIView*)backView;
 -(void)cleanupBackView;
 
@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 @protocol RMSwipeTableViewCellDelegate <NSObject>
 @optional
 -(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell;
--(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell swipedToLocation:(CGPoint)translation;
--(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
--(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation;
+-(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell swipedToLocation:(CGPoint)translation velocity:(CGPoint)velocity;
+-(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
+-(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
 @end
