@@ -156,8 +156,8 @@
     }
 }
 
--(void)animateContentViewForPoint:(CGPoint)translation {
-    [super animateContentViewForPoint:translation];
+-(void)animateContentViewForPoint:(CGPoint)translation velocity:(CGPoint)velocity {
+    [super animateContentViewForPoint:translation velocity:velocity];
     if (translation.x > 0) {
         [self.checkmarkGreyImageView setFrame:CGRectMake(MIN(CGRectGetMinX(self.contentView.frame) - CGRectGetWidth(self.checkmarkGreyImageView.frame), 0), CGRectGetMinY(self.checkmarkGreyImageView.frame), CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetHeight(self.checkmarkGreyImageView.frame))];
         if (self.contentView.frame.origin.x > CGRectGetWidth(self.checkmarkGreyImageView.frame) && self.isFavourite == NO) {
@@ -188,8 +188,8 @@
     }
 }
 
--(void)resetCellFromPoint:(CGPoint)translation {
-    [super resetCellFromPoint:translation];
+-(void)resetCellFromPoint:(CGPoint)translation velocity:(CGPoint)velocity {
+    [super resetCellFromPoint:translation velocity:velocity];
     if (translation.x > 0 && translation.x < CGRectGetHeight(self.frame) * 1.5) {
         [UIView animateWithDuration:0.2
                          animations:^{

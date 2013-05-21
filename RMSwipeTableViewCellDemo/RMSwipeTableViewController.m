@@ -116,13 +116,13 @@
 
 #pragma mark - Swipe Table View Cell Delegate
 
--(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell *)swipeTableViewCell fromTouchLocation:(CGPoint)translation {
+-(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell *)swipeTableViewCell {
 }
 
--(void)swipeTableViewCell:(RMSwipeTableViewCell *)swipeTableViewCell swipedToLocation:(CGPoint)translation {
+-(void)swipeTableViewCell:(RMSwipeTableViewCell *)swipeTableViewCell swipedToLocation:(CGPoint)translation velocity:(CGPoint)velocity {
 }
 
--(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation {
+-(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity {
     if (translation.x < (-self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionRight)) {
         swipeTableViewCell.shouldAnimateCellReset = NO;
         [[(RMPersonTableViewCell*)swipeTableViewCell checkmarkGreyImageView] removeFromSuperview];
@@ -144,7 +144,7 @@
     }
 }
 
--(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation withAnimation:(RMSwipeTableViewCellAnimationType)animation {
+-(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity {
     if (translation.x > (self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionLeft)) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         if ([[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue]) {
