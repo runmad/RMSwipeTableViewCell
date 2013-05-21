@@ -44,7 +44,7 @@ The `RMSwipeTableViewCellDemo` project provides an example of subclassing and cu
 ```Objective-C
 UIView *backView;
 RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionBoth
-RMSwipeTableViewCellAnimationType animationType; // default is     RMSwipeTableViewCellAnimationTypeBounce
+RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewCellAnimationTypeBounce
 float animationDuration; // default is 0.2
 BOOL revealsBackground; // default is NO
 BOOL shouldAnimateCellReset; // this can be overriden at any point (useful in the swipeTableViewCellWillResetState:fromLocation: delegate method). default is YES - note: it will reset to YES in prepareForReuse
