@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "900D154F1661ABEC00900B59"
-               BuildableName = "RMSwipeTableView.app"
+               BuildableName = "RMSwipeTableViewCellDemo.app"
                BlueprintName = "RMSwipeTableViewCellDemo"
                ReferencedContainer = "container:RMSwipeTableViewCellDemo.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "900D154F1661ABEC00900B59"
-            BuildableName = "RMSwipeTableView.app"
+            BuildableName = "RMSwipeTableViewCellDemo.app"
             BlueprintName = "RMSwipeTableViewCellDemo"
             ReferencedContainer = "container:RMSwipeTableViewCellDemo.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "900D154F1661ABEC00900B59"
-            BuildableName = "RMSwipeTableView.app"
+            BuildableName = "RMSwipeTableViewCellDemo.app"
             BlueprintName = "RMSwipeTableViewCellDemo"
             ReferencedContainer = "container:RMSwipeTableViewCellDemo.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "900D154F1661ABEC00900B59"
-            BuildableName = "RMSwipeTableView.app"
+            BuildableName = "RMSwipeTableViewCellDemo.app"
             BlueprintName = "RMSwipeTableViewCellDemo"
             ReferencedContainer = "container:RMSwipeTableViewCellDemo.xcodeproj">
          </BuildableReference>
