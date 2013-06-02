@@ -81,13 +81,12 @@
 -(void)animateContentViewForPoint:(CGPoint)translation velocity:(CGPoint)velocity {
     if ((translation.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || (translation.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
         [self.backgroundView addSubview:self.backView];
-        float panOffset = translation.x;
+        CGFloat panOffset = translation.x;
         if (self.panElasticity) {
-            if (translation.x < 0) {
-                panOffset = expf(translation.x / CGRectGetWidth(self.frame)) * translation.x;
-            } else {
-                panOffset = (1.0 / expf(translation.x / CGRectGetWidth(self.frame))) * translation.x;
-            }
+            CGFloat width = CGRectGetWidth(self.frame);
+            CGFloat offset = abs(translation.x);         
+            panOffset = (offset * 0.55f * width) / (offset * 0.55f + width);
+            panOffset *= translation.x < 0 ? -1.0f : 1.0f;
         }
         self.contentView.frame = CGRectOffset(self.contentView.bounds, panOffset, 0);
         if ([self.delegate respondsToSelector:@selector(swipeTableViewCell:swipedToLocation:velocity:)]) {
