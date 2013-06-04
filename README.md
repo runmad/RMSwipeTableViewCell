@@ -16,7 +16,7 @@
 
 Add the following to your Podfile.
 
-```Objective-C
+```ruby
 pod 'RMSwipeTableViewCell'
 ```
 
