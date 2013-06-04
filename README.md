@@ -28,7 +28,7 @@ Add `RMSwipeTableViewCell.h` and `RMSwipeTableViewCell.m` to your project. Impor
 
 ```Objective-C
 #import "RMSwipeTableViewCell.h"
-// add <RMSwipeTableViewCellDelegate> in your header file if you want to received delegate callbacks on the cell interactions
+// add <RMSwipeTableViewCellDelegate> in your header file if you want to receive delegate callbacks on cell interactions
 
 -(void)viewDidLoad {
     [super viewDidLoad];
