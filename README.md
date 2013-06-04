@@ -12,6 +12,18 @@
 
 ##Installing `RMSwipeTableViewCell`
 
+###Using CocoaPods
+
+Add the following to your Podfile.
+
+```Objective-C
+pod 'RMSwipeTableViewCell'
+```
+
+###Manually
+
+Clone the repository to your machine or add `RMSwipeTableViewCell` as a submodule to your project.
+
 Add `RMSwipeTableViewCell.h` and `RMSwipeTableViewCell.m` to your project. Import the class header and register the cell class in your `UITableView`.
 
 ```Objective-C
