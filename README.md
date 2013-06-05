@@ -32,22 +32,12 @@ Add `RMSwipeTableViewCell.h` and `RMSwipeTableViewCell.m` to your project. Impor
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
     [self.tableView registerClass:[RMSwipeTableViewCell class] forCellReuseIdentifier:CellIdentifier];
-#endif
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-    RMPersonTableViewCell *cell;
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
-    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[RMPersonTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-#else
-    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-#endif
+    RMSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.delegate = self; // optional
     return cell;
 }
