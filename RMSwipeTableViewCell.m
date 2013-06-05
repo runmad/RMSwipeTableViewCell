@@ -53,7 +53,7 @@
     CGPoint translation = [panGestureRecognizer translationInView:panGestureRecognizer.view];
     CGPoint velocity = [panGestureRecognizer velocityInView:panGestureRecognizer.view];
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan && [panGestureRecognizer numberOfTouches] > 0) {
-        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping)]) {
+        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping:)]) {
             [self.delegate swipeTableViewCellDidStartSwiping:self];
         }
         [self animateContentViewForPoint:translation velocity:velocity];
