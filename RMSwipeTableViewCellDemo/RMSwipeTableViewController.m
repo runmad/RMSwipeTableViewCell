@@ -19,9 +19,11 @@
     self = [super initWithStyle:style];
     if (self) {
         [self.navigationItem setTitle:@"House Lannister"];
-        
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
         static NSString *CellIdentifier = @"Cell";
         [self.tableView registerClass:[RMPersonTableViewCell class] forCellReuseIdentifier:CellIdentifier];
+#endif
         [self.tableView setRowHeight:64];
         
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(resetTableView)];
@@ -96,7 +98,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    RMPersonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    RMPersonTableViewCell *cell;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[RMPersonTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+#else
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+#endif
     
     cell.textLabel.text = [[self.array objectAtIndex:indexPath.row] objectForKey:@"name"];
     cell.detailTextLabel.text = [[self.array objectAtIndex:indexPath.row] objectForKey:@"title"];
