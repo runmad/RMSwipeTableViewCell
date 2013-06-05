@@ -105,7 +105,7 @@
     if ((self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft && translation.x < 0) || (self.revealDirection == RMSwipeTableViewCellRevealDirectionRight && translation.x > 0)) {
         return;
     }
-    if (self.animationType == RMSwipeTableViewCellAnimationTypeBounce) {        
+    if (self.animationType == RMSwipeTableViewCellAnimationTypeBounce) {
         [UIView animateWithDuration:self.animationDuration
                               delay:0
                             options:UIViewAnimationOptionCurveEaseIn
@@ -138,24 +138,9 @@
                          }
          ];
     } else {
-        UIViewAnimationOptions option;
-        switch (self.animationType) {
-            case RMSwipeTableViewCellAnimationTypeEaseInOut:
-                option = UIViewAnimationOptionCurveEaseInOut;
-                break;
-            case RMSwipeTableViewCellAnimationTypeEaseIn:
-                option = UIViewAnimationOptionCurveEaseIn;
-                break;
-            case RMSwipeTableViewCellAnimationTypeEaseOut:
-                option = UIViewAnimationOptionCurveEaseOut;
-                break;
-            default:
-                option = UIViewAnimationOptionCurveEaseOut;
-                break;
-        }
         [UIView animateWithDuration:self.animationDuration
                               delay:0
-                            options:option
+                            options:self.animationType
                          animations:^{
                              self.contentView.frame = CGRectOffset(self.contentView.bounds, 0, 0);
                          }

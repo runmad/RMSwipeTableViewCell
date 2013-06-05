@@ -15,10 +15,11 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellRevealDirection) {
 };
 
 typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
-    RMSwipeTableViewCellAnimationTypeBounce = 0,
-    RMSwipeTableViewCellAnimationTypeEaseIn,
-    RMSwipeTableViewCellAnimationTypeEaseOut,
-    RMSwipeTableViewCellAnimationTypeEaseInOut,
+    RMSwipeTableViewCellAnimationTypeEaseInOut            = 0 << 16,
+    RMSwipeTableViewCellAnimationTypeEaseIn               = 1 << 16,
+    RMSwipeTableViewCellAnimationTypeEaseOut              = 2 << 16,
+    RMSwipeTableViewCellAnimationTypeEaseLinear           = 3 << 16,
+    RMSwipeTableViewCellAnimationTypeBounce               = 4 << 16, // default
 };
 
 @protocol RMSwipeTableViewCellDelegate;
