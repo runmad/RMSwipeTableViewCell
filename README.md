@@ -12,6 +12,8 @@
 
 ##Installing `RMSwipeTableViewCell`
 
+The example below and demo assumes you're compiling for iOS 6+. If you're supporting an older version of iOS use the appropriate methods for initializing and dequeuing the cells. `RMSwipeTableViewCell` is 100% compatible with iOS 5 and above.
+
 ###Using CocoaPods
 
 Add the following to your Podfile.
@@ -59,8 +61,8 @@ RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableV
 RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewCellAnimationTypeBounce
 float animationDuration; // default is 0.2
 BOOL revealsBackground; // default is NO
-BOOL shouldAnimateCellReset; // this can be overriden at any point (useful in the swipeTableViewCellWillResetState:fromLocation: delegate method). default is YES - note: it will reset to YES in prepareForReuse
-BOOL panElasticity; // When panning/swiping the cell's location is set to exponentially decay. The elsticity/stickiness closely matches that of a UIScrollView/UITableView. default is YES
+BOOL shouldAnimateCellReset; // this can be overridden at any point (useful in the swipeTableViewCellWillResetState:fromLocation: delegate method). default is YES - note: it will reset to YES in prepareForReuse
+BOOL panElasticity; // When panning/swiping the cell's location is set to exponentially decay. The rubber banding matches that of a UIScrollView/UITableView. default is YES
 UIColor *backViewbackgroundColor; // default is [UIColor colorWithWhite:0.92 alpha:1]
 ```
 
