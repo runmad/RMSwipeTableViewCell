@@ -62,7 +62,7 @@
         _checkmarkProfileImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CheckmarkProfileImage"]];
         [_checkmarkProfileImageView setFrame:CGRectMake(CGRectGetMaxX(self.profileImageView.frame) - 10 - CGRectGetWidth(_checkmarkProfileImageView.frame), CGRectGetMaxY(self.profileImageView.frame) - 10 - CGRectGetHeight(_checkmarkProfileImageView.frame), CGRectGetWidth(_checkmarkProfileImageView.frame), CGRectGetHeight(_checkmarkProfileImageView.frame))];
     }
-    return _checkmarkGreenImageView;
+    return _checkmarkProfileImageView;
 }
 
 -(UIImageView*)deleteGreyImageView {
