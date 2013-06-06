@@ -12,7 +12,7 @@
 
 ##Installing `RMSwipeTableViewCell`
 
-The example below and demo assumes you're compiling for iOS 6+. If you're supporting an older version of iOS use the appropriate methods for initializing and dequeuing the cells. `RMSwipeTableViewCell` is 100% compatible with iOS 5 and above.
+The example below and demo assumes you're compiling for iOS 6+. If you're supporting an older version of iOS use the appropriate methods for initializing and dequeuing the cells. `RMSwipeTableViewCell` is compatible with iOS 5 and above.
 
 ###Using CocoaPods
 
@@ -76,7 +76,7 @@ See the demo for an example of subclassing usage.
 
 `RMSwipeTableViewCell` has a number of (optional) delegate methods that provide an extensive. The delegate methods are fairly verbose and the demo project shows a few examples of usage.
 
-All delegate methods that returns the CGPoint location takes into account the panOffset value (panOffset is actual location of the contentView vs. the actual translation of the touch location).
+All delegate methods that return the CGPoint location take into account the panOffset value (panOffset is actual location of the contentView vs. the translation value of the touch location).
 
 ```Objective-C
 // notifies the delegate when the user starts panning
