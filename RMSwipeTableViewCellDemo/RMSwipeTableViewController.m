@@ -8,14 +8,15 @@
 
 #import "RMSwipeTableViewController.h"
 
+#define LOG_DELEGATE_METHODS 0
+
 @interface RMSwipeTableViewController ()
 
 @end
 
 @implementation RMSwipeTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         [self.navigationItem setTitle:@"House Lannister"];
@@ -117,13 +118,22 @@
 #pragma mark - Swipe Table View Cell Delegate
 
 -(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell *)swipeTableViewCell {
+#if LOG_DELEGATE_METHODS
+    NSLog(@"swipeTableViewCellDidStartSwiping: %@", swipeTableViewCell);
+#endif
 }
 
--(void)swipeTableViewCell:(RMSwipeTableViewCell *)swipeTableViewCell swipedToLocation:(CGPoint)translation velocity:(CGPoint)velocity {
+-(void)swipeTableViewCell:(RMPersonTableViewCell *)swipeTableViewCell didSwipeToPoint:(CGPoint)point velocity:(CGPoint)velocity {
+#if LOG_DELEGATE_METHODS
+    NSLog(@"swipeTableViewCell: %@ didSwipeToPoint: %@ velocity: %@", swipeTableViewCell, NSStringFromCGPoint(point), NSStringFromCGPoint(velocity));
+#endif
 }
 
--(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity {
-    if (translation.x < (-self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionRight)) {
+-(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity {
+#if LOG_DELEGATE_METHODS
+    NSLog(@"swipeTableViewCellWillResetState: %@ fromPoint: %@ animation: %d, velocity: %@", swipeTableViewCell, NSStringFromCGPoint(point), animation, NSStringFromCGPoint(velocity));
+#endif
+    if (point.x < 0 && -point.x > CGRectGetHeight(swipeTableViewCell.frame)) {
         swipeTableViewCell.shouldAnimateCellReset = NO;
         [[(RMPersonTableViewCell*)swipeTableViewCell checkmarkGreyImageView] removeFromSuperview];
         [UIView animateWithDuration:0.25
@@ -144,8 +154,11 @@
     }
 }
 
--(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity {
-    if (translation.x > (self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionLeft)) {
+-(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity {
+#if LOG_DELEGATE_METHODS
+    NSLog(@"swipeTableViewCellDidResetState: %@ fromPoint: %@ animation: %d, velocity: %@", swipeTableViewCell, NSStringFromCGPoint(point), animation, NSStringFromCGPoint(velocity));
+#endif
+    if (point.x > CGRectGetHeight(swipeTableViewCell.frame)) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         if ([[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue]) {
             [[self.array objectAtIndex:indexPath.row] setObject:@NO forKey:@"isFavourite"];
@@ -153,7 +166,7 @@
             [[self.array objectAtIndex:indexPath.row] setObject:@YES forKey:@"isFavourite"];
         }
         [(RMPersonTableViewCell*)swipeTableViewCell setFavourite:[[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] animated:YES];
-    } else if (translation.x < (-self.tableView.rowHeight * 1.5) && (swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionBoth || swipeTableViewCell.revealDirection == RMSwipeTableViewCellRevealDirectionRight)) {
+    } else if (point.x < 0 && -point.x > CGRectGetHeight(swipeTableViewCell.frame)) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         [self.array removeObjectAtIndex:indexPath.row];
         [self.tableView beginUpdates];

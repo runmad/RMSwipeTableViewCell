@@ -52,15 +52,23 @@
 -(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
     CGPoint translation = [panGestureRecognizer translationInView:panGestureRecognizer.view];
     CGPoint velocity = [panGestureRecognizer velocityInView:panGestureRecognizer.view];
+    CGFloat panOffset = translation.x;
+    if (self.panElasticity) {
+        CGFloat width = CGRectGetWidth(self.frame);
+        CGFloat offset = abs(translation.x);
+        panOffset = (offset * 0.55f * width) / (offset * 0.55f + width);
+        panOffset *= translation.x < 0 ? -1.0f : 1.0f;
+    }
+    CGPoint actualTranslation = CGPointMake(panOffset, translation.y);
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan && [panGestureRecognizer numberOfTouches] > 0) {
         if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping:)]) {
             [self.delegate swipeTableViewCellDidStartSwiping:self];
         }
-        [self animateContentViewForPoint:translation velocity:velocity];
+        [self animateContentViewForPoint:actualTranslation velocity:velocity];
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
-        [self animateContentViewForPoint:translation velocity:velocity];
+        [self animateContentViewForPoint:actualTranslation velocity:velocity];
 	} else if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-		[self resetCellFromPoint:translation  velocity:velocity];
+		[self resetCellFromPoint:actualTranslation  velocity:velocity];
 	}
 }
 
@@ -78,31 +86,24 @@
 
 #pragma mark - Gesture animations 
 
--(void)animateContentViewForPoint:(CGPoint)translation velocity:(CGPoint)velocity {
-    if ((translation.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || (translation.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
+-(void)animateContentViewForPoint:(CGPoint)point velocity:(CGPoint)velocity {
+    if ((point.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || (point.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
         [self.backgroundView addSubview:self.backView];
-        CGFloat panOffset = translation.x;
-        if (self.panElasticity) {
-            CGFloat width = CGRectGetWidth(self.frame);
-            CGFloat offset = abs(translation.x);         
-            panOffset = (offset * 0.55f * width) / (offset * 0.55f + width);
-            panOffset *= translation.x < 0 ? -1.0f : 1.0f;
-        }
-        self.contentView.frame = CGRectOffset(self.contentView.bounds, panOffset, 0);
-        if ([self.delegate respondsToSelector:@selector(swipeTableViewCell:swipedToLocation:velocity:)]) {
-            [self.delegate swipeTableViewCell:self swipedToLocation:translation velocity:velocity];
+        self.contentView.frame = CGRectOffset(self.contentView.bounds, point.x, 0);
+        if ([self.delegate respondsToSelector:@selector(swipeTableViewCell:didSwipeToPoint:velocity:)]) {
+            [self.delegate swipeTableViewCell:self didSwipeToPoint:point velocity:velocity];
         }
     }
 }
 
--(void)resetCellFromPoint:(CGPoint)translation velocity:(CGPoint)velocity {
-    if ([self.delegate respondsToSelector:@selector(swipeTableViewCellWillResetState:fromLocation:animation:velocity:)]) {
-        [self.delegate swipeTableViewCellWillResetState:self fromLocation:translation animation:self.animationType velocity:velocity];
+-(void)resetCellFromPoint:(CGPoint)point velocity:(CGPoint)velocity {
+    if ([self.delegate respondsToSelector:@selector(swipeTableViewCellWillResetState:fromPoint:animation:velocity:)]) {
+        [self.delegate swipeTableViewCellWillResetState:self fromPoint:point animation:self.animationType velocity:velocity];
     }
     if (self.shouldAnimateCellReset == NO) {
         return;
     }
-    if ((self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft && translation.x < 0) || (self.revealDirection == RMSwipeTableViewCellRevealDirectionRight && translation.x > 0)) {
+    if ((self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft && point.x < 0) || (self.revealDirection == RMSwipeTableViewCellRevealDirectionRight && point.x > 0)) {
         return;
     }
     if (self.animationType == RMSwipeTableViewCellAnimationTypeBounce) {
@@ -110,14 +111,14 @@
                               delay:0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 - (translation.x * 0.03), 0);
+                             self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 - (point.x * 0.03), 0);
                          }
                          completion:^(BOOL finished) {
                              [UIView animateWithDuration:0.1
                                                    delay:0
                                                  options:UIViewAnimationOptionCurveEaseInOut
                                               animations:^{
-                                                  self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 + (translation.x * 0.02), 0);
+                                                  self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 + (point.x * 0.02), 0);
                                               }
                                               completion:^(BOOL finished) {
                                                   [UIView animateWithDuration:0.1
@@ -128,8 +129,8 @@
                                                                    }
                                                                    completion:^(BOOL finished) {
                                                                        [self cleanupBackView];
-                                                                       if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:animation:velocity:)]) {
-                                                                           [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation animation:self.animationType velocity:velocity];
+                                                                       if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromPoint:animation:velocity:)]) {
+                                                                           [self.delegate swipeTableViewCellDidResetState:self fromPoint:point animation:self.animationType velocity:velocity];
                                                                        }
                                                                    }
                                                    ];
@@ -145,10 +146,10 @@
                              self.contentView.frame = CGRectOffset(self.contentView.bounds, 0, 0);
                          }
                          completion:^(BOOL finished) {
-                             if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromLocation:animation:velocity:)]) {
-                                 [self.delegate swipeTableViewCellDidResetState:self fromLocation:translation animation:self.animationType velocity:velocity];
-                             }
                              [self cleanupBackView];
+                             if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromPoint:animation:velocity:)]) {
+                                 [self.delegate swipeTableViewCellDidResetState:self fromPoint:point animation:self.animationType velocity:velocity];
+                             }
                          }
          ];
     }

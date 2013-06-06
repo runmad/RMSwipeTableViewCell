@@ -39,8 +39,8 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 // exposed class methods for easy subclassing
 -(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer;
 -(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer;
--(void)animateContentViewForPoint:(CGPoint)translation velocity:(CGPoint)velocity;
--(void)resetCellFromPoint:(CGPoint)translation velocity:(CGPoint)velocity;
+-(void)animateContentViewForPoint:(CGPoint)point velocity:(CGPoint)velocity;
+-(void)resetCellFromPoint:(CGPoint)point velocity:(CGPoint)velocity;
 -(UIView*)backView;
 -(void)cleanupBackView;
 
@@ -49,7 +49,16 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 @protocol RMSwipeTableViewCellDelegate <NSObject>
 @optional
 -(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell;
--(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell swipedToLocation:(CGPoint)translation velocity:(CGPoint)velocity;
--(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
--(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
+-(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell didSwipeToPoint:(CGPoint)point velocity:(CGPoint)velocity;
+-(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
+-(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
+
+/*
+//  DEPRECATED DELEGATE METHODS:
+//  These have been deprecated in favour of delegate methods that take the panOffset into account
+*/
+-(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell swipedToLocation:(CGPoint)translation velocity:(CGPoint)velocity __attribute__((deprecated("Use swipeTableViewCell:didSwipeToPoint:velocity:")));
+-(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity __attribute__((deprecated("Use swipeTableViewCellWillResetState:fromPoint:animation:velocity:")));
+-(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity __attribute__((deprecated("swipeTableViewCellDidResetState:fromPoint:animation:velocity:")));
+
 @end

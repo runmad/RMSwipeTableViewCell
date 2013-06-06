@@ -156,15 +156,15 @@
     }
 }
 
--(void)animateContentViewForPoint:(CGPoint)translation velocity:(CGPoint)velocity {
-    [super animateContentViewForPoint:translation velocity:velocity];
-    if (translation.x > 0) {
+-(void)animateContentViewForPoint:(CGPoint)point velocity:(CGPoint)velocity {
+    [super animateContentViewForPoint:point velocity:velocity];
+    if (point.x > 0) {
         [self.checkmarkGreyImageView setFrame:CGRectMake(MIN(CGRectGetMinX(self.contentView.frame) - CGRectGetWidth(self.checkmarkGreyImageView.frame), 0), CGRectGetMinY(self.checkmarkGreyImageView.frame), CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetHeight(self.checkmarkGreyImageView.frame))];
-        if (self.contentView.frame.origin.x > CGRectGetWidth(self.checkmarkGreyImageView.frame) && self.isFavourite == NO) {
+        if (point.x > CGRectGetHeight(self.frame) && self.isFavourite == NO) {
             [self.checkmarkGreenImageView setAlpha:1];
         } else if (self.isFavourite == NO) {
             [self.checkmarkGreenImageView setAlpha:0];
-        } else if (self.contentView.frame.origin.x > CGRectGetWidth(self.checkmarkGreyImageView.frame) && self.isFavourite == YES) {
+        } else if (point.x > CGRectGetHeight(self.frame) && self.isFavourite == YES) {
             if (self.checkmarkGreyImageView.alpha == 1) {
                 [UIView animateWithDuration:0.25
                                  animations:^{
@@ -178,9 +178,9 @@
             [self.checkmarkGreenImageView.layer setTransform:CATransform3DTranslate(rotate, 0, 0, 0)];
             [self.checkmarkGreenImageView setAlpha:1];
         }
-    } else if (translation.x < 0) {
+    } else if (point.x < 0) {
         [self.deleteGreyImageView setFrame:CGRectMake(MAX(CGRectGetMaxX(self.frame) - CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetMaxX(self.contentView.frame)), CGRectGetMinY(self.deleteGreyImageView.frame), CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetHeight(self.deleteGreyImageView.frame))];
-        if (CGRectGetMaxX(self.contentView.frame) < CGRectGetMaxX(self.frame) - CGRectGetWidth(self.deleteGreyImageView.frame)) {
+        if (-point.x > CGRectGetHeight(self.frame)) {
             [self.deleteRedImageView setAlpha:1];
         } else {
             [self.deleteRedImageView setAlpha:0];
@@ -188,18 +188,28 @@
     }
 }
 
--(void)resetCellFromPoint:(CGPoint)translation velocity:(CGPoint)velocity {
-    [super resetCellFromPoint:translation velocity:velocity];
-    if (translation.x > 0 && translation.x < CGRectGetHeight(self.frame) * 1.5) {
-        [UIView animateWithDuration:0.2
+-(void)resetCellFromPoint:(CGPoint)point velocity:(CGPoint)velocity {
+    [super resetCellFromPoint:point velocity:velocity];
+    if (point.x > 0 && point.x < CGRectGetHeight(self.frame)) {
+        [UIView animateWithDuration:self.animationDuration
                          animations:^{
                              [self.checkmarkGreyImageView setFrame:CGRectMake(-CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetMinY(self.checkmarkGreyImageView.frame), CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetHeight(self.checkmarkGreyImageView.frame))];
                          }];
-    } else if (translation.x < 0) {
-        [UIView animateWithDuration:0.2
-                         animations:^{
-                             [self.deleteGreyImageView setFrame:CGRectMake(CGRectGetMaxX(self.frame), CGRectGetMinY(self.deleteGreyImageView.frame), CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetHeight(self.deleteGreyImageView.frame))];
-                         }];
+    } else if (point.x < 0) {
+        if (-point.x < CGRectGetHeight(self.frame)) {
+            [UIView animateWithDuration:self.animationDuration
+                             animations:^{
+                                 [self.deleteGreyImageView setFrame:CGRectMake(CGRectGetMaxX(self.frame), CGRectGetMinY(self.deleteGreyImageView.frame), CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetHeight(self.deleteGreyImageView.frame))];
+                             }];
+        } else {
+            [UIView animateWithDuration:self.animationDuration
+                             animations:^{
+                                 [self.deleteGreyImageView.layer setTransform:CATransform3DMakeScale(2, 2, 2)];
+                                 [self.deleteGreyImageView setAlpha:0];
+                                 [self.deleteRedImageView.layer setTransform:CATransform3DMakeScale(2, 2, 2)];
+                                 [self.deleteRedImageView setAlpha:0];
+                             }];
+        }
     }
 }
 
