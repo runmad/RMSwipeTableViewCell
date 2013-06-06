@@ -74,7 +74,7 @@ See the demo for an example of subclassing usage.
 
 ##`RMSwipeTableViewCell` Delegate Methods
 
-`RMSwipeTableViewCell` has a number of (optional) delegate methods that provide an extensive. The delegate methods are fairly verbose and the demo project shows a few examples of usage.
+`RMSwipeTableViewCell` has a number of (optional) delegate methods that provide easy extensibility for subclassing and controlling cell functionality. The delegate methods are straightforward and the demo project shows a few examples of usage.
 
 All delegate methods that return the CGPoint location take into account the panOffset value (panOffset is actual location of the contentView vs. the translation value of the touch location).
 
