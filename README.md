@@ -76,18 +76,20 @@ See the demo for an example of subclassing usage.
 
 `RMSwipeTableViewCell` has a number of (optional) delegate methods that provide an extensive. The delegate methods are fairly verbose and the demo project shows a few examples of usage.
 
+All delegate methods that returns the CGPoint location takes into account the panOffset value (panOffset is actual location of the contentView vs. the actual translation of the touch location).
+
 ```Objective-C
 // notifies the delegate when the user starts panning
 -(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell*)swipeTableViewCell;
 
 // notifies the delegate when the panning location changes
--(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell swipedToLocation:(CGPoint)translation velocity:(CGPoint)velocity;
+-(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell didSwipeToPoint:(CGPoint)point velocity:(CGPoint)velocity;
 
 // notifies the delegate when the user lifts their finger from the screen and cell will reset
--(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
+-(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
 
 // notifies the delegate when the cell has reset itself back to its starting state. This is useful for doing further animation or updates on the cell after the reset animation has completed
--(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromLocation:(CGPoint)translation animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
+-(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
 ```
 
 ##Credit
