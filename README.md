@@ -8,9 +8,7 @@
 
 ![RMSwipeTableViewCellDemo Animation](https://raw.github.com/runmad/RMSwipeTableViewCell/master/RMTableViewCellDemoAnimation.gif)
 
-![RMSwipeTableViewCellDemo Screenshot](https://raw.github.com/runmad/RMSwipeTableViewCell/master/RMSwipeTableViewCellDemoScreenshot.png)
-
-[Video example]
+[High Quality Video Example]
 
 ##Installing `RMSwipeTableViewCell`
 
@@ -108,6 +106,6 @@ I'd love to see and hear from you if you use it in a project.
 
 `RMSwipeTableViewCell` is available under the MIT license. See the LICENSE file for more info.
 
-[Video example]: http://www.runmad.com/development/RMTableViewSwipeDemoVideo.mp4
+[Video example]: http://www.runmad.com/development/RMTableViewCellDemoVideo.mp4
 [@runmad]: http://www.twitter.com/runmad
 [runmad.com]: http://www.runmad.com
