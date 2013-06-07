@@ -6,7 +6,9 @@
 
 `RMSwipeTableViewCell` works great out of the box, but has many properties to customize how the user interacts with the cell.
 
-![RMSwipeTableViewCellDemo Screenshot](http://www.runmad.com/development/RMSwipeTableViewCellDemoScreenshot.png)
+![RMSwipeTableViewCellDemo Animation](https://github.com/runmad/RMSwipeTableViewCell/blob/master/RMTableViewCellDemoAnimation.gif)
+
+![RMSwipeTableViewCellDemo Screenshot](https://github.com/runmad/RMSwipeTableViewCell/blob/master/RMSwipeTableViewCellDemoScreenshot.png)
 
 [Video example]
 
