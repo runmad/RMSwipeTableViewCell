@@ -161,11 +161,11 @@
     if (point.x > 0) {
         // set the checkmark's frame to match the contentView
         [self.checkmarkGreyImageView setFrame:CGRectMake(MIN(CGRectGetMinX(self.contentView.frame) - CGRectGetWidth(self.checkmarkGreyImageView.frame), 0), CGRectGetMinY(self.checkmarkGreyImageView.frame), CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetHeight(self.checkmarkGreyImageView.frame))];
-        if (point.x > CGRectGetHeight(self.frame) && self.isFavourite == NO) {
+        if (point.x >= CGRectGetHeight(self.frame) && self.isFavourite == NO) {
             [self.checkmarkGreenImageView setAlpha:1];
         } else if (self.isFavourite == NO) {
             [self.checkmarkGreenImageView setAlpha:0];
-        } else if (point.x > CGRectGetHeight(self.frame) && self.isFavourite == YES) {
+        } else if (point.x >= CGRectGetHeight(self.frame) && self.isFavourite == YES) {
             // already a favourite; animate the green checkmark drop when swiped far enough for the action to kick in when user lets go
             if (self.checkmarkGreyImageView.alpha == 1) {
                 [UIView animateWithDuration:0.25
@@ -184,7 +184,7 @@
     } else if (point.x < 0) {
         // set the X's frame to match the contentView
         [self.deleteGreyImageView setFrame:CGRectMake(MAX(CGRectGetMaxX(self.frame) - CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetMaxX(self.contentView.frame)), CGRectGetMinY(self.deleteGreyImageView.frame), CGRectGetWidth(self.deleteGreyImageView.frame), CGRectGetHeight(self.deleteGreyImageView.frame))];
-        if (-point.x > CGRectGetHeight(self.frame)) {
+        if (-point.x >= CGRectGetHeight(self.frame)) {
             [self.deleteRedImageView setAlpha:1];
         } else {
             [self.deleteRedImageView setAlpha:0];
@@ -194,14 +194,14 @@
 
 -(void)resetCellFromPoint:(CGPoint)point velocity:(CGPoint)velocity {
     [super resetCellFromPoint:point velocity:velocity];
-    if (point.x > 0 && point.x < CGRectGetHeight(self.frame)) {
+    if (point.x > 0 && point.x <= CGRectGetHeight(self.frame)) {
         // user did not swipe far enough, animate the checkmark back with the contentView animation
         [UIView animateWithDuration:self.animationDuration
                          animations:^{
                              [self.checkmarkGreyImageView setFrame:CGRectMake(-CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetMinY(self.checkmarkGreyImageView.frame), CGRectGetWidth(self.checkmarkGreyImageView.frame), CGRectGetHeight(self.checkmarkGreyImageView.frame))];
                          }];
     } else if (point.x < 0) {
-        if (-point.x < CGRectGetHeight(self.frame)) {
+        if (-point.x <= CGRectGetHeight(self.frame)) {
             // user did not swipe far enough, animate the grey X back with the contentView animation
             [UIView animateWithDuration:self.animationDuration
                              animations:^{

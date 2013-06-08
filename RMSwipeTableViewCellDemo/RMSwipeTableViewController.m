@@ -133,7 +133,15 @@
 #if LOG_DELEGATE_METHODS
     NSLog(@"swipeTableViewCellWillResetState: %@ fromPoint: %@ animation: %d, velocity: %@", swipeTableViewCell, NSStringFromCGPoint(point), animation, NSStringFromCGPoint(velocity));
 #endif
-    if (point.x < 0 && -point.x > CGRectGetHeight(swipeTableViewCell.frame)) {
+    if (point.x >= CGRectGetHeight(swipeTableViewCell.frame)) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
+        if ([[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue]) {
+            [[self.array objectAtIndex:indexPath.row] setObject:@NO forKey:@"isFavourite"];
+        } else {
+            [[self.array objectAtIndex:indexPath.row] setObject:@YES forKey:@"isFavourite"];
+        }
+        [(RMPersonTableViewCell*)swipeTableViewCell setFavourite:[[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] animated:YES];
+    } else if (point.x < 0 && -point.x >= CGRectGetHeight(swipeTableViewCell.frame)) {
         swipeTableViewCell.shouldAnimateCellReset = NO;
         [[(RMPersonTableViewCell*)swipeTableViewCell checkmarkGreyImageView] removeFromSuperview];
         [UIView animateWithDuration:0.25
@@ -158,15 +166,7 @@
 #if LOG_DELEGATE_METHODS
     NSLog(@"swipeTableViewCellDidResetState: %@ fromPoint: %@ animation: %d, velocity: %@", swipeTableViewCell, NSStringFromCGPoint(point), animation, NSStringFromCGPoint(velocity));
 #endif
-    if (point.x > CGRectGetHeight(swipeTableViewCell.frame)) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
-        if ([[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue]) {
-            [[self.array objectAtIndex:indexPath.row] setObject:@NO forKey:@"isFavourite"];
-        } else {
-            [[self.array objectAtIndex:indexPath.row] setObject:@YES forKey:@"isFavourite"];
-        }
-        [(RMPersonTableViewCell*)swipeTableViewCell setFavourite:[[[self.array objectAtIndex:indexPath.row] objectForKey:@"isFavourite"] boolValue] animated:YES];
-    } else if (point.x < 0 && -point.x > CGRectGetHeight(swipeTableViewCell.frame)) {
+    if (point.x < 0 && -point.x > CGRectGetHeight(swipeTableViewCell.frame)) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         [self.array removeObjectAtIndex:indexPath.row];
         [self.tableView beginUpdates];
