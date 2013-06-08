@@ -32,7 +32,8 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 @property (nonatomic, readwrite) float animationDuration; // default is 0.2
 @property (nonatomic, readwrite) BOOL revealsBackground; // default is NO
 @property (nonatomic, readwrite) BOOL shouldAnimateCellReset; // this can be overriden at any point (useful in the swipeTableViewCellWillResetState:fromLocation: delegate method). default is YES - note: it will reset to YES in prepareForReuse
-@property (nonatomic, readwrite) BOOL panElasticity; // When panning/swiping the cell's location is set to exponentially decay. The elsticity/stickiness closely matches that of a UIScrollView/UITableView. default is YES
+@property (nonatomic, readwrite) BOOL panElasticity; // When panning/swiping the cell's location is set to exponentially decay. The elasticity (also know as rubber banding) matches that of a UIScrollView/UITableView. default is YES
+@property (nonatomic, readwrite) CGFloat panElasticityStartingPoint; // When using panElasticity this property allows you to control at which point elasticitykicks in. default is 0
 @property (nonatomic, strong) UIColor *backViewbackgroundColor; // default is [UIColor colorWithWhite:0.92 alpha:1]
 @property (nonatomic, assign) id <RMSwipeTableViewCellDelegate> delegate;
 

@@ -20,7 +20,6 @@
     if (self) {
         // We need to set the contentView's background colour, otherwise the sides are clear on the swipe and animations
         [self.contentView setBackgroundColor:[UIColor whiteColor]];
-        
         UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         [panGestureRecognizer setDelegate:self];
         [self addGestureRecognizer:panGestureRecognizer];
@@ -31,6 +30,7 @@
         self.shouldAnimateCellReset = YES;
         self.backViewbackgroundColor = [UIColor colorWithWhite:0.92 alpha:1];
         self.panElasticity = YES;
+        self.panElasticityStartingPoint = 0;
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
         backgroundView.backgroundColor = [UIColor whiteColor];
@@ -54,10 +54,15 @@
     CGPoint velocity = [panGestureRecognizer velocityInView:panGestureRecognizer.view];
     CGFloat panOffset = translation.x;
     if (self.panElasticity) {
-        CGFloat width = CGRectGetWidth(self.frame);
-        CGFloat offset = abs(translation.x);
-        panOffset = (offset * 0.55f * width) / (offset * 0.55f + width);
-        panOffset *= translation.x < 0 ? -1.0f : 1.0f;
+        if (translation.x > self.panElasticityStartingPoint || -translation.x > self.panElasticityStartingPoint) {
+            CGFloat width = CGRectGetWidth(self.frame);
+            CGFloat offset = abs(translation.x);
+            panOffset = (offset * 0.55f * width) / (offset * 0.55f + width);
+            panOffset *= translation.x < 0 ? -1.0f : 1.0f;
+            if (self.panElasticityStartingPoint > 0) {
+                panOffset = translation.x > 0 ? panOffset + self.panElasticityStartingPoint / 2 : panOffset - self.panElasticityStartingPoint / 2;
+            }
+        }
     }
     CGPoint actualTranslation = CGPointMake(panOffset, translation.y);
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan && [panGestureRecognizer numberOfTouches] > 0) {
