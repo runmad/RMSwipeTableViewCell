@@ -60,9 +60,9 @@ UIView *backView;
 RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionBoth
 RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewCellAnimationTypeBounce
 float animationDuration; // default is 0.2
-BOOL revealsBackground; // default is NO
 BOOL shouldAnimateCellReset; // this can be overridden at any point (useful in the swipeTableViewCellWillResetState:fromLocation: delegate method). default is YES - note: it will reset to YES in prepareForReuse
 BOOL panElasticity; // When panning/swiping the cell's location is set to exponentially decay. The rubber banding matches that of a UIScrollView/UITableView. default is YES
+CGFloat panElasticityStartingPoint; // When using panElasticity this property allows you to control at which point elasticitykicks in. default is 0
 UIColor *backViewbackgroundColor; // default is [UIColor colorWithWhite:0.92 alpha:1]
 ```
 
