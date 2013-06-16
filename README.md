@@ -92,9 +92,23 @@ All delegate methods that return the CGPoint location take into account the panO
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
 ```
 
+##Credit
+
+Developed by Rune Madsen ([@runmad] and [runmad.com]).
+
+##Feedback
+
+I appreciate feedback. Create Github issues, pull requests or connect with me on Twitter.
+
+I'd love to see and hear from you if you use it in a project.
+
+##License
+
+`RMSwipeTableViewCell` is available under the MIT license. See the LICENSE file for more info.
+
 ##Version History
 
-###0.3
+###0.4
 * Added `panElasticityStartingPoint` to allow for finer control of when elasticity (if enabled) goes into effect
 * Added .gif for the README to show off the class better on Github
 * Fixed some logic issues I found with the demo project
@@ -110,21 +124,7 @@ All delegate methods that return the CGPoint location take into account the panO
 * Fixed a few issues
 
 ###0.1
-* Inital release
-
-##Credit
-
-Developed by Rune Madsen ([@runmad] and [runmad.com]).
-
-##Feedback
-
-I appreciate feedback. Create Github issues, pull requests or connect with me on Twitter.
-
-I'd love to see and hear from you if you use it in a project.
-
-##License
-
-`RMSwipeTableViewCell` is available under the MIT license. See the LICENSE file for more info.
+* Initial release
 
 [High Quality Video Example]: http://www.runmad.com/development/RMTableViewCellDemoVideo.mp4
 [@runmad]: http://www.twitter.com/runmad
