@@ -10,8 +10,6 @@
 		900D15551661ABEC00900B59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15541661ABEC00900B59 /* UIKit.framework */; };
 		900D15571661ABEC00900B59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15561661ABEC00900B59 /* Foundation.framework */; };
 		900D15591661ABEC00900B59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15581661ABEC00900B59 /* CoreGraphics.framework */; };
-		902B7A4117639B0100477998 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 902B7A4017639B0100477998 /* README.md */; };
-		902B7A4317639B0600477998 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 902B7A4217639B0600477998 /* LICENSE */; };
 		90B078F11745779400D4E494 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B078F01745779400D4E494 /* QuartzCore.framework */; };
 		90FDF44E17495366006EF12E /* cersei.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF42F17495366006EF12E /* cersei.png */; };
 		90FDF44F17495366006EF12E /* cersei@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF43017495366006EF12E /* cersei@2x.png */; };
@@ -57,8 +55,8 @@
 		900D15541661ABEC00900B59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		900D15561661ABEC00900B59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		900D15581661ABEC00900B59 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		902B7A4017639B0100477998 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
-		902B7A4217639B0600477998 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		902B7A4017639B0100477998 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = SOURCE_ROOT; };
+		902B7A4217639B0600477998 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = SOURCE_ROOT; };
 		90B078F01745779400D4E494 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		90FDF42F17495366006EF12E /* cersei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cersei.png; path = RMSwipeTableViewCellDemo/cersei.png; sourceTree = SOURCE_ROOT; };
 		90FDF43017495366006EF12E /* cersei@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cersei@2x.png"; path = "RMSwipeTableViewCellDemo/cersei@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -101,8 +99,8 @@
 		90FDF478174953C2006EF12E /* RMPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMPersonTableViewCell.m; path = RMSwipeTableViewCellDemo/RMPersonTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		90FDF47D174953C2006EF12E /* RMSwipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSwipeTableViewController.h; path = RMSwipeTableViewCellDemo/RMSwipeTableViewController.h; sourceTree = SOURCE_ROOT; };
 		90FDF47E174953C2006EF12E /* RMSwipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSwipeTableViewController.m; path = RMSwipeTableViewCellDemo/RMSwipeTableViewController.m; sourceTree = SOURCE_ROOT; };
-		90FDF485174955FD006EF12E /* RMSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSwipeTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		90FDF486174955FD006EF12E /* RMSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSwipeTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		90FDF485174955FD006EF12E /* RMSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSwipeTableViewCell.h; path = ../RMSwipeTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		90FDF486174955FD006EF12E /* RMSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSwipeTableViewCell.m; path = ../RMSwipeTableViewCell.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,8 +307,6 @@
 				90FDF46B17495366006EF12E /* tywin.png in Resources */,
 				90FDF46C17495366006EF12E /* tywin@2x.png in Resources */,
 				90FDF474174953A3006EF12E /* InfoPlist.strings in Resources */,
-				902B7A4117639B0100477998 /* README.md in Resources */,
-				902B7A4317639B0600477998 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
