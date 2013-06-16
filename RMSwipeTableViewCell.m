@@ -98,6 +98,8 @@
         if ([self.delegate respondsToSelector:@selector(swipeTableViewCell:didSwipeToPoint:velocity:)]) {
             [self.delegate swipeTableViewCell:self didSwipeToPoint:point velocity:velocity];
         }
+    } else if ((point.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || (point.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft)) {
+        self.contentView.frame = CGRectOffset(self.contentView.bounds, 0, 0);
     }
 }
 
