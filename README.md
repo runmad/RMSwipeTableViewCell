@@ -92,6 +92,26 @@ All delegate methods that return the CGPoint location take into account the panO
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
 ```
 
+##Version History
+
+###0.3
+* Added `panElasticityStartingPoint` to allow for finer control of when elasticity (if enabled) goes into effect
+* Added .gif for the README to show off the class better on Github
+* Fixed some logic issues I found with the demo project
+
+###0.3
+* Deprecated a number of delegate methods to improve the the translation values being returned
+* Set `RMSwipeTableViewCellAnimationType`s to match UIViewAnimationOptions to simplify logic
+
+###0.2
+* Added velocity property to delegate callbacks
+* Added iOS 6 `UIScrollView` rubber banding algorithm (https://twitter.com/chpwn/status/291794740553338880)
+* Added podspec
+* Fixed a few issues
+
+###0.1
+* Inital release
+
 ##Credit
 
 Developed by Rune Madsen ([@runmad] and [runmad.com]).
