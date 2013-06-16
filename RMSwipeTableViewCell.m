@@ -49,6 +49,18 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - Gesture recognizer delegate
+
+-(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
+    // We only want to deal with the gesture of it's a pan gesture
+    if ([panGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && self.revealDirection != RMSwipeTableViewCellRevealDirectionNone) {
+        CGPoint translation = [panGestureRecognizer translationInView:[self superview]];
+        return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
+    } else {
+        return NO;
+    }
+}
+
 -(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
     CGPoint translation = [panGestureRecognizer translationInView:panGestureRecognizer.view];
     CGPoint velocity = [panGestureRecognizer velocityInView:panGestureRecognizer.view];
@@ -75,18 +87,6 @@
 	} else if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
 		[self resetCellFromPoint:actualTranslation  velocity:velocity];
 	}
-}
-
-#pragma mark - Gesture recognizer delegate
-
--(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
-    // We only want to deal with the gesture of it's a pan gesture
-    if ([panGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
-        CGPoint translation = [panGestureRecognizer translationInView:[self superview]];
-        return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
-    } else {
-        return NO;
-    }
 }
 
 #pragma mark - Gesture animations 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellRevealDirection) {
+    RMSwipeTableViewCellRevealDirectionNone = -1, // disables panning
     RMSwipeTableViewCellRevealDirectionBoth = 0,
     RMSwipeTableViewCellRevealDirectionRight = 1,
     RMSwipeTableViewCellRevealDirectionLeft = 2,
