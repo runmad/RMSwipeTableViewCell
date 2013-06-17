@@ -164,7 +164,7 @@
 
 -(UIView*)backView {
     if (!_backView) {
-        _backView = [[UIView alloc] initWithFrame:self.contentView.frame];
+        _backView = [[UIView alloc] initWithFrame:self.backgroundView.frame];
         _backView.backgroundColor = self.backViewbackgroundColor;
     }
     return _backView;
