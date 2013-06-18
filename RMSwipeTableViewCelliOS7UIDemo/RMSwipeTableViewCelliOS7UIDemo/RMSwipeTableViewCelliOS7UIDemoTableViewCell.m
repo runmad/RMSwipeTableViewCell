@@ -25,6 +25,7 @@
         self.panElasticityStartingPoint = BUTTON_THRESHOLD;
         
         [self.backView addSubview:self.deleteButton];
+        [self.deleteButton setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
     }
     return self;
 }
