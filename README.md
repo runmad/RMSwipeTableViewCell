@@ -10,6 +10,8 @@
 
 [High Quality Video Example]
 
+![RMSwipeTableViewCelliOS7Demo Animation](https://raw.github.com/runmad/RMSwipeTableViewCell/master/RMSwipeTableViewCelliOS7DemoAnimation.gif)
+
 ##Installing `RMSwipeTableViewCell`
 
 The example below and demo assumes you're compiling for iOS 6+. If you're supporting an older version of iOS use the appropriate methods for initializing and dequeuing the cells. `RMSwipeTableViewCell` is compatible with iOS 5 and above.
