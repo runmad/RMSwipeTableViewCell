@@ -85,6 +85,7 @@
     RMSwipeTableViewCelliOS7UIDemoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.textLabel.text = [self.messagesArray objectAtIndex:indexPath.row][@"sender"];
     cell.detailTextLabel.text = [self.messagesArray objectAtIndex:indexPath.row][@"message"];
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.delegate = self;
     cell.demoDelegate = self;
     return cell;
@@ -135,6 +136,7 @@
 {
     if (self.selectedIndexPath != indexPath) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self resetSelectedCell];
     }
     if (self.selectedIndexPath == indexPath) {
         [self resetSelectedCell];
@@ -166,7 +168,7 @@
 
 -(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell *)swipeTableViewCell {
     NSIndexPath *indexPathForCell = [self.tableView indexPathForCell:swipeTableViewCell];
-    if (self.selectedIndexPath != indexPathForCell) {
+    if (self.selectedIndexPath && self.selectedIndexPath != indexPathForCell) {
         [self resetSelectedCell];
     }
 }
@@ -175,28 +177,34 @@
     RMSwipeTableViewCelliOS7UIDemoTableViewCell *cell = (RMSwipeTableViewCelliOS7UIDemoTableViewCell*)[self.tableView cellForRowAtIndexPath:self.selectedIndexPath];
     [cell resetContentView];
     self.selectedIndexPath = nil;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
 }
 
 -(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity {
-    NSLog(@"%@", NSStringFromCGPoint(velocity));
     if (velocity.x <= -500) {
         self.selectedIndexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         swipeTableViewCell.shouldAnimateCellReset = NO;
-        NSTimeInterval duration = MAX(-point.x / ABS(velocity.x), 0.15f);
+        swipeTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        NSTimeInterval duration = MAX(-point.x / ABS(velocity.x), 0.10f);
         [UIView animateWithDuration:duration
                               delay:0
                             options:UIViewAnimationOptionCurveLinear
                          animations:^{
-                             swipeTableViewCell.contentView.frame = CGRectOffset(swipeTableViewCell.contentView.bounds, point.x - 50, 0);
+                             swipeTableViewCell.contentView.frame = CGRectOffset(swipeTableViewCell.contentView.bounds, point.x - (ABS(velocity.x) / 100), 0);
                          }
                          completion:^(BOOL finished) {
                              [UIView animateWithDuration:duration
+                                                   delay:0
+                                                 options:UIViewAnimationOptionCurveEaseOut
                                               animations:^{
                                                   swipeTableViewCell.contentView.frame = CGRectOffset(swipeTableViewCell.contentView.bounds, -80, 0);
+                                              }
+                                              completion:^(BOOL finished) {
                                               }];
                          }];
     }
-    // The below behaviour is not normal as of iOS 7 beta seed 1.
+    // The below behaviour is not normal as of iOS 7 beta seed 1
+    // for Messages.app, but it is for Mail.app.
     // The user has to pan/swipe with a certain amount of velocity
     // before the cell goes to delete-state. If the user just pans
     // above the threshold for the button but without enough velocity,
@@ -209,6 +217,7 @@
     else if (velocity.x > -500 && point.x < -80) {
         self.selectedIndexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         swipeTableViewCell.shouldAnimateCellReset = NO;
+        swipeTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         NSTimeInterval duration = MIN(-point.x / ABS(velocity.x), 0.15f);
         [UIView animateWithDuration:duration
                          animations:^{

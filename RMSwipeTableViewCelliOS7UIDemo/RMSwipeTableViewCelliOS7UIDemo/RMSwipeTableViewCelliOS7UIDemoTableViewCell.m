@@ -16,16 +16,13 @@
 {
     self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backViewbackgroundColor = [UIColor blueColor];
+        self.backViewbackgroundColor = [UIColor whiteColor];
         self.detailTextLabel.numberOfLines = 2;
         self.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:16];
         self.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
         self.revealDirection = RMSwipeTableViewCellRevealDirectionRight;
         self.animationType = RMSwipeTableViewCellAnimationTypeEaseOut;
         self.panElasticityStartingPoint = BUTTON_THRESHOLD;
-        
-        [self.backView addSubview:self.deleteButton];
-        [self.deleteButton setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
     }
     return self;
 }
@@ -40,8 +37,14 @@
         [_deleteButton setTitle:NSLocalizedString(@"Delete", nil) forState:UIControlStateNormal];
         [_deleteButton setFrame:CGRectMake(CGRectGetMaxX(self.frame) - BUTTON_THRESHOLD, 0, BUTTON_THRESHOLD, CGRectGetHeight(self.contentView.frame))];
         [_deleteButton addTarget:self action:@selector(deleteAction) forControlEvents:UIControlEventTouchUpInside];
+        [_deleteButton setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
     }
     return _deleteButton;
+}
+
+-(void)didStartSwiping {
+    [super didStartSwiping];
+    [self.backView addSubview:self.deleteButton];
 }
 
 -(void)deleteAction {
@@ -63,7 +66,14 @@
                      }
                      completion:^(BOOL finished) {
                          self.shouldAnimateCellReset = YES;
+                         [self cleanupBackView];
                      }];
+}
+
+-(void)cleanupBackView {
+    [super cleanupBackView];
+    [_deleteButton removeFromSuperview];
+    _deleteButton = nil;
 }
 
 @end
