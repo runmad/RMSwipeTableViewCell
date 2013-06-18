@@ -18,12 +18,12 @@
     [self.window makeKeyAndVisible];
     
 #define SHOW_ALERTVIEW 1
-#ifdef SHOW_ALERTVIEW
+#if SHOW_ALERTVIEW
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Developer note"
-                                                        message:@"This demo tries to mimick the panning behaviour seen in Messages.app on iOS 7. It's worth noting that Mail.app and Weather.app appear to have other behaviours. As of Beta Seed 1 there appears to be three separate behaviours:\n\nIn Mail.app the user can pan and come to a stop above the threshold and still lock the content view in open position.\n\nIn Weather.app panning locks once it reaches the threshold for button visibility.\n\nMessages.app, which this demo tries to copy its panning behaviour from, requires the user to pan with a flick in order to lock the content view in \"Delete\" mode. Simply panning to above the threshold without enough velocity will not lock the cell in \"Delete\" mode."
+                                                        message:@"This demo tries to mimick the panning behaviour seen in Messages.app on iOS 7. It's worth noting that Mail.app and Weather.app appear to have other behaviours. As of Beta Seed 1 there appears to be three separate behaviours:\n\nIn Mail.app the user can pan and come to a stop above the threshold and still lock the content view in open position.\n\nIn Weather.app panning locks once it reaches the threshold for button visibility.\n\nMessages.app, which this demo tries to copy its panning behaviour from, requires the user to pan with a flick in order to lock the content view in \"Delete\" mode. Simply panning to above the threshold without enough velocity will not lock the cell in \"Delete\" mode.\n\nI haven't quite nailed the flick algorithm and need to work on re-activating the panning on an already open cell - feel free to submit a pull request if you can assist!"
                                                        delegate:nil
                                               cancelButtonTitle:nil
-                                              otherButtonTitles:@"Understood!", nil];
+                                              otherButtonTitles:@"OK", nil];
     [alertView show];
 #endif
     

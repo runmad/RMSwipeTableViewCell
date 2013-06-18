@@ -134,11 +134,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.selectedIndexPath != indexPath) {
+    if (self.selectedIndexPath.row != indexPath.row) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self resetSelectedCell];
     }
-    if (self.selectedIndexPath == indexPath) {
+    if (self.selectedIndexPath.row == indexPath.row) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self resetSelectedCell];
     }
 }
@@ -159,7 +160,7 @@
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
     if ([self.messagesArray count]) {
-        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", nil) style:UIBarButtonItemStylePlain target:self action:@selector(resetDemo)];
+        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reset", nil) style:UIBarButtonItemStylePlain target:self action:@selector(resetDemo)];
         [self.navigationItem setRightBarButtonItem:barButtonItem animated:YES];
     }
 }
@@ -168,7 +169,7 @@
 
 -(void)swipeTableViewCellDidStartSwiping:(RMSwipeTableViewCell *)swipeTableViewCell {
     NSIndexPath *indexPathForCell = [self.tableView indexPathForCell:swipeTableViewCell];
-    if (self.selectedIndexPath && self.selectedIndexPath != indexPathForCell) {
+    if (self.selectedIndexPath.row != indexPathForCell.row) {
         [self resetSelectedCell];
     }
 }
@@ -190,7 +191,7 @@
                               delay:0
                             options:UIViewAnimationOptionCurveLinear
                          animations:^{
-                             swipeTableViewCell.contentView.frame = CGRectOffset(swipeTableViewCell.contentView.bounds, point.x - (ABS(velocity.x) / 100), 0);
+                             swipeTableViewCell.contentView.frame = CGRectOffset(swipeTableViewCell.contentView.bounds, point.x - (ABS(velocity.x) / 150), 0);
                          }
                          completion:^(BOOL finished) {
                              [UIView animateWithDuration:duration
