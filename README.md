@@ -112,6 +112,10 @@ I'd love to see and hear from you if you use it in a project.
 
 ##Version History
 
+###0.5
+* Made a few improvements to the backView and some logic
+* Added another demo to show off tweaking of appearance to match iOS 7 behaviour and UI
+
 ###0.4
 * Added `panElasticityStartingPoint` to allow for finer control of when elasticity (if enabled) goes into effect
 * Added .gif for the README to show off the class better on Github
