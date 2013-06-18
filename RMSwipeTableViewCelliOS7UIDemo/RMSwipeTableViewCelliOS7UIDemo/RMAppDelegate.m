@@ -17,6 +17,16 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+#define SHOW_ALERTVIEW 1
+#ifdef SHOW_ALERTVIEW
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Developer note"
+                                                        message:@"This demo tries to mimick the panning behaviour seen in Messages.app on iOS 7. It's worth noting that Mail.app and Weather.app appear to have other behaviours. As of Beta Seed 1 there appears to be three separate behaviours:\n\nIn Mail.app the user can pan and come to a stop above the threshold and still lock the content view in open position.\n\nIn Weather.app panning locks once it reaches the threshold for button visibility.\n\nMessages.app, which this demo tries to copy its panning behaviour from, requires the user to pan with a flick in order to lock the content view in \"Delete\" mode. Simply panning to above the threshold without enough velocity will not lock the cell in \"Delete\" mode."
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"Understood!", nil];
+    [alertView show];
+#endif
+    
     RMSwipeTableViewCelliOS7UIDemoViewController *swipeTableViewCelliOS7UIDemoViewController = [[RMSwipeTableViewCelliOS7UIDemoViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:swipeTableViewCelliOS7UIDemoViewController];
     [navigationController.navigationBar setClipsToBounds:YES];
