@@ -32,12 +32,9 @@
         self.panElasticity = YES;
         self.panElasticityStartingPoint = 0;
         
-        UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
+        UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
         backgroundView.backgroundColor = [UIColor whiteColor];
         self.backgroundView = backgroundView;
-        
-        [self.backgroundView addSubview:self.backView];
-        [self.backView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     }
     return self;
 }
@@ -69,7 +66,7 @@
     CGPoint velocity = [panGestureRecognizer velocityInView:panGestureRecognizer.view];
     CGFloat panOffset = translation.x;
     if (self.panElasticity) {
-        if (translation.x > self.panElasticityStartingPoint || -translation.x > self.panElasticityStartingPoint) {
+        if (ABS(translation.x) > self.panElasticityStartingPoint) {
             CGFloat width = CGRectGetWidth(self.frame);
             CGFloat offset = abs(translation.x);
             panOffset = (offset * 0.55f * width) / (offset * 0.55f + width);
@@ -81,9 +78,7 @@
     }
     CGPoint actualTranslation = CGPointMake(panOffset, translation.y);
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan && [panGestureRecognizer numberOfTouches] > 0) {
-        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping:)]) {
-            [self.delegate swipeTableViewCellDidStartSwiping:self];
-        }
+        [self didStartSwiping];
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
@@ -92,7 +87,15 @@
 	}
 }
 
-#pragma mark - Gesture animations 
+-(void)didStartSwiping {
+    if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping:)]) {
+        [self.delegate swipeTableViewCellDidStartSwiping:self];
+    }
+    [self.backgroundView addSubview:self.backView];
+    [self.backView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+}
+
+#pragma mark - Gesture animations
 
 -(void)animateContentViewForPoint:(CGPoint)point velocity:(CGPoint)velocity {
     if ((point.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || (point.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
@@ -166,8 +169,7 @@
 
 -(UIView*)backView {
     if (!_backView) {
-        _backView = [[UIView alloc] initWithFrame:CGRectZero];
-        self.backgroundView.backgroundColor = [UIColor orangeColor];
+        _backView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         _backView.backgroundColor = self.backViewbackgroundColor;
     }
     return _backView;
