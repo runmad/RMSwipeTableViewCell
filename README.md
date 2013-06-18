@@ -16,6 +16,8 @@
 
 The example below and demo assumes you're compiling for iOS 6+. If you're supporting an older version of iOS use the appropriate methods for initializing and dequeuing the cells. `RMSwipeTableViewCell` is compatible with iOS 5 and above.
 
+`RMSwipeTableViewCell` includes two demos. The iOS 7 demo is an attempt to copy the "Delete Mode" behaviour seen in iOS 7 in the Messages.app. The demo is built with iOS 6 SDK.
+
 ###Using CocoaPods
 
 Add the following to your Podfile.
