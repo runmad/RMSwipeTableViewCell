@@ -35,6 +35,9 @@
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
         backgroundView.backgroundColor = [UIColor whiteColor];
         self.backgroundView = backgroundView;
+        
+        [self.backgroundView addSubview:self.backView];
+        [self.backView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     }
     return self;
 }
@@ -93,7 +96,6 @@
 
 -(void)animateContentViewForPoint:(CGPoint)point velocity:(CGPoint)velocity {
     if ((point.x > 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionLeft) || (point.x < 0 && self.revealDirection == RMSwipeTableViewCellRevealDirectionRight) || self.revealDirection == RMSwipeTableViewCellRevealDirectionBoth) {
-        [self.backgroundView addSubview:self.backView];
         self.contentView.frame = CGRectOffset(self.contentView.bounds, point.x, 0);
         if ([self.delegate respondsToSelector:@selector(swipeTableViewCell:didSwipeToPoint:velocity:)]) {
             [self.delegate swipeTableViewCell:self didSwipeToPoint:point velocity:velocity];
@@ -164,7 +166,8 @@
 
 -(UIView*)backView {
     if (!_backView) {
-        _backView = [[UIView alloc] initWithFrame:self.backgroundView.frame];
+        _backView = [[UIView alloc] initWithFrame:CGRectZero];
+        self.backgroundView.backgroundColor = [UIColor orangeColor];
         _backView.backgroundColor = self.backViewbackgroundColor;
     }
     return _backView;
