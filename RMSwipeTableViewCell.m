@@ -18,25 +18,39 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // We need to set the contentView's background colour, otherwise the sides are clear on the swipe and animations
-        [self.contentView setBackgroundColor:[UIColor whiteColor]];
-        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-        [panGestureRecognizer setDelegate:self];
-        [self addGestureRecognizer:panGestureRecognizer];
-
-        self.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
-        self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
-        self.animationDuration = 0.2f;
-        self.shouldAnimateCellReset = YES;
-        self.backViewbackgroundColor = [UIColor colorWithWhite:0.92 alpha:1];
-        self.panElasticity = YES;
-        self.panElasticityStartingPoint = 0;
-        
-        UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
-        backgroundView.backgroundColor = [UIColor whiteColor];
-        self.backgroundView = backgroundView;
+        [self initialize];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize
+{
+    // We need to set the contentView's background colour, otherwise the sides are clear on the swipe and animations
+    [self.contentView setBackgroundColor:[UIColor whiteColor]];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+    [panGestureRecognizer setDelegate:self];
+    [self addGestureRecognizer:panGestureRecognizer];
+    
+    self.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
+    self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
+    self.animationDuration = 0.2f;
+    self.shouldAnimateCellReset = YES;
+    self.backViewbackgroundColor = [UIColor colorWithWhite:0.92 alpha:1];
+    self.panElasticity = YES;
+    self.panElasticityStartingPoint = 0;
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
+    backgroundView.backgroundColor = [UIColor whiteColor];
+    self.backgroundView = backgroundView;
 }
 
 -(void)prepareForReuse {
