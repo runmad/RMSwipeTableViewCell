@@ -154,7 +154,15 @@
                                                                        self.contentView.frame = self.contentView.bounds;
                                                                    }
                                                                    completion:^(BOOL finished) {
-                                                                       [self cleanupBackView];
+                                                                       
+                                                                       BOOL shouldCleanupBackView = YES;
+                                                                       if ([self.delegate respondsToSelector:@selector(swipeTableViewCellShouldCleanupBackView:)]) {
+                                                                           shouldCleanupBackView = [self.delegate swipeTableViewCellShouldCleanupBackView:self];
+                                                                       }
+                                                                       if (shouldCleanupBackView) {
+                                                                           [self cleanupBackView];
+                                                                       }
+                                                                       
                                                                        if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromPoint:animation:velocity:)]) {
                                                                            [self.delegate swipeTableViewCellDidResetState:self fromPoint:point animation:self.animationType velocity:velocity];
                                                                        }
@@ -172,7 +180,15 @@
                              self.contentView.frame = CGRectOffset(self.contentView.bounds, 0, 0);
                          }
                          completion:^(BOOL finished) {
-                             [self cleanupBackView];
+                             
+                             BOOL shouldCleanupBackView = YES;
+                             if ([self.delegate respondsToSelector:@selector(swipeTableViewCellShouldCleanupBackView:)]) {
+                                 shouldCleanupBackView = [self.delegate swipeTableViewCellShouldCleanupBackView:self];
+                             }
+                             if (shouldCleanupBackView) {
+                                 [self cleanupBackView];
+                             }
+                             
                              if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromPoint:animation:velocity:)]) {
                                  [self.delegate swipeTableViewCellDidResetState:self fromPoint:point animation:self.animationType velocity:velocity];
                              }
