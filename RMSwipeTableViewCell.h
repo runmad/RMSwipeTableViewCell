@@ -54,6 +54,7 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 -(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell didSwipeToPoint:(CGPoint)point velocity:(CGPoint)velocity;
 -(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
+-(BOOL)swipeTableViewCellShouldCleanupBackView:(RMSwipeTableViewCell*)swipeTableViewCell; // Defaults to YES (the backView is recreated everytime the state is about to reset)
 
 /*
 //  DEPRECATED DELEGATE METHODS:
