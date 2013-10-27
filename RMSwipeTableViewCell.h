@@ -27,14 +27,70 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 
 @interface RMSwipeTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
 
+/**
+ 
+ Customizable subview that is revealed when the user pans
+ 
+ */
+
 @property (nonatomic, strong) UIView *backView;
-@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection revealDirection; // default is RMSwipeTableViewCellRevealDirectionBoth
-@property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewCellAnimationTypeBounce
-@property (nonatomic, readwrite) float animationDuration; // default is 0.2
-@property (nonatomic, readwrite) BOOL shouldAnimateCellReset; // this can be overriden at any point (useful in the swipeTableViewCellWillResetState:fromLocation: delegate method). default is YES - note: it will reset to YES in prepareForReuse
-@property (nonatomic, readwrite) BOOL panElasticity; // When panning/swiping the cell's location is set to exponentially decay. The elasticity (also know as rubber banding) matches that of a UIScrollView/UITableView. default is YES
-@property (nonatomic, readwrite) CGFloat panElasticityStartingPoint; // When using panElasticity this property allows you to control at which point elasticitykicks in. default is 0
-@property (nonatomic, strong) UIColor *backViewbackgroundColor; // default is [UIColor colorWithWhite:0.92 alpha:1]
+
+/**
+ Determines the direction that swiping is enabled for. 
+ 
+ Default is RMSwipeTableViewCellRevealDirectionBoth
+ */
+@property (nonatomic, readwrite) RMSwipeTableViewCellRevealDirection revealDirection;
+
+/**
+ Determines the animation that occurs when panning ends. 
+ 
+ Default is RMSwipeTableViewCellAnimationTypeBounce.
+ */
+@property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType animationType;
+
+/**
+ Determines the animation duration when the cell's contentView animates back. 
+ 
+ Default is 0.2f
+ */
+@property (nonatomic, readwrite) CGFloat animationDuration;
+
+/**
+ Override this property at any point to stop the cell contentView from animation back into place on touch ended. Default is YES.
+ 
+ This is useful in the swipeTableViewCellWillResetState:fromLocation: delegate method.
+ 
+ Note: it will reset to YES in prepareForReuse
+ */
+@property (nonatomic, readwrite) BOOL shouldAnimateCellReset;
+
+/**
+ When panning/swiping the cell's location is set to exponentially decay. The elasticity (also know as rubber banding) matches that of a UIScrollView/UITableView. 
+ 
+ Default is YES
+ */
+@property (nonatomic, readwrite) BOOL panElasticity;
+
+/**
+ This determines the exponential decay of the pan. By default it matches that of UIScrollView.
+ 
+ Default is 0.55f
+ */
+@property (nonatomic, readwrite) CGFloat panElasticityFactor;
+
+/**
+ When using panElasticity this property allows you to control at which point elasticitykicks in.
+ 
+ Default is 0.0f
+ */
+@property (nonatomic, readwrite) CGFloat panElasticityStartingPoint;
+
+/**
+ Default is [UIColor colorWithWhite:0.92 alpha:1]
+ */
+@property (nonatomic, strong) UIColor *backViewbackgroundColor;
+
 @property (nonatomic, assign) id <RMSwipeTableViewCellDelegate> delegate;
 
 // exposed class methods for easy subclassing
@@ -54,7 +110,11 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
 -(void)swipeTableViewCell:(RMSwipeTableViewCell*)swipeTableViewCell didSwipeToPoint:(CGPoint)point velocity:(CGPoint)velocity;
 -(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
--(BOOL)swipeTableViewCellShouldCleanupBackView:(RMSwipeTableViewCell*)swipeTableViewCell; // Defaults to YES (the backView is recreated everytime the state is about to reset)
+
+/**
+ Defaults to YES (the backView is recreated everytime the state is about to reset)
+ */
+-(BOOL)swipeTableViewCellShouldCleanupBackView:(RMSwipeTableViewCell*)swipeTableViewCell;
 
 /*
 //  DEPRECATED DELEGATE METHODS:

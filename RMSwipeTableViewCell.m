@@ -46,7 +46,8 @@
     self.shouldAnimateCellReset = YES;
     self.backViewbackgroundColor = [UIColor colorWithWhite:0.92 alpha:1];
     self.panElasticity = YES;
-    self.panElasticityStartingPoint = 0;
+    self.panElasticityFactor = 0.55f;
+    self.panElasticityStartingPoint = 0.0f;
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
     backgroundView.backgroundColor = [UIColor whiteColor];
@@ -83,7 +84,7 @@
         if (ABS(translation.x) > self.panElasticityStartingPoint) {
             CGFloat width = CGRectGetWidth(self.frame);
             CGFloat offset = abs(translation.x);
-            panOffset = (offset * 0.55f * width) / (offset * 0.55f + width);
+            panOffset = (offset * self.panElasticityFactor * width) / (offset * self.panElasticityFactor + width);
             panOffset *= translation.x < 0 ? -1.0f : 1.0f;
             if (self.panElasticityStartingPoint > 0) {
                 panOffset = translation.x > 0 ? panOffset + self.panElasticityStartingPoint / 2 : panOffset - self.panElasticityStartingPoint / 2;
