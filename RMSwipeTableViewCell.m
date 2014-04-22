@@ -97,7 +97,7 @@
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
-	} else if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+	} else {
 		[self resetCellFromPoint:actualTranslation  velocity:velocity];
 	}
 }
