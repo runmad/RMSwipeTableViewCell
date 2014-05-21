@@ -176,7 +176,7 @@
     } else {
         [UIView animateWithDuration:self.animationDuration
                               delay:0
-                            options:self.animationType
+                            options:(UIViewAnimationOptions)self.animationType
                          animations:^{
                              self.contentView.frame = CGRectOffset(self.contentView.bounds, 0, 0);
                          }
