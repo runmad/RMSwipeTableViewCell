@@ -134,45 +134,57 @@
         return;
     }
     if (self.animationType == RMSwipeTableViewCellAnimationTypeBounce) {
-        [UIView animateWithDuration:self.animationDuration
-                              delay:0
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 - (point.x * 0.03), 0);
-                         }
-                         completion:^(BOOL finished) {
-                             [UIView animateWithDuration:0.1
-                                                   delay:0
-                                                 options:UIViewAnimationOptionCurveEaseInOut
-                                              animations:^{
-                                                  self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 + (point.x * 0.02), 0);
-                                              }
-                                              completion:^(BOOL finished) {
-                                                  [UIView animateWithDuration:0.1
-                                                                        delay:0
-                                                                      options:UIViewAnimationOptionCurveEaseOut
-                                                                   animations:^{
-                                                                       self.contentView.frame = self.contentView.bounds;
-                                                                   }
-                                                                   completion:^(BOOL finished) {
-                                                                       
-                                                                       BOOL shouldCleanupBackView = YES;
-                                                                       if ([self.delegate respondsToSelector:@selector(swipeTableViewCellShouldCleanupBackView:)]) {
-                                                                           shouldCleanupBackView = [self.delegate swipeTableViewCellShouldCleanupBackView:self];
+        void (^completionBlock)(BOOL) = ^(BOOL finished) {
+            BOOL shouldCleanupBackView = YES;
+            if ([self.delegate respondsToSelector:@selector(swipeTableViewCellShouldCleanupBackView:)]) {
+                shouldCleanupBackView = [self.delegate swipeTableViewCellShouldCleanupBackView:self];
+            }
+            if (shouldCleanupBackView) {
+                [self cleanupBackView];
+            }
+            
+            if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromPoint:animation:velocity:)]) {
+                [self.delegate swipeTableViewCellDidResetState:self fromPoint:point animation:self.animationType velocity:velocity];
+            }
+        };
+        if ([[UIView class] respondsToSelector:@selector(animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:)]) {
+            [UIView animateWithDuration:self.animationDuration
+                                  delay:0
+                 usingSpringWithDamping:0.6
+                  initialSpringVelocity:point.x / 10
+                                options:UIViewAnimationOptionAllowUserInteraction
+                             animations:^{
+                                 self.contentView.frame = self.contentView.bounds;
+                             }
+                             completion:completionBlock];
+        } else {
+            [UIView animateWithDuration:self.animationDuration
+                                  delay:0
+                                options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{
+                                 self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 - (point.x * 0.03), 0);
+                             }
+                             completion:^(BOOL finished) {
+                                 [UIView animateWithDuration:0.1
+                                                       delay:0
+                                                     options:UIViewAnimationOptionCurveEaseInOut
+                                                  animations:^{
+                                                      self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 + (point.x * 0.02), 0);
+                                                  }
+                                                  completion:^(BOOL finished) {
+                                                      [UIView animateWithDuration:0.1
+                                                                            delay:0
+                                                                          options:UIViewAnimationOptionCurveEaseOut
+                                                                       animations:^{
+                                                                           self.contentView.frame = self.contentView.bounds;
                                                                        }
-                                                                       if (shouldCleanupBackView) {
-                                                                           [self cleanupBackView];
-                                                                       }
-                                                                       
-                                                                       if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidResetState:fromPoint:animation:velocity:)]) {
-                                                                           [self.delegate swipeTableViewCellDidResetState:self fromPoint:point animation:self.animationType velocity:velocity];
-                                                                       }
-                                                                   }
-                                                   ];
-                                              }
-                              ];
-                         }
-         ];
+                                                                       completion:completionBlock
+                                                       ];
+                                                  }
+                                  ];
+                             }
+             ];
+        }
     } else {
         [UIView animateWithDuration:self.animationDuration
                               delay:0

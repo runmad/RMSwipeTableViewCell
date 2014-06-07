@@ -23,6 +23,7 @@
         
         static NSString *CellIdentifier = @"Cell";
         [self.tableView registerClass:[RMPersonTableViewCell class] forCellReuseIdentifier:CellIdentifier];
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
         [self.tableView setRowHeight:64];
         
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(resetTableView)];
@@ -154,7 +155,7 @@
                              NSIndexPath *indexPath = [self.tableView indexPathForCell:swipeTableViewCell];
                              [self.array removeObjectAtIndex:indexPath.row];
                              [self.tableView beginUpdates];
-                             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
                              [self.tableView endUpdates];
                          }
          ];
