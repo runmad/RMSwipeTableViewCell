@@ -66,6 +66,7 @@ RMSwipeTableViewCellAnimationType animationType; // default is RMSwipeTableViewC
 float animationDuration; // default is 0.2
 BOOL shouldAnimateCellReset; // this can be overridden at any point (useful in the swipeTableViewCellWillResetState:fromLocation: delegate method). default is YES - note: it will reset to YES in prepareForReuse
 BOOL panElasticity; // When panning/swiping the cell's location is set to exponentially decay. The rubber banding matches that of a UIScrollView/UITableView. default is YES
+CGFloat panElasticityFactor; // This determines the exponential decay of the pan. By default it matches that of UIScrollView.
 CGFloat panElasticityStartingPoint; // When using panElasticity this property allows you to control at which point elasticitykicks in. default is 0
 UIColor *backViewbackgroundColor; // default is [UIColor colorWithWhite:0.92 alpha:1]
 ```
@@ -94,6 +95,9 @@ All delegate methods that return the CGPoint location take into account the panO
 
 // notifies the delegate when the cell has reset itself back to its starting state. This is useful for doing further animation or updates on the cell after the reset animation has completed
 -(void)swipeTableViewCellDidResetState:(RMSwipeTableViewCell*)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity;
+
+// Defaults to YES (the backView is recreated everytime the state is about to reset)
+-(BOOL)swipeTableViewCellShouldCleanupBackView:(RMSwipeTableViewCell*)swipeTableViewCell;
 ```
 
 ##Credit
@@ -111,6 +115,15 @@ I'd love to see and hear from you if you use it in a project.
 `RMSwipeTableViewCell` is available under the MIT license. See the LICENSE file for more info.
 
 ##Version History
+
+###0.6
+* Cleaned up init logic
+* Add new delegate method `-(BOOL)swipeTableViewCellShouldCleanupBackView:(RMSwipeTableViewCell*)swipeTableViewCell;`
+* Add `panElasticityFactor`
+* Xcode 5 documentation
+* Catching all states of `UIPanGestureRecognizer`
+* Fixed `UIViewAnimationOption` warning
+* Updated demo with support for iOS 7 spring animations
 
 ###0.5
 * Made a few improvements to the backView and some logic
