@@ -18,8 +18,6 @@
     if (self) {
         self.backViewbackgroundColor = [UIColor whiteColor];
         self.detailTextLabel.numberOfLines = 2;
-        self.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:16];
-        self.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
         self.revealDirection = RMSwipeTableViewCellRevealDirectionRight;
         self.animationType = RMSwipeTableViewCellAnimationTypeEaseOut;
         self.panElasticityStartingPoint = BUTTON_THRESHOLD;

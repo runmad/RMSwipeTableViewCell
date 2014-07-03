@@ -151,7 +151,7 @@
             [UIView animateWithDuration:self.animationDuration
                                   delay:0
                  usingSpringWithDamping:0.6
-                  initialSpringVelocity:point.x / 10
+                  initialSpringVelocity:point.x / 5
                                 options:UIViewAnimationOptionAllowUserInteraction
                              animations:^{
                                  self.contentView.frame = self.contentView.bounds;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9044D57C1965D586007AC60E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9044D57B1965D586007AC60E /* Images.xcassets */; };
 		906C15A7176E65E10080E355 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906C15A6176E65E10080E355 /* UIKit.framework */; };
 		906C15A9176E65E10080E355 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906C15A8176E65E10080E355 /* Foundation.framework */; };
 		906C15AB176E65E10080E355 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906C15AA176E65E10080E355 /* CoreGraphics.framework */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9044D57B1965D586007AC60E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		906C15A3176E65E10080E355 /* RMSwipeTableViewCelliOS7UIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMSwipeTableViewCelliOS7UIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906C15A6176E65E10080E355 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		906C15A8176E65E10080E355 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +102,7 @@
 				906C15CE176E6EF80080E355 /* RMSwipeTableViewCelliOS7UIDemoTableViewCell.h */,
 				906C15CF176E6EF80080E355 /* RMSwipeTableViewCelliOS7UIDemoTableViewCell.m */,
 				906C15C3176E66BA0080E355 /* RMSwipeTableViewCell */,
+				9044D57B1965D586007AC60E /* Images.xcassets */,
 				906C15AD176E65E10080E355 /* Supporting Files */,
 			);
 			path = RMSwipeTableViewCelliOS7UIDemo;
@@ -186,6 +189,7 @@
 			files = (
 				906C15B1176E65E10080E355 /* InfoPlist.strings in Resources */,
 				906C15B9176E65E10080E355 /* Default.png in Resources */,
+				9044D57C1965D586007AC60E /* Images.xcassets in Resources */,
 				906C15BB176E65E10080E355 /* Default@2x.png in Resources */,
 				906C15BD176E65E10080E355 /* Default-568h@2x.png in Resources */,
 				906C15D2176E90DE0080E355 /* DeleteButtonBackground.png in Resources */,
@@ -281,6 +285,8 @@
 		906C15C1176E65E10080E355 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMSwipeTableViewCelliOS7UIDemo/RMSwipeTableViewCelliOS7UIDemo-Prefix.pch";
 				INFOPLIST_FILE = "RMSwipeTableViewCelliOS7UIDemo/RMSwipeTableViewCelliOS7UIDemo-Info.plist";
@@ -292,6 +298,8 @@
 		906C15C2176E65E10080E355 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMSwipeTableViewCelliOS7UIDemo/RMSwipeTableViewCelliOS7UIDemo-Prefix.pch";
 				INFOPLIST_FILE = "RMSwipeTableViewCelliOS7UIDemo/RMSwipeTableViewCelliOS7UIDemo-Info.plist";
@@ -319,6 +327,7 @@
 				906C15C2176E65E10080E355 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

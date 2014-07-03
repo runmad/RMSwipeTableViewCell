@@ -17,45 +17,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-#define SHOW_ALERTVIEW 1
-#if SHOW_ALERTVIEW
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Developer note"
-                                                        message:@"This demo tries to mimick the panning behaviour seen in Messages.app on iOS 7. It's worth noting that Mail.app and Weather.app appear to have other behaviours. As of Beta Seed 1 there appears to be three separate behaviours:\n\nIn Mail.app the user can pan and come to a stop above the threshold and still lock the content view in open position.\n\nIn Weather.app panning locks once it reaches the threshold for button visibility.\n\nMessages.app, which this demo tries to copy its panning behaviour from, requires the user to pan with a flick in order to lock the content view in \"Delete\" mode. Simply panning to above the threshold without enough velocity will not lock the cell in \"Delete\" mode.\n\nI haven't quite nailed the flick algorithm and need to work on re-activating the panning on an already open cell - feel free to submit a pull request if you can assist!"
-                                                       delegate:nil
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"OK", nil];
-    [alertView show];
-#endif
-    
     RMSwipeTableViewCelliOS7UIDemoViewController *swipeTableViewCelliOS7UIDemoViewController = [[RMSwipeTableViewCelliOS7UIDemoViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:swipeTableViewCelliOS7UIDemoViewController];
-    [navigationController.navigationBar setClipsToBounds:YES];
     self.window.rootViewController = navigationController;
-    
-    
-    [[UIBarButtonItem appearance] setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                          [UIFont fontWithName:@"HelveticaNeue-Light" size:17], UITextAttributeFont,
-                                                          [UIColor colorWithWhite:0.0f alpha:0.0f], UITextAttributeTextShadowColor,
-                                                          [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
-                                                          [UIColor colorWithRed:0.196 green:0.573 blue:0.984 alpha:1.000], UITextAttributeTextColor,
-                                                          nil] forState:UIControlStateNormal];
-    [[UIBarButtonItem appearance] setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                          [UIFont fontWithName:@"HelveticaNeue-Light" size:17], UITextAttributeFont,
-                                                          [UIColor colorWithWhite:0.0f alpha:0.0f], UITextAttributeTextShadowColor,
-                                                          [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
-                                                          [UIColor colorWithRed:0.196 green:0.573 blue:0.984 alpha:1.000], UITextAttributeTextColor,
-                                                          nil] forState:UIControlStateHighlighted];
-    
-    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
-    
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                          [UIFont fontWithName:@"HelveticaNeue-Medium" size:0], UITextAttributeFont,
-                                                          [UIColor colorWithWhite:0.0f alpha:0.0f], UITextAttributeTextShadowColor,
-                                                          [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
-                                                          [UIColor blackColor], UITextAttributeTextColor,
-                                                          nil]];
     
     return YES;
 }

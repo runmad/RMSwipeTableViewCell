@@ -182,11 +182,11 @@
 }
 
 -(void)swipeTableViewCellWillResetState:(RMSwipeTableViewCell *)swipeTableViewCell fromPoint:(CGPoint)point animation:(RMSwipeTableViewCellAnimationType)animation velocity:(CGPoint)velocity {
-    if (velocity.x <= -500) {
+    if (velocity.x <= fabsf(400) && point.x < -80) {
         self.selectedIndexPath = [self.tableView indexPathForCell:swipeTableViewCell];
         swipeTableViewCell.shouldAnimateCellReset = NO;
         swipeTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSTimeInterval duration = MAX(-point.x / ABS(velocity.x), 0.10f);
+        NSTimeInterval duration = MIN(fabsf(point.x) / fabsf(velocity.x), 0.10f);
         [UIView animateWithDuration:duration
                               delay:0
                             options:UIViewAnimationOptionCurveLinear
