@@ -116,6 +116,9 @@ I'd love to see and hear from you if you use it in a project.
 
 ##Version History
 
+###0.6.1
+* Updating demos to work better on iOS 7
+
 ###0.6
 * Cleaned up init logic
 * Add new delegate method `-(BOOL)swipeTableViewCellShouldCleanupBackView:(RMSwipeTableViewCell*)swipeTableViewCell;`
