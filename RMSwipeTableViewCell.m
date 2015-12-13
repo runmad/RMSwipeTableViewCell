@@ -3,14 +3,10 @@
 //  RMSwipeTableView
 //
 //  Created by Rune Madsen on 2012-11-24.
-//  Copyright (c) 2012 The App Boutique. All rights reserved.
+//  Copyright (c) 2015 The App Boutique. All rights reserved.
 //
 
 #import "RMSwipeTableViewCell.h"
-
-@interface RMSwipeTableViewCell ()
-
-@end
 
 @implementation RMSwipeTableViewCell
 
@@ -34,7 +30,7 @@
 
 - (void)initialize
 {
-    // We need to set the contentView's background colour, otherwise the sides are clear on the swipe and animations
+    // We need to set the contentView's background color, otherwise the sides are clear on the swipe and animations
     [self.contentView setBackgroundColor:[UIColor whiteColor]];
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [panGestureRecognizer setDelegate:self];
@@ -83,7 +79,7 @@
     if (self.panElasticity) {
         if (ABS(translation.x) > self.panElasticityStartingPoint) {
             CGFloat width = CGRectGetWidth(self.frame);
-            CGFloat offset = abs(translation.x);
+            CGFloat offset = fabs(translation.x);
             panOffset = (offset * self.panElasticityFactor * width) / (offset * self.panElasticityFactor + width);
             panOffset *= translation.x < 0 ? -1.0f : 1.0f;
             if (self.panElasticityStartingPoint > 0) {
@@ -98,7 +94,7 @@
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
 	} else {
-		[self resetCellFromPoint:actualTranslation  velocity:velocity];
+		[self resetCellFromPoint:actualTranslation velocity:velocity];
 	}
 }
 
@@ -147,44 +143,15 @@
                 [self.delegate swipeTableViewCellDidResetState:self fromPoint:point animation:self.animationType velocity:velocity];
             }
         };
-        if ([[UIView class] respondsToSelector:@selector(animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:)]) {
-            [UIView animateWithDuration:self.animationDuration
-                                  delay:0
-                 usingSpringWithDamping:0.6
-                  initialSpringVelocity:point.x / 5
-                                options:UIViewAnimationOptionAllowUserInteraction
-                             animations:^{
-                                 self.contentView.frame = self.contentView.bounds;
-                             }
-                             completion:completionBlock];
-        } else {
-            [UIView animateWithDuration:self.animationDuration
-                                  delay:0
-                                options:UIViewAnimationOptionCurveEaseIn
-                             animations:^{
-                                 self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 - (point.x * 0.03), 0);
-                             }
-                             completion:^(BOOL finished) {
-                                 [UIView animateWithDuration:0.1
-                                                       delay:0
-                                                     options:UIViewAnimationOptionCurveEaseInOut
-                                                  animations:^{
-                                                      self.contentView.frame = CGRectOffset(self.contentView.bounds, 0 + (point.x * 0.02), 0);
-                                                  }
-                                                  completion:^(BOOL finished) {
-                                                      [UIView animateWithDuration:0.1
-                                                                            delay:0
-                                                                          options:UIViewAnimationOptionCurveEaseOut
-                                                                       animations:^{
-                                                                           self.contentView.frame = self.contentView.bounds;
-                                                                       }
-                                                                       completion:completionBlock
-                                                       ];
-                                                  }
-                                  ];
-                             }
-             ];
-        }
+        [UIView animateWithDuration:self.animationDuration
+                              delay:0
+             usingSpringWithDamping:0.6
+              initialSpringVelocity:point.x / 5
+                            options:UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
+                             self.contentView.frame = self.contentView.bounds;
+                         }
+                         completion:completionBlock];
     } else {
         [UIView animateWithDuration:self.animationDuration
                               delay:0

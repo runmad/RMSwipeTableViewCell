@@ -7,12 +7,6 @@
 //
 
 #import "RMPersonTableViewCell.h"
-#import <QuartzCore/QuartzCore.h>
-
-@interface RMPersonTableViewCell () {
-}
-
-@end
 
 @implementation RMPersonTableViewCell
 

@@ -23,7 +23,7 @@
 
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:1.000 green:0.136 blue:0.142 alpha:1.000]];
     
-    [[UINavigationBar appearance] setTitleTextAttributes:@{ NSFontAttributeName : [UIFont fontWithName:@"Avenir-Heavy" size:0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{ NSFontAttributeName : [UIFont fontWithName:@"Avenir-Heavy" size:16], NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     return YES;
 }
