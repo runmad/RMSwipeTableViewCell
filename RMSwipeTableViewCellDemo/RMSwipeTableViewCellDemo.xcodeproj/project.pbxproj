@@ -12,6 +12,7 @@
 		900D15591661ABEC00900B59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900D15581661ABEC00900B59 /* CoreGraphics.framework */; };
 		909BDE8E1942A77A000A5BBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 909BDE8D1942A77A000A5BBA /* Assets.xcassets */; };
 		90B078F11745779400D4E494 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B078F01745779400D4E494 /* QuartzCore.framework */; };
+		90D524401C1DD26800925FAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D5243F1C1DD26800925FAC /* Launch Screen.storyboard */; };
 		90FDF47017495387006EF12E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF46F17495387006EF12E /* main.m */; };
 		90FDF474174953A3006EF12E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90FDF472174953A3006EF12E /* InfoPlist.strings */; };
 		90FDF47F174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FDF476174953C2006EF12E /* RMSwipeTableViewCellDemoAppDelegate.m */; };
@@ -29,6 +30,7 @@
 		902B7A4217639B0600477998 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = SOURCE_ROOT; };
 		909BDE8D1942A77A000A5BBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		90B078F01745779400D4E494 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		90D5243F1C1DD26800925FAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "RMSwipeTableViewCellDemo/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
 		90FDF46D17495374006EF12E /* RMSwipeTableViewCellDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RMSwipeTableViewCellDemo-Info.plist"; path = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
 		90FDF46F17495387006EF12E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RMSwipeTableViewCellDemo/main.m; sourceTree = SOURCE_ROOT; };
 		90FDF47117495390006EF12E /* RMSwipeTableViewCellDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RMSwipeTableViewCellDemo-Prefix.pch"; path = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
@@ -96,6 +98,7 @@
 				90FDF478174953C2006EF12E /* RMPersonTableViewCell.m */,
 				90FDF47D174953C2006EF12E /* RMSwipeTableViewController.h */,
 				90FDF47E174953C2006EF12E /* RMSwipeTableViewController.m */,
+				90D5243F1C1DD26800925FAC /* Launch Screen.storyboard */,
 				90FDF484174953E2006EF12E /* RMSwipeTableViewCell */,
 				900D155B1661ABEC00900B59 /* Supporting Files */,
 			);
@@ -152,7 +155,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RM;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "The App Boutique";
 			};
 			buildConfigurationList = 900D154A1661ABEC00900B59 /* Build configuration list for PBXProject "RMSwipeTableViewCellDemo" */;
@@ -177,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90D524401C1DD26800925FAC /* Launch Screen.storyboard in Resources */,
 				909BDE8E1942A77A000A5BBA /* Assets.xcassets in Resources */,
 				90FDF474174953A3006EF12E /* InfoPlist.strings in Resources */,
 			);
@@ -222,6 +226,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -233,7 +238,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -254,7 +259,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -265,11 +270,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.theappboutique.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = RMSwipeTableViewCellDemo;
 				WRAPPER_EXTENSION = app;
 			};
@@ -279,11 +285,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.theappboutique.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = RMSwipeTableViewCellDemo;
 				WRAPPER_EXTENSION = app;
 			};
