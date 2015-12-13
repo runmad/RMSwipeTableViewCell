@@ -3,7 +3,7 @@
 //  RMSwipeTableView
 //
 //  Created by Rune Madsen on 2013-05-13.
-//  Copyright (c) 2013 The App Boutique. All rights reserved.
+//  Copyright (c) 2015 The App Boutique. All rights reserved.
 //
 
 #import "RMPersonTableViewCell.h"
@@ -98,6 +98,7 @@
     [super layoutSubviews];
     self.textLabel.frame = CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 10, CGRectGetMinY(self.textLabel.frame), CGRectGetWidth(self.textLabel.frame), CGRectGetHeight(self.textLabel.frame));
     self.detailTextLabel.frame = CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 10, CGRectGetMinY(self.detailTextLabel.frame), CGRectGetWidth(self.detailTextLabel.frame), CGRectGetHeight(self.detailTextLabel.frame));
+    self.separatorInset = UIEdgeInsetsMake(0, CGRectGetMinX(self.textLabel.frame), 0, 0);
 }
 
 -(void)setThumbnail:(UIImage*)image {

@@ -55,11 +55,6 @@
     self.shouldAnimateCellReset = YES;
 }
 
--(void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
-}
-
 #pragma mark - Gesture recognizer delegate
 
 -(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
@@ -93,17 +88,28 @@
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
-	} else {
-		[self resetCellFromPoint:actualTranslation velocity:velocity];
-	}
+    } else {
+        [self resetCellFromPoint:actualTranslation velocity:velocity];
+    }
 }
 
 -(void)didStartSwiping {
     if ([self.delegate respondsToSelector:@selector(swipeTableViewCellDidStartSwiping:)]) {
         [self.delegate swipeTableViewCellDidStartSwiping:self];
     }
+    
+    self.backView = [[UIView alloc] init];
+    self.backView.backgroundColor = self.backViewbackgroundColor;
+    self.backView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.backgroundView addSubview:self.backView];
-    [self.backView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+    [self.backgroundView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_backView]|"
+                                                                                options:0
+                                                                                metrics:nil
+                                                                                  views:NSDictionaryOfVariableBindings(_backView)]];
+    [self.backgroundView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_backView]|"
+                                                                                options:0
+                                                                                metrics:nil
+                                                                                  views:NSDictionaryOfVariableBindings(_backView)]];
 }
 
 #pragma mark - Gesture animations
@@ -145,7 +151,7 @@
         };
         [UIView animateWithDuration:self.animationDuration
                               delay:0
-             usingSpringWithDamping:0.6
+             usingSpringWithDamping:0.7
               initialSpringVelocity:point.x / 5
                             options:UIViewAnimationOptionAllowUserInteraction
                          animations:^{
@@ -175,14 +181,6 @@
                          }
          ];
     }
-}
-
--(UIView*)backView {
-    if (!_backView) {
-        _backView = [[UIView alloc] initWithFrame:self.contentView.bounds];
-        _backView.backgroundColor = self.backViewbackgroundColor;
-    }
-    return _backView;
 }
 
 -(void)cleanupBackView {

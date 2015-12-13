@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 The App Boutique. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 #import "RMSwipeTableViewCellDemoAppDelegate.h"
 
