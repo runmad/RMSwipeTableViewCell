@@ -271,10 +271,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theappboutique.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = RMSwipeTableViewCellDemo;
 				WRAPPER_EXTENSION = app;
@@ -286,10 +287,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RMSwipeTableViewCellDemo/RMSwipeTableViewCellDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theappboutique.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = RMSwipeTableViewCellDemo;
 				WRAPPER_EXTENSION = app;
